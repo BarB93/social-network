@@ -1,8 +1,8 @@
 import cn from './Container.module.scss'
 
-const Container  = ({children}) => {
+const Container  = ({children, ...props}) => {
     return (
-        <div className={cn.container}>
+        <div {...props} className={cn.container}>
             {children}
         </div>
     )

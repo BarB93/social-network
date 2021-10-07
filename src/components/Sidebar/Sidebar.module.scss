@@ -1,0 +1,10 @@
+.menu {
+  padding: 10px;
+
+  &__item {
+    & + & {
+      margin-top: 5px;
+    }
+  }
+}
+
