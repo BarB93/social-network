@@ -4,8 +4,8 @@ body {
   font-family: sans-serif;
   font-size: 14px;
   line-height: 1.2;
-  color: $soft-black-color;
-  background: $white-bg;
+  color: $text-color-primary;
+  background: $background;
 }
 
 *, *::after, *:before {
@@ -23,31 +23,6 @@ a {
   text-decoration: none;
 }
 
-.app {
 
-}
-
-.app_container {
-  display: grid;
-  grid-template-areas: "s c";
-  grid-template-rows:1fr;
-  grid-template-columns: 2fr 10fr;
-  grid-column-gap: 10px;
-
-  margin-top: 48px;
-  padding-top: 10px;
-
-}
-
-.sidebar {
-  grid-area:s;
-  background: green;
-}
-
-.content {
-  grid-area:c;
-  background: blue;
-
-}
 
 

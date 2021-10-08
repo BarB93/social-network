@@ -5,7 +5,6 @@ import cn from  './Sidebar.module.scss'
 
 const Sidebar = (props) => {
     return (
-            <div {...props}>
                 <nav className={cn.menu}>
                     <ul className={cn.menu__list}>
                         <li className={cn.menu__item}><NavLink to="/">Новости</NavLink></li>
@@ -15,8 +14,6 @@ const Sidebar = (props) => {
                         <li className={cn.menu__item}><NavLink to="/">Настройки</NavLink></li>
                     </ul>
                 </nav>
-            </div>
-
     )
 }
 
