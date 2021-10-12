@@ -1,7 +1,8 @@
 //colors
 $white: #fff;
 $background: #EDEEF0;
-$separator: #e7e8ec;
+$separator-common: #dce1e6;
+$separator-alternate: #e7e8ec;
 $text-color-primary: #000;
 $text-color-secondary: #818c99;
 $text-color-subhead: #626d7a;
@@ -11,6 +12,8 @@ $button-primary-text: #fff;
 $button-primary-bg: #2787F5;
 $button-secondary-bg: #E5EBF1;
 $grey-400: #939393;
+$page-block-shadow: 0 1px 0 0 $separator-common,
+                    0 0 0 1px $separator-alternate;
 
 
 //breakpoints

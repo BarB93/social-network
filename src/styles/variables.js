@@ -2,7 +2,8 @@ export const styles = {
     colors: {
         white: `#fff`,
         background: `#EDEEF0`,
-        separator: `#e7e8ec`,
+        separatorCommon: `#dce1e6`,
+        separatorAlternate: `#e7e8ec`,
         textColorPrimary: `#000`,
         textColorSecondary: `#818c99`,
         textColorSubhead: `#626d7a`,
@@ -12,6 +13,8 @@ export const styles = {
         buttonPrimaryBg: `#2787F5`,
         buttonSecondaryBg: `#E5EBF1`,
         grey400: `#939393`,
+        pageBlockShadow: `0 1px 0 0 #dce1e6,
+            0 0 0 1px #e7e8ec`,
     },
     breakpoints: {
         sm: `600px`,

@@ -1,20 +1,20 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 
-import cn from  './Sidebar.module.scss'
+import cn from './Sidebar.module.scss'
 
-const Sidebar = (props) => {
+const Sidebar = () => {
     return (
-                <nav className={cn.menu}>
-                    <ul className={cn.menu__list}>
-                        <li className={cn.menu__item}><NavLink to="/">Моя страница</NavLink></li>
-                        <li className={cn.menu__item}><NavLink to="/">Новости</NavLink></li>
-                        <li className={cn.menu__item}><NavLink to="/">Сообщения</NavLink></li>
-                        <li className={cn.menu__item}><NavLink to="/">Друзья</NavLink></li>
-                        <li className={cn.menu__item}><NavLink to="/">Музыка</NavLink></li>
-                        <li className={cn.menu__item}><NavLink to="/">Настройки</NavLink></li>
-                    </ul>
-                </nav>
+        <nav className={cn.menu}>
+            <ul className={cn.menu__list}>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/">Моя страница</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/news">Новости</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/dialogs">Сообщения</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/frends">Друзья</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/music">Музыка</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/settings">Настройки</NavLink></li>
+            </ul>
+        </nav>
     )
 }
 

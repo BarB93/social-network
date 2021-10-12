@@ -7,6 +7,7 @@ const StyledBox = styled.div`
     background: ${styles.colors.white};
     padding: 15px;
     border-radius: ${styles.sizes.borderRadius};
+    box-shadow: ${styles.colors.pageBlockShadow}
 `
 
 const Box = ({children}) => {

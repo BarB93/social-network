@@ -1,9 +1,9 @@
 import React from 'react'
-
-import cn from './AppContainer.module.scss'
 import Sidebar from "../Sidebar/Sidebar";
 import Content from "../Content/Content";
 import Container from "../UI/Container/Container";
+
+import cn from './AppContainer.module.scss'
 
 const AppContainer = () => {
     return (

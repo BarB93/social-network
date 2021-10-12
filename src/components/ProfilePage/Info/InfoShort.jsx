@@ -4,7 +4,7 @@ import cn from './Info.module.scss'
 
 const Info = ({handleToggleMoreInfo}) => {
     return (
-        <div className={cn.info__short}>
+        <div className={cn.short_info}>
             <div className={cn.info__row}>
                 <div className={cn.info__label}>Город:</div>
                 <div className={cn.info__value}>Москва</div>

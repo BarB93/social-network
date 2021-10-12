@@ -13,7 +13,7 @@ const posts = [
 const PostList = () => {
     return (
         <div cn={cn.post_list}>
-            {posts.map(p => <PostItem post={p}/>)}
+            {posts.map((p, index) => <PostItem key={index} post={p}/>)}
         </div>
 
     )
