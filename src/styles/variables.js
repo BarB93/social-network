@@ -1,10 +1,17 @@
 export const styles = {
     colors: {
-        white: `#ffffff`,
-        whiteBg: `#EDEEF0`,
-        whiteHover: `#F5F6F8`,
-        softBlackColor: `#333333`,
+        white: `#fff`,
+        background: `#EDEEF0`,
         separator: `#e7e8ec`,
+        textColorPrimary: `#000`,
+        textColorSecondary: `#818c99`,
+        textColorSubhead: `#626d7a`,
+        textLink: `#2a5885`,
+        buttonSecondaryText: `#55677d`,
+        buttonPrimaryText: `#fff`,
+        buttonPrimaryBg: `#2787F5`,
+        buttonSecondaryBg: `#E5EBF1`,
+        grey400: `#939393`,
     },
     breakpoints: {
         sm: `600px`,

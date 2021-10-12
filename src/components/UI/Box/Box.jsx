@@ -1,12 +1,12 @@
 import React from 'react'
 import styled from 'styled-components'
 
-import styles from '../../../styles/variables.scss'
+import {styles} from '../../../styles/variables'
 
 const StyledBox = styled.div`
-    background: ${styles.white};
-    padding: 10px;
-    border-radius: ${styles.borderRadius};
+    background: ${styles.colors.white};
+    padding: 15px;
+    border-radius: ${styles.sizes.borderRadius};
 `
 
 const Box = ({children}) => {

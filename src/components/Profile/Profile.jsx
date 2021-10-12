@@ -1,6 +1,6 @@
 import React from 'react'
 
-import ProfileSidebar from "./ProfileSidebar";
+import ProfileSide from "./ProfileSide";
 import ProfileContent from "./ProfileContent";
 
 import cn from './profile.module.scss'
@@ -8,7 +8,7 @@ import cn from './profile.module.scss'
 const Profile = () => {
     return (
         <div className={cn.profile}>
-            <ProfileSidebar/>
+            <ProfileSide/>
             <ProfileContent />
         </div>
     )

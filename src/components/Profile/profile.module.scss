@@ -1,13 +1,14 @@
 .profile {
   display: grid;
   grid-template: "s c";
-  grid-template-rows: 100px;
+  grid-template-rows: minmax(100px, max-content);
   grid-template-columns: 2fr 10fr;
+  grid-column-gap: 10px;
 
 
   background: #000;
 
-  &__sidebar {
+  &__side {
     grid-area: s;
     background: yellow;
   }

@@ -3,6 +3,7 @@ $white: #fff;
 $background: #EDEEF0;
 $separator: #e7e8ec;
 $text-color-primary: #000;
+$text-color-secondary: #818c99;
 $text-color-subhead: #626d7a;
 $text-link: #2a5885;
 $button-secondary-text: #55677d;
@@ -20,9 +21,9 @@ $lg: 1200px;
 //sizes
 $border-radius: 4px;
 
-:export {
-  white: $white;
-  background: $background;
-  seporator:$separator;
-  borderRadius: $border-radius;
-}
+//:export {
+//  white: $white;
+//  background: $background;
+//  seporator:$separator;
+//  borderRadius: $border-radius;
+//}
