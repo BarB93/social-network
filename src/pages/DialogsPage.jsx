@@ -1,9 +1,9 @@
 import React from 'react'
-import Dialogs from "../components/DialogsPage/Dialogs";
+import Dialogs from "../components/DialogsPage/Dialogs/Dialogs";
 
-const DialogsPage = () => {
+const DialogsPage = ({state}) => {
     return (
-        <Dialogs />
+        <Dialogs state={state}/>
     )
 }
 

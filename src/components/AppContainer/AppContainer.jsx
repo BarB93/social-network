@@ -5,7 +5,7 @@ import Container from "../UI/Container/Container";
 
 import cn from './AppContainer.module.scss'
 
-const AppContainer = () => {
+const AppContainer = ({store}) => {
     return (
         <Container>
             <div className={cn.app}>
@@ -13,7 +13,7 @@ const AppContainer = () => {
                     <Sidebar/>
                 </div>
                 <div className={cn.app__content}>
-                    <Content/>
+                    <Content store={store}/>
                 </div>
             </div>
         </Container>

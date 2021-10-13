@@ -5,14 +5,15 @@ import DialogsPage from "../../pages/DialogsPage";
 import FrendsPage from "../../pages/FrendsPage";
 import NewsPage from "../../pages/NewsPage";
 
-const Content = (props) => {
+const Content = ({store}) => {
+
     return (
-        <main {...props}>
+        <main>
             <Switch>
-                <Route path='/dialogs' component={DialogsPage}/>
+                <Route path='/dialogs'       render={() => <DialogsPage state={store.dialog} />}/>
                 <Route exact path='/frends'  component={FrendsPage}/>
                 <Route exact path='/news'    component={NewsPage}/>
-                <Route exact path='/' component={ProfilePage}/>
+                <Route exact path='/'        render={() => <ProfilePage state={store.profile}/>}/>
             </Switch>
         </main>
     )

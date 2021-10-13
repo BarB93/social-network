@@ -1,0 +1,30 @@
+@import "../../../styles/variables";
+
+.createPost {
+
+  &__btn {
+    display: none;
+    justify-content: flex-end;
+    margin: 0 -15px;
+    padding: 10px 15px 0;
+    border-top: 1px solid $separator-common;
+
+    .textarea:focus + & {
+      display: flex;
+    }
+  }
+}
+
+.textarea {
+  width: 100%;
+  height: 15px;
+  line-height: 1;
+  border: none;
+  resize: none;
+  font-family: inherit;
+
+  &:focus {
+    outline: none;
+    height: 50px;
+  }
+}

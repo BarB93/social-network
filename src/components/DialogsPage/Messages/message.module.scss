@@ -1,0 +1,25 @@
+@import "../../../styles/variables";
+
+.message {
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    width: 50%;
+    padding: 15px 20px;
+
+    &.companion {
+      align-self: flex-end;
+    }
+  }
+
+  &__name {
+    margin: 0 0 5px 0;
+    color: $text-link;
+    font-size: 0.95rem;
+    font-weight: 700;
+  }
+}

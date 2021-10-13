@@ -9,7 +9,7 @@ const Sidebar = () => {
             <ul className={cn.menu__list}>
                 <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/">Моя страница</NavLink></li>
                 <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/news">Новости</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/dialogs">Сообщения</NavLink></li>
+                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active}       to="/dialogs">Сообщения</NavLink></li>
                 <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/frends">Друзья</NavLink></li>
                 <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/music">Музыка</NavLink></li>
                 <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/settings">Настройки</NavLink></li>

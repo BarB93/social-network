@@ -1,0 +1,43 @@
+@import '../../../styles/variables';
+
+.dialog {
+  display: grid;
+  grid-template-columns: 3fr 9fr;
+
+  &__list {
+    margin-left: -15px;
+    padding: 0 15px 0 0;
+
+  }
+
+  &__item {
+    display: flex;
+    align-items: center;
+    padding: 7px 15px;
+    border-radius: $border-radius;
+    cursor: pointer;
+    transition: all .1s linear;
+
+    &.active {
+      background: darken(#fff, 10);
+    }
+
+    &:hover {
+      background: darken(#fff, 10);
+    }
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 11px 14px 7px 0;
+  }
+
+  &__name {
+    color: $text-color-primary;
+    font-weight: bold;
+    white-space: nowrap;
+
+  }
+}

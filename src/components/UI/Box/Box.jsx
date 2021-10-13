@@ -5,14 +5,15 @@ import {styles} from '../../../styles/variables'
 
 const StyledBox = styled.div`
     background: ${styles.colors.white};
-    padding: 15px;
+    padding: ${props => props.padding? props.padding : '15px 15px 10px'};
+    margin: ${props => props.margin? props.margin : '0'};
     border-radius: ${styles.sizes.borderRadius};
     box-shadow: ${styles.colors.pageBlockShadow}
 `
 
-const Box = ({children}) => {
+const Box = ({children, ...props}) => {
     return (
-        <StyledBox>{children}</StyledBox>
+        <StyledBox {...props}>{children}</StyledBox>
     )
 }
 

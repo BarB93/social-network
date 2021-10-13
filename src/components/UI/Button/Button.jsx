@@ -9,8 +9,8 @@ const StyledButton = styled.button`
     justify-content: center;
     align-items: center;
     height: 30px;
-    width: 100%;
-    padding: 0 10px;
+    width: ${props => props.width ? props.width : '100%'};
+    padding: ${props => props.padding? props.padding : '0 16px'};
     background: ${props => props.secondary ? styles.colors.buttonSecondaryBg : styles.colors.buttonPrimaryBg};
     border-radius: ${styles.sizes.borderRadius};
     color: ${props => props.secondary ? styles.colors.buttonSecondaryText : styles.colors.buttonPrimaryText};
