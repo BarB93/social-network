@@ -2,6 +2,7 @@ export const styles = {
     colors: {
         white: `#fff`,
         background: `#EDEEF0`,
+        backgroundHover: `#F5F6F7`,
         separatorCommon: `#dce1e6`,
         separatorAlternate: `#e7e8ec`,
         textColorPrimary: `#000`,

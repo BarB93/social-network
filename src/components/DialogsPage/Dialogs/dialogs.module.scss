@@ -1,19 +1,17 @@
 @import '../../../styles/variables';
 
 .dialog {
-  display: grid;
-  grid-template-columns: 3fr 9fr;
+  width: 550px;
 
   &__list {
-    margin-left: -15px;
     padding: 0 15px 0 0;
 
   }
 
   &__item {
     display: flex;
-    align-items: center;
-    padding: 7px 15px;
+    padding: 0 15px;
+    border-bottom: 1px solid $separator-common;
     border-radius: $border-radius;
     cursor: pointer;
     transition: all .1s linear;
@@ -34,9 +32,15 @@
     margin: 11px 14px 7px 0;
   }
 
+  &__data {
+    padding: 10px 0;
+    flex: 1 0 auto;
+  }
+
   &__name {
     color: $text-color-primary;
-    font-weight: bold;
+    font-size: 1rem;
+    font-weight: 700;
     white-space: nowrap;
 
   }

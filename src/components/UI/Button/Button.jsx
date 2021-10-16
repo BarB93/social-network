@@ -4,6 +4,9 @@ import {darken, lighten} from 'polished'
 
 import {styles} from '../../../styles/variables'
 
+const StyledSpan = styled.span`
+`
+
 const StyledButton = styled.button`
     display:flex;
     justify-content: center;
@@ -17,13 +20,30 @@ const StyledButton = styled.button`
     transition: background .1s linear;
     
     &:hover {
-        background: ${props => props.secondary ? darken(0.03, styles.colors.buttonSecondaryBg) : lighten(0.03, styles.colors.buttonPrimaryBg)};
+        background: ${props => props.secondary ? darken(0.05, styles.colors.buttonSecondaryBg) : lighten(0.03, styles.colors.buttonPrimaryBg)};
+    }
+    
+    &:active ${StyledSpan}{
+        transform: translateY(1px);
+    }
+    
+    &:disabled {
+        cursor: not-allowed;
+        background: #999;
+        
+        &:hover {
+            background: #999;
+        }
     }
 `
 
+
+
 const Button = ({children, ...props}) => {
     return (
-        <StyledButton {...props}>{children}</StyledButton>
+        <StyledButton {...props}>
+           <StyledSpan>{children}</StyledSpan>
+        </StyledButton>
     )
 }
 

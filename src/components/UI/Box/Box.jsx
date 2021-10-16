@@ -7,8 +7,11 @@ const StyledBox = styled.div`
     background: ${styles.colors.white};
     padding: ${props => props.padding? props.padding : '15px 15px 10px'};
     margin: ${props => props.margin? props.margin : '0'};
+    height: ${props => props.height? props.height : 'auto'};
     border-radius: ${styles.sizes.borderRadius};
-    box-shadow: ${styles.colors.pageBlockShadow}
+    box-shadow: ${styles.colors.pageBlockShadow},
+    overflow: hidden;
+    
 `
 
 const Box = ({children, ...props}) => {
