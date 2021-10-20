@@ -1,5 +1,4 @@
 import React from 'react'
-import Dialogs from "../components/DialogsPage/Dialogs/Dialogs";
 
 const NewsPage = () => {
     return (

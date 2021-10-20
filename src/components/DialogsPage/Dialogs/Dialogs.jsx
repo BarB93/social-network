@@ -1,15 +1,15 @@
 import React from 'react'
-import Box from "../../UI/Box/Box";
-import DialogList from "./DialogList";
-import MessageList from "../../MessagePage/Message/MessageList";
+import DialogList from './DialogList'
+import {useSelector} from 'react-redux'
 
 import cn from './dialogs.module.scss'
 
-const Dialogs = ({state}) => {
+const Dialogs = () => {
+    const dialogs = useSelector(state => state.dialogs.dialogs)
+
     return (
         <div className={cn.dialog}>
-            <DialogList dialogs={state.dialogs}/>
-            {/*<MessageList messages={state.messages}/>*/}
+            <DialogList dialogs={dialogs}/>
         </div>
 
     )

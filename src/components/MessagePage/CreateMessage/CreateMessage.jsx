@@ -1,14 +1,16 @@
 import React, {useState} from 'react'
-import {addMessageActionCreator} from "../../../myRedux/actions/actions";
+
 import cn from './CreateMessage.module.scss'
 
-const CreateMessage = ({dispatch}) => {
-
-    const [value, setValue] = useState('')
+const CreateMessage = ({addMessage}) => {
+    const [message, setMessage] = useState('')
+    const handleChangeMessage = (e) => {
+        setMessage(e.target.value)
+    }
 
     const handleAddMessage = () => {
-        dispatch(addMessageActionCreator(value))
-        setValue('')
+        addMessage(message)
+        setMessage('')
     }
 
     return (
@@ -17,8 +19,8 @@ const CreateMessage = ({dispatch}) => {
                 className={cn.create__input}
                 type="text"
                 placeholder='Напишите сообщение...'
-                value={value}
-                onChange={e => setValue(e.target.value)}
+                value={message}
+                onChange={handleChangeMessage}
             />
             <button onClick={handleAddMessage}>Отправить</button>
         </div>

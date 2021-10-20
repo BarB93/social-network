@@ -1,9 +1,9 @@
 import React from 'react'
-import Dialogs from "../components/DialogsPage/Dialogs/Dialogs";
+import Frends from "../components/FrendsPage/Frends";
 
 const FrendsPage = () => {
     return (
-        <div>Frends</div>
+        <Frends/>
     )
 }
 

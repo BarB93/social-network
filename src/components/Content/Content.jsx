@@ -8,16 +8,16 @@ import MessagePage from '../../pages/MessagePage'
 
 import  cn from  './Content.module.scss'
 
-const Content = ({state, dispatch}) => {
+const Content = () => {
 
     return (
         <main className={cn.main}>
             <Switch>
-                <Route exact path='/dialogs'     render={() => <DialogsPage state={state.dialog} />}/>
-                <Route exact path='/dialogs/:id' render={() => <MessagePage state={state.message} dispatch={dispatch}/>}/>
-                <Route exact path='/frends'      component={FrendsPage}/>
+                <Route exact path='/dialogs'     render={() => <DialogsPage/>}/>
+                <Route exact path='/dialogs/:id' render={() => <MessagePage/>}/>
+                <Route path='/frends'            render={() => <FrendsPage/>}/>
                 <Route exact path='/news'        component={NewsPage}/>
-                <Route exact path='/'            render={() => <ProfilePage state={state.profile} dispatch={dispatch}/>}/>
+                <Route exact path='/'            render={() => <ProfilePage/>}/>
             </Switch>
         </main>
     )

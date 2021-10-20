@@ -1,0 +1,41 @@
+@import "../../../styles/variables";
+
+.menu {
+  margin: 0 -15px;
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__item {
+    position: relative;
+    color: $text-link;
+    padding: 7px 20px;
+    white-space: nowrap;
+
+    &:hover {
+      background: $background-highlighted;
+    }
+
+    &.active {
+      color: #000;
+      font-weight: 700;
+      white-space: nowrap;
+      background: $background-highlighted;
+
+      &:before {
+        content: "";
+        position: absolute;
+        top:0;
+        left: 0;
+        display: block;
+        height: 100%;
+        width: 2px;
+        background: $text-link;
+      }
+
+    }
+  }
+
+}

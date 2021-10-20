@@ -2,6 +2,7 @@
 $white: #fff;
 $background: #EDEEF0;
 $background-hover: #F5F6F7;
+$background-highlighted: rgba(174, 183, 194, 0.16);
 $separator-common: #dce1e6;
 $separator-alternate: #e7e8ec;
 $text-color-primary: #000;
@@ -13,6 +14,7 @@ $button-primary-text: #fff;
 $button-primary-bg: #2787F5;
 $button-secondary-bg: #E5EBF1;
 $grey-400: #939393;
+$blue-600: #2a5885;
 $page-block-shadow: 0 1px 0 0 $separator-common,
                     0 0 0 1px $separator-alternate;
 
@@ -24,6 +26,7 @@ $lg: 1200px;
 
 //sizes
 $border-radius: 4px;
+$width-content: 550px;
 
 //:export {
 //  white: $white;

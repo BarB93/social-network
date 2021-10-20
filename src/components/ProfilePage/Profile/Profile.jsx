@@ -5,11 +5,11 @@ import ProfileContent from "./ProfileContent";
 
 import cn from './profile.module.scss'
 
-const Profile = ({posts, dispatch}) => {
+const Profile = () => {
     return (
         <div className={cn.profile}>
             <ProfileSide/>
-            <ProfileContent postsData={posts} dispatch={dispatch}/>
+            <ProfileContent/>
         </div>
     )
 }

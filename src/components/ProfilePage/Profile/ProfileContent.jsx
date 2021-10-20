@@ -1,19 +1,17 @@
-import React, {useState} from 'react'
+import React from 'react'
+import Info from "../Info/Info";
+import CreatePostContainer from "../CreatePost/CreatePostContainer";
+import PostListContainer from "../Post/PostListContainer";
 
 import cn from './profile.module.scss'
-import Info from "../Info/Info";
-import PostList from "../Post/PostList";
-import CreatePost from "../CreatePost/CreatePost";
 
-const ProfileContent = ({postsData, dispatch}) => {
-
-
+const ProfileContent = () => {
 
     return (
         <div className={cn.profile__content}>
             <Info />
-            <CreatePost dispatch={dispatch}/>
-            <PostList posts={postsData} />
+            <CreatePostContainer/>
+            <PostListContainer/>
         </div>
     )
 }

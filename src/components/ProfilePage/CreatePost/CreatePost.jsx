@@ -1,40 +1,45 @@
 import React, {useState} from 'react'
-import Box from "../../UI/Box/Box";
-import Button from "../../UI/Button/Button";
+import Box from '../../UI/Box/Box'
+import Button from '../../UI/Button/Button'
 
 import cn from './CreatePost.module.scss'
-import {addPostActionCreator} from "../../../myRedux/actions/actions";
 
+const CreatePost = ({addPost}) => {
+    const [post, setPost] = useState('')
 
-const CreatePost = ({dispatch, ...props}) => {
-    const [value, setValue] = useState('')
-    const activeClass = value.length > 0 ? cn.active : ''
-    const isDisabled = value.length < 1
+    const isActiveCreatePost = post.length > 0 ? cn.active : ''
+    const isDisabledButton = post.length < 1
 
-    const handleSubmit = (e) => {
-        e.preventDefault()
-        dispatch(addPostActionCreator(value))
-        setValue('')
+    const handleChangePost = (e) => {
+        setPost(e.target.value)
+    }
+
+    const handleAddPost = () => {
+        addPost(post)
+        setPost('')
     }
 
     return (
         <Box width='300px' margin={'10px 0 0 0'}>
-            <form onSubmit={handleSubmit} className={activeClass}>
+            <div className={isActiveCreatePost}>
                 <textarea
-                    className={cn.form__textarea}
-                    {...props}
+                    className={cn.createPost__textarea}
                     type='text'
                     name='newPost'
                     id='newPost'
                     placeholder='Что у вас нового?'
-                    value={value}
-                    onChange={(e) => setValue(e.target.value)}
+                    value={post}
+                    onChange={handleChangePost}
                 />
-                <div className={cn.form__wrapperButton}>
-                    <Button disabled={isDisabled} width='min-content'>Отправить</Button>
+                <div className={cn.createPost__wrapperButton}>
+                    <Button
+                        className={cn.createPost__button}
+                        width='min-content'
+                        disabled={isDisabledButton}
+                        onClick={handleAddPost}
+                    >Отправить</Button>
                 </div>
-            </form>
-
+            </div>
         </Box>
     )
 }

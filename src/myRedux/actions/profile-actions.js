@@ -1,4 +1,4 @@
-import {ADD_POST, ADD_MESSAGE} from "../store";
+import {ADD_POST} from "../store";
 
 export const addPostActionCreator = (post) =>  ({
     type: ADD_POST,

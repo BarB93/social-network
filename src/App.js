@@ -4,12 +4,12 @@ import AppContainer from "./components/AppContainer/AppContainer"
 
 import './styles/App.scss'
 
-function App({store}) {
+function App() {
 
   return (
       <div className="app">
-          <Header />
-          <AppContainer store={store}/>
+          <Header/>
+          <AppContainer/>
       </div>
   )
 }

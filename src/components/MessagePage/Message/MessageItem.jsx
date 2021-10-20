@@ -3,7 +3,7 @@ import React from 'react'
 import cn from "./message.module.scss";
 
 const MessageItem = ({data}) => {
-    const {id, message, from, img} =  data
+    const {message, from, img} =  data
     const name = from ? 'Борис' : 'Натали'
 
     return (
