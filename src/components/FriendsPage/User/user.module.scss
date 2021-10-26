@@ -15,6 +15,7 @@
   }
 
   &__avatar {
+    position: relative;
     display: block;
     height: 160px;
     overflow: hidden;
@@ -64,6 +65,7 @@
       border-radius: $border-radius;
       transform: translateX(-20%);
 
+      z-index: 10;
       transition: opacity .3s ease;
     }
     &:before {
@@ -73,7 +75,7 @@
       top: -10px;
       left: 50%;
       border: 5px solid transparent;
-      border-top: 5px solid rgba(0,0,0,.6);
+      border-top: 5px solid $background-popup;
       transform: translateX(-66%);
 
       transition: opacity .3s ease;
@@ -86,5 +88,10 @@
     opacity: .65;
     transition: opacity .2s ease;
     background: transparent;
+  }
+
+  &__button {
+    width: 20px;
+    height: 20px;
   }
 }

@@ -1,10 +1,10 @@
 import React from 'react'
 import UserListContainer from '../User/UserListContainer'
 
-import cn from './SearchFrends.module.scss'
+import cn from './SearchFriends.module.scss'
 import commonStyles from '../commonStyles.module.scss'
 
-const SearchFrends = () => {
+const SearchFriends = () => {
 
     return (
         <div className={cn.search}>
@@ -16,4 +16,4 @@ const SearchFrends = () => {
     )
 }
 
-export default SearchFrends
+export default SearchFriends

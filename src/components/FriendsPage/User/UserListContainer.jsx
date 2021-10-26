@@ -1,12 +1,18 @@
-import React from 'react'
-import {useSelector} from 'react-redux'
+import React, {useEffect} from 'react'
+import {useSelector, useDispatch} from 'react-redux'
 import UserList from './UserList'
+import {setUsers} from "../../../redux/slices/friendsSlice";
 
-import cn from './user.module.scss'
 import commonStyles from '../commonStyles.module.scss'
+import {fetchUsers} from "../../../api/api";
 
 const UserListContainer = () => {
-    let users = useSelector(state => state.frends.users)
+    const dispatch = useDispatch()
+    const users = useSelector(state => state.friends.users)
+
+    useEffect(async () => {
+       await fetchUsers()
+    }, [])
 
     return (
         <>

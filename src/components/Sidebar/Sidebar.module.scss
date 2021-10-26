@@ -4,22 +4,28 @@
   padding: 10px;
 
   &__item {
-    display: block;
+    display: flex;
+    align-items: center;
     background: $background;
-    padding: 7px 10px;
+    padding: 8px 10px;
     border-radius: $border-radius;
     margin: 0 -10px;
     white-space: nowrap;
 
     &_active {
-      background: darken($background, 5);
+      background: $background-highlighted;
     }
 
     &:hover {
-      background: darken($background, 5);
+      background: $background-highlighted;
     }
-
-
   }
+
+  &__icon {
+    font-size: 16px;
+    color: $accent;
+    margin: 0 15px 0 0;
+  }
+
 }
 

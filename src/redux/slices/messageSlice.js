@@ -13,6 +13,7 @@ export  const messageSlice = createSlice({
     },
     reducers: {
         addMessage: (state, action) => {
+
             const newMessage = {
                 id: state.messages.length + 1,
                 message: action.payload,

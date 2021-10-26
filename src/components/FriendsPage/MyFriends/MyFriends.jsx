@@ -2,17 +2,17 @@ import React from 'react'
 import {NavLink} from 'react-router-dom'
 import Button from '../../UI/Button/Button'
 
-import cn from './MyFrends.module.scss'
+import cn from './MyFriends.module.scss'
 import commonStyles from '../commonStyles.module.scss'
 
-const MyFrends = ({frends = []}) => {
-    const frendsCount = frends.length
+const MyFriends = ({friends = []}) => {
+    const friendsCount = friends.length
 
     return (
-        <div className={cn.myFrends}>
+        <div className={cn.myFriends}>
             <div className={commonStyles.title}>
-               <h4 className={cn.myFrends__title}>Все друзья</h4>
-                <NavLink to='/frends/search'>
+               <h4 className={cn.myFriends__title}>Все друзья</h4>
+                <NavLink to='/friends/search'>
                     <Button
                         fontSize='0.9rem'
                         height='25px'
@@ -20,7 +20,7 @@ const MyFrends = ({frends = []}) => {
                         Найти друзей</Button>
                 </NavLink>
             </div>
-            {frendsCount
+            {friendsCount
                 ? <div>Мои друзья</div>
                 : <div className={commonStyles.emptyBlock}>Ни одного друга не добавлено</div>
             }
@@ -28,4 +28,4 @@ const MyFrends = ({frends = []}) => {
     )
 }
 
-export default MyFrends
+export default MyFriends

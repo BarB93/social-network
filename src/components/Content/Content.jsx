@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Switch} from 'react-router-dom'
 import ProfilePage from '../../pages/ProfilePage'
 import DialogsPage from '../../pages/DialogsPage'
-import FrendsPage from '../../pages/FrendsPage'
+import FriendsPage from '../../pages/FriendsPage'
 import NewsPage from '../../pages/NewsPage'
 import MessagePage from '../../pages/MessagePage'
 
@@ -15,7 +15,7 @@ const Content = () => {
             <Switch>
                 <Route exact path='/dialogs'     render={() => <DialogsPage/>}/>
                 <Route exact path='/dialogs/:id' render={() => <MessagePage/>}/>
-                <Route path='/frends'            render={() => <FrendsPage/>}/>
+                <Route path='/friends'            render={() => <FriendsPage/>}/>
                 <Route exact path='/news'        component={NewsPage}/>
                 <Route exact path='/'            render={() => <ProfilePage/>}/>
             </Switch>
