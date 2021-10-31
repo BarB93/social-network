@@ -25,6 +25,7 @@
   &__img {
     display: block;
     object-fit: cover;
+    object-position: center;
     width: 100%;
   }
 
@@ -45,6 +46,7 @@
   &__add {
     position: relative;
     cursor: pointer;
+    background: transparent;
 
     &:hover .user__icon,
     &:hover:before,

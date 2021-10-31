@@ -1,7 +1,7 @@
 import React from 'react'
 
 import {useDispatch} from 'react-redux'
-import {follow, unfollow} from '../../../redux/slices/friendsSlice'
+import {follow, unfollow} from '../../../../redux/slices/userSlice'
 
 
 import UserItem from "./UserItem";

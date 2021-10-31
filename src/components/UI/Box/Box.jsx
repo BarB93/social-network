@@ -9,8 +9,8 @@ const StyledBox = styled.div`
     margin: ${props => props.margin? props.margin : '0'};
     height: ${props => props.height? props.height : 'auto'};
     border-radius: ${styles.sizes.borderRadius};
-    box-shadow: ${styles.colors.pageBlockShadow},
-    overflow: hidden;
+    box-shadow: ${styles.colors.pageBlockShadow};
+    //overflow: hidden;
     
 `
 

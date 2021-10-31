@@ -1,5 +1,5 @@
 import React from 'react'
-import UserListContainer from '../User/UserListContainer'
+import UserListContainer from '../User/UserList/UserListContainer'
 
 import cn from './SearchFriends.module.scss'
 import commonStyles from '../commonStyles.module.scss'

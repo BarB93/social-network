@@ -1,5 +1,6 @@
 export const styles = {
     colors: {
+        primary:`#2787F5`,
         white: `#fff`,
         background: `#EDEEF0`,
         backgroundHover: `#F5F6F7`,

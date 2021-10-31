@@ -21,4 +21,13 @@
   padding: 30px 50px;
   text-align: center;
   color: $grey-400;
+
+  &__title {
+    margin-bottom: 20px;
+  }
+
+  &__icon {
+    color: #000;
+    font-size: 1.1rem;
+  }
 }

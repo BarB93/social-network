@@ -1,11 +1,4 @@
-import messageReducer from './messageSlice'
-import profileReducer from './profileSlice'
-import dialogsReducer from './dialodsSlice'
-import friendsReducer from './friendsSlice'
-
-export const rootReducer = {
-    profile: profileReducer,
-    message: messageReducer,
-    dialogs: dialogsReducer,
-    friends: friendsReducer,
-}
+export {default as messageReducer} from './messageSlice'
+export {default as profileReducer} from './profileSlice'
+export {default as dialogReducer} from './dialogSlice'
+export {default as userReducer} from './userSlice'
