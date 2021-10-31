@@ -26,6 +26,10 @@ export const userSlice = createSlice({
         },
         setCurrentPage: (state, action) => {
             state.currentPage = action.payload
+        },
+        resetUsers: (state) => {
+            state.users = []
+            state.currentPage = 1
         }
     },
     extraReducers: {
@@ -48,6 +52,6 @@ export const userSlice = createSlice({
 })
 
 //Actions
-export const {follow, unfollow, setCurrentPage} = userSlice.actions
+export const {follow, unfollow, setCurrentPage, resetUsers} = userSlice.actions
 
 export default  userSlice.reducer

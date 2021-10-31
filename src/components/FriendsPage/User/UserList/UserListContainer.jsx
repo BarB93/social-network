@@ -4,7 +4,7 @@ import UserList from './UserList'
 import {fetchUsers} from "../../../../redux/actions/userAction";
 import CircleLoader from "../../../UI/Loader/CircleLoader/CircleLoader";
 import UserError from "../UserError/UserError";
-import {setCurrentPage} from "../../../../redux/slices/userSlice";
+import {setCurrentPage, resetUsers} from "../../../../redux/slices/userSlice";
 
 import commonStyles from '../../commonStyles.module.scss'
 
@@ -24,7 +24,6 @@ const UserListContainer = () => {
             threshold: 0
         }
         const callback = (entries, observer) => {
-
             if(entries[0].isIntersecting && currentPage < totalPages) {
                 console.log('intersection')
                 dispatch(setCurrentPage(currentPage + 1 ))
@@ -40,6 +39,14 @@ const UserListContainer = () => {
         dispatch(fetchUsers({friend: false, count: limit, page: currentPage}))
     }, [currentPage, limit])
 
+
+    useEffect(() => {
+        return  () => {
+            console.log('unmounted')
+            dispatch(resetUsers())
+        }
+
+    },[])
 
 
     return (
