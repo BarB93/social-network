@@ -1,4 +1,8 @@
 export {default as messageReducer} from './messageSlice'
 export {default as profileReducer} from './profileSlice'
+export {default as myProfileReducer} from './myProfileSlice'
 export {default as dialogReducer} from './dialogSlice'
 export {default as userReducer} from './userSlice'
+export {default as authReducer} from './authSlice'
+export {default as headerReducer} from './headerSlice'
+export {default as friendReducer} from './friendSlice'

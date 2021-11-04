@@ -1,0 +1,67 @@
+@import "../../../../styles/variables";
+
+.menu {
+  min-width: 200px;
+  position: absolute;
+  width: fit-content;
+  right: 0;
+  top: 100%;
+  border-top-left-radius: 0 !important;
+  border-top-right-radius: 0 !important;
+  cursor: default;
+
+  transform: translateY(5px);
+  opacity: 0;
+  visibility: hidden;
+
+  transition: visibility 100ms linear, transform 100ms linear, opacity 100ms linear;
+
+  &.active {
+    transform: translateY(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+
+  &__top {
+    display: flex;
+    padding: 10px 15px;
+  }
+
+  &__name {
+    color: #000;
+    margin: 0 0 3px 0;
+  }
+
+  &__userId {
+    white-space: nowrap;
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__item {
+    padding: 10px 15px;
+    color: #000;
+    cursor: pointer;
+
+    &:hover {
+      background: $background-highlighted;
+    }
+  }
+
+  &__hr {
+    height: 1px;
+    background: $separator-common;
+  }
+}

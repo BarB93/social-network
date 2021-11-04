@@ -1,0 +1,38 @@
+@import "../../../styles/variables";
+
+.menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: background-color 100ms linear;
+
+  &.active, &:hover {
+    background: $background-highlighted;
+  }
+
+  &__name {
+    margin: 0 10px 0 0;
+    color: #000;
+    font-weight: 700;
+  }
+
+  &__img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin: 0 10px 0 0;
+
+    img {
+      display: block;
+      width: 100%;
+    }
+  }
+
+  &__icon {
+    font-size: 1.1rem;
+    color: $icon-tertiary;
+  }
+}

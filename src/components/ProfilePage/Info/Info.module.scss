@@ -27,6 +27,10 @@
     color: $text-link;
   }
 
+  &__notSpecified {
+    color: $grey-400;
+  }
+
   &__more_btn {
     margin: 10px 0 0 0;
 
@@ -54,7 +58,9 @@
 }
 
 .full_info {
-  &__item {
+  &__block {
+    padding: 0 0 10px 0;
+
     &:hover .header__line_link{
       opacity: 1;
     }
@@ -67,7 +73,8 @@
 
     &__title {
       flex: 1 0 auto;
-      margin: 0 10px 0 0;
+      margin: 0 10px 10px 0;
+      color: #000000;
     }
 
     &__line {

@@ -1,6 +1,6 @@
 import {createSlice} from '@reduxjs/toolkit'
 import {fetchUsers} from "../actions/userAction";
-import {computeTotalPages} from "../../utils/pagination";
+import {computeTotalItems} from "../../utils/pagination";
 
 const initialState = {
     isInit: false,
@@ -30,7 +30,8 @@ export const userSlice = createSlice({
         resetUsers: (state) => {
             state.users = []
             state.currentPage = 1
-        }
+            state.isInit = false
+        },
     },
     extraReducers: {
         [fetchUsers.pending.type]: (state) => {
@@ -38,7 +39,7 @@ export const userSlice = createSlice({
         },
         [fetchUsers.fulfilled.type]: (state, action) => {
             if(!state.isInit) state.isInit = true
-            state.totalPages = computeTotalPages(action.payload.totalCount, state.limit)
+            state.totalPages = computeTotalItems(action.payload.totalCount, state.limit)
             state.users.push(...action.payload.items)
             state.totalUsers = action.payload.totalCount
             state.error = ''

@@ -4,10 +4,16 @@
   position: fixed;
   top: 0;
   width: 100%;
-  padding: .5rem 0;
   background: $white;
   border-bottom: 1px solid $separator-common;
   z-index: 100;
+
+  &__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
 }
 
 .logo {

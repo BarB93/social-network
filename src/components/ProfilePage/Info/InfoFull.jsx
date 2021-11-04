@@ -1,28 +1,27 @@
 import React from 'react'
 
 import cn from './Info.module.scss'
+import InfoRow from './InfoRow'
+import InfoHeader from './InfoHeader'
 
-const Info = ({isShowInfo}) => {
+const Info = ({isShowInfo, lookingForAJobDescription, lookingForAJob, contacts}) => {
     const style = {
         display: isShowInfo ? 'block' : 'none'
     }
 
+    const contactsList = Object.keys(contacts).map(key => <InfoRow key={key} title={key} body={contacts[key]} link={true}/>)
+
     return (
         <div style={style} className={cn.full_info}>
             <div className={cn.full_info__item}>
-                <div className={cn.header}>
-                    <div className={cn.header__title}>Основная информация</div>
-                    <div className={cn.header__line}>
-                        <a className={cn.header__line_link} href="">Редактировать</a>
-                    </div>
+                <div className={cn.full_info__block}>
+                    <InfoHeader title='Поиск работы'/>
+                    <InfoRow title='Ищу работу:' body={lookingForAJob? 'Да' : 'Нет'}/>
+                    <InfoRow title='Описание:' body={lookingForAJobDescription}/>
                 </div>
-                <div className={cn.info__row}>
-                    <div className={cn.info__label}>Родной город:</div>
-                    <div className={cn.info__value}>Москва</div>
-                </div>
-                <div className={cn.info__row}>
-                    <div className={cn.info__label}>Языки:</div>
-                    <div className={cn.info__value}>Русский</div>
+                <div className={cn.full_info__block}>
+                    <InfoHeader title='Контакты'/>
+                    {contactsList}
                 </div>
             </div>
         </div>

@@ -2,7 +2,7 @@ import React from 'react'
 import UserListContainer from '../User/UserList/UserListContainer'
 
 import cn from './SearchFriends.module.scss'
-import commonStyles from '../commonStyles.module.scss'
+import commonStyles from '../../../styles/commonStyles.module.scss'
 
 const SearchFriends = () => {
 

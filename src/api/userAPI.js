@@ -1,7 +1,7 @@
 import {instance} from './api'
 
 export const userAPI = {
-    fetchUsers: async ( count = 10, page= 1, friend = false) => {
+    fetchUsers: async ({count, page, friend}) => {
             const response = await instance.get('/users', {
                 params: {
                     friend,
@@ -11,5 +11,4 @@ export const userAPI = {
             })
             return response.data
     }
-
 }

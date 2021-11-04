@@ -1,19 +1,43 @@
 import { createSlice } from '@reduxjs/toolkit'
+import {fetchProfile} from '../actions/profileAction'
+
+const initialState = {
+    isLoading: false,
+    error: '',
+    profile: null,
+    posts: [
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
+        'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
+    ],
+}
+
 
 export const profileSlice = createSlice({
     name: 'profile',
-    initialState: {
-        posts: [
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
-            'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
-        ],
-    },
+    initialState,
     reducers: {
         addPost: (state,action) => {
             state.posts.push(action.payload)
         }
+    },
+    extraReducers: {
+        [fetchProfile.pending.type]: (state) => {
+            state.error = ''
+            state.isLoading = true
+        },
+        [fetchProfile.fulfilled]: (state, action) => {
+            state.isLoading = false
+            state.error = ''
+            state.profile = action.payload
+        },
+        [fetchProfile.rejected]: (state, action) => {
+            state.isLoading = false
+            state.error = action.payload
+        },
+
+
     }
 })
 

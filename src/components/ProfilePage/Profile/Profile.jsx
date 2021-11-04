@@ -1,16 +1,33 @@
 import React from 'react'
 
-import ProfileSide from "./ProfileSide";
-import ProfileContent from "./ProfileContent";
+import ProfileSide from "./ProfileSide/ProfileSide";
+import ProfileContent from "./ProfileContent/ProfileContent";
+import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 
 import cn from './profile.module.scss'
+import commonStyles from '../../../styles/commonStyles.module.scss'
+import Box from '../../UI/Box/Box'
+import MessageBlock from '../../UI/MessageBlock/MessageBlock'
 
-const Profile = () => {
+const Profile = ({profile, post, error, isLoading}) => {
+
     return (
-        <div className={cn.profile}>
-            <ProfileSide/>
-            <ProfileContent/>
-        </div>
+        <>
+            {error && <MessageBlock>{error}</MessageBlock>}
+            {!error  &&
+                (profile && !isLoading ?
+                    <div className={cn.profile}>
+                        <ProfileSide photos={profile.photos}/>
+                        <ProfileContent profile={profile}/>
+                    </div>
+                    :
+                    <MessageBlock background='transparent' className={commonStyles.emptyBlock}>
+                        <CircleLoader />
+                    </MessageBlock>
+                )
+
+            }
+        </>
     )
 }
 
