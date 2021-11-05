@@ -1,11 +1,10 @@
 import React from 'react'
-import MyFriendsItem from '../MyFriendsItem/MyFriendsItem'
-import Box from '../../../UI/Box/Box'
+import MyFriendsItemContainer from '../MyFriendsItem/MyFriendsItemContainer'
 
 import cn from './MyFriendsList.module.scss'
 
 const MyFriendsList = ({friends}) => {
-    const friendsList = friends.map(f => <MyFriendsItem key={f.id} friend={f}/>)
+    const friendsList = friends.map(f => <MyFriendsItemContainer key={f.id} friend={f}/>)
 
     return (
         <ul className={cn.friends}>

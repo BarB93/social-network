@@ -6,7 +6,7 @@ import noAvatar from '../../../../assets/images/no_avatar.png'
 import {FaUserPlus} from 'react-icons/fa'
 import cn from '../user.module.scss'
 
-const UserItem = ({user, follow, unfollow}) => {
+const UserItem = ({user, follow, unfollow, isLoading}) => {
     const avatar = user.photos.large ? user.photos.large : noAvatar
 
     return (
@@ -15,8 +15,8 @@ const UserItem = ({user, follow, unfollow}) => {
                 <NavLink to={`/profile/${user.id}`} >
                     <img className={cn.user__img} src={avatar} alt='avatar'/>
                 </NavLink>
-                {user.followed
-                    && <UserPupup unfollow={unfollow}/>
+                {(isLoading || user.followed)
+                    && <UserPupup unfollow={unfollow} isLoading={isLoading}/>
                 }
             </div>
             <div className={cn.user__info}>

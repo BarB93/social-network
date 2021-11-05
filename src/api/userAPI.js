@@ -10,5 +10,16 @@ export const userAPI = {
                 }
             })
             return response.data
+    },
+    followUser: async (userId) => {
+        const response = await instance.post(`/follow/${userId}`)
+        return response.data
+    },
+    unfollowUser: async (userId) => {
+        const response = await instance.delete(`/follow/${userId}`)
+        return  response.data
     }
+
 }
+
+

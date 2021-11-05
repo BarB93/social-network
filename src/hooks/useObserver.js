@@ -15,6 +15,7 @@ export const useObserver = (ref, canLoad, isLoading, callback) => {
         }
 
         const cb = (entries, observer) => {
+            console.log('in Observer')
             if(entries[0].isIntersecting && canLoad) {
                 callback()
             }

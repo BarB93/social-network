@@ -8,7 +8,7 @@ import cn from './AppContainer.module.scss'
 const AppContainer = () => {
 
     return (
-        <Container>
+        <Container minWidth='860px'>
             <div className={cn.app}>
                 <div className={cn.app__sidebar}>
                     <Sidebar/>

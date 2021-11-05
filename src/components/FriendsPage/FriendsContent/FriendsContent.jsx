@@ -7,7 +7,7 @@ import SearchFriends from '../SearchFriends/SearchFriends'
 const FriendsContent = () => {
 
     return (
-        <Box>
+        <Box padding='0'>
             <Switch>
                 <Route path='/friends/search' render={() => <SearchFriends />  }/>
                 <Route path='/friends' render={() => <MyFriends/>}/>

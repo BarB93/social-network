@@ -7,11 +7,12 @@ const StyledContainer = styled.div`
     height: 100%;
     margin: 0 auto;
     padding: 0 15px;
+    min-width: ${props => props.minWidth ? props.minWidth : 'auto'};
 `
 
 const Container  = ({children, ...props}) => {
     return (
-        <StyledContainer>
+        <StyledContainer {...props}>
             {children}
         </StyledContainer>
 

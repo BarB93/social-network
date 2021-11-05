@@ -4,7 +4,7 @@ import UserList from './UserList'
 import {fetchUsers} from "../../../../redux/actions/userAction";
 import CircleLoader from "../../../UI/Loader/CircleLoader/CircleLoader";
 import MessageBlock from "../../../UI/MessageBlock/MessageBlock";
-import {setCurrentPage, resetUsers} from "../../../../redux/slices/userSlice";
+import {resetUsers} from "../../../../redux/slices/userSlice";
 import {useObserver} from '../../../../hooks/useObserver'
 
 import commonStyle from '../../../../styles/commonStyles.module.scss'
@@ -14,16 +14,16 @@ const UserListContainer = () => {
     const {users, isLoading, error, isInit, totalPages, currentPage, limit} = useSelector(state => state.user)
     const lastElement = useRef()
     const pageRef = useRef(currentPage)
-    useObserver(lastElement, totalPages > currentPage, isLoading,() => {
+    useObserver(lastElement, totalPages >= pageRef.current, isLoading,() => {
         dispatch(fetchUsers({friend: false, count: limit, page: pageRef.current}))
-        pageRef.current = pageRef.current + 1
+        pageRef.current += 1
     })
 
     useEffect(() => {
         return () => {
-            dispatch(setCurrentPage(pageRef.current))
+            dispatch(resetUsers())
         }
-    })
+    }, [])
 
     return (
         <>

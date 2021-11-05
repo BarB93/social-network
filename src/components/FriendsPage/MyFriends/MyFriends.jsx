@@ -1,19 +1,22 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
+import {useSelector} from 'react-redux'
+import MyFriendsListContainer from './MyFriendsList/MyFriendsListContainer'
 import Button from '../../UI/Button/Button'
 
-import cn from './MyFriends.module.scss'
 import commonStyles from '../../../styles/commonStyles.module.scss'
-import MyFriendsListContainer from './MyFriendsList/MyFriendsListContainer'
 
-const MyFriends = ({friends = []}) => {
-    const friendsCount = friends.length
+const MyFriends = () => {
+    const {totalFriends} = useSelector(state => state.friend)
 
     return (
         <>
-            <div className={cn.myFriends}>
+            <div>
                 <div className={commonStyles.title}>
-                   <h4 className={cn.myFriends__title}>Все друзья</h4>
+                    <h4 className={commonStyles.title__header}>
+                        Все друзья
+                        <span className={commonStyles.title__amount}>{totalFriends}</span>
+                    </h4>
                     <NavLink to='/friends/search'>
                         <Button
                             fontSize='0.9rem'

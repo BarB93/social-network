@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {fetchUsers} from "../actions/userAction";
+import {fetchUsers, followUser, unfollowUser} from '../actions/userAction'
 import {computeTotalItems} from "../../utils/pagination";
 
 const initialState = {
@@ -12,18 +12,16 @@ const initialState = {
     limit: 15,
     currentPage: 1,
     totalPages: 10,
+
+    subscribeLoading: false,
+    subscribeError: '',
+    userIdForChange: 0,
 }
 
 export const userSlice = createSlice({
     name: 'user',
     initialState,
     reducers: {
-        follow: (state, action) => {
-            state.users = state.users.map(p => p.id === action.payload ? {...p, followed: true } : p)
-        },
-        unfollow: (state, action) => {
-            state.users = state.users.map(p => p.id === action.payload ? {...p, followed: false } : p)
-        },
         setCurrentPage: (state, action) => {
             state.currentPage = action.payload
         },
@@ -34,25 +32,63 @@ export const userSlice = createSlice({
         },
     },
     extraReducers: {
+        //FETCH USERS
         [fetchUsers.pending.type]: (state) => {
             state.isLoading = true
         },
         [fetchUsers.fulfilled.type]: (state, action) => {
             if(!state.isInit) state.isInit = true
+            debugger
+            state.isLoading = false
             state.totalPages = computeTotalItems(action.payload.totalCount, state.limit)
             state.users.push(...action.payload.items)
             state.totalUsers = action.payload.totalCount
             state.error = ''
-            state.isLoading = false
         },
         [fetchUsers.rejected.type]: (state, action) => {
             state.error = action.payload
             state.isLoading = false
-        }
+        },
+
+        //FOLLOW
+        [followUser.pending.type]: (state, action) => {
+            state.subscribeError = ''
+            state.userIdForChange = action.meta.arg
+            state.subscribeLoading = true
+        },
+        [followUser.fulfilled.type]: (state, action) => {
+            state.subscribeLoading = false
+            state.subscribeError = ''
+            if(!action.payload.resultCode) {
+                const userId = action.meta.arg
+                state.users = state.users.map(p => p.id === userId ? {...p, followed: true } : p)
+            }
+        },
+        [followUser.rejected.type]: (state, action) => {
+            state.error = action.payload
+        },
+
+        //UNFOLLOW
+        [unfollowUser.pending.type]: (state, action) => {
+            state.subscribeError = ''
+            state.userIdForChange = action.meta.arg
+            state.subscribeLoading = true
+        },
+        [unfollowUser.fulfilled.type]: (state, action) => {
+            state.subscribeLoading = false
+            state.subscribeError = ''
+            if(!action.payload.resultCode) {
+                const userId = action.meta.arg
+                state.users = state.users.map(p => p.id === userId? {...p, followed: false } : p)
+            }
+        },
+        [unfollowUser.rejected.type]: (state, action) => {
+            state.subscribeError = action.payload
+        },
     }
 })
 
 //Actions
-export const {follow, unfollow, setCurrentPage, resetUsers} = userSlice.actions
+export const {setCurrentPage, resetUsers} = userSlice.actions
 
 export default  userSlice.reducer
