@@ -2,10 +2,10 @@ import React from 'react'
 import Box from '../../../../UI/Box/Box'
 import {NavLink} from 'react-router-dom'
 
-import cn from '../MyFriendsItem.module.scss'
+import cn from '../FriendsItem.module.scss'
 
 
-const MyFriendMenu = ({friend, unfollow}) => {
+const Menu = ({friend, unfollow}) => {
     return (
             <div className={cn.friend__icon}>
                 <svg width='20' height='12'>
@@ -24,4 +24,4 @@ const MyFriendMenu = ({friend, unfollow}) => {
     )
 }
 
-export default MyFriendMenu
+export default Menu

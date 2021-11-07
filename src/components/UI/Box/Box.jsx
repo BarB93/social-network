@@ -8,11 +8,13 @@ const StyledBox = styled.div`
     padding: ${props => props.padding? props.padding : '15px'};
     margin: ${props => props.margin? props.margin : '0'};
     height: ${props => props.height? props.height : 'auto'};
+    width: ${props => props.width? props.width : 'auto'};
     border-radius: ${styles.sizes.borderRadius};
     box-shadow: ${styles.colors.pageBlockShadow};
     text-align: ${props => props.textAlign? props.textAlign : 'left'};
     color:  ${props => props.color? props.color : styles.colors.grey400};
-    //overflow: hidden;
+      
+  //overflow: hidden;
     
     
 `

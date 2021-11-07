@@ -1,14 +1,14 @@
 import React from 'react'
-import FriendsContent from './FriendsContent/FriendsContent'
-import FriendsSide from './FriendsSide/FriendsSide'
+import Content from './Content/Content'
+import Side from './Side/Side'
 
 import cn from './friends.module.scss'
 
 const Friends = () => {
     return (
         <div className={cn.friends}>
-            <FriendsContent/>
-            <FriendsSide/>
+            <Content/>
+            <Side/>
         </div>
     )
 }

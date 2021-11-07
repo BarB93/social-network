@@ -6,14 +6,15 @@ import cn from './Sidebar.module.scss'
 
 const Sidebar = () => {
     return (
+
         <nav className={cn.menu}>
             <ul className={cn.menu__list}>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/"><FaRegUserCircle className={cn.menu__icon}/>Моя страница</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/news"><FaRegWindowRestore className={cn.menu__icon}/>Новости</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active}       to="/dialogs"><FaRegComment className={cn.menu__icon}/>Сообщения</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active}       to="/friends"><FaUserFriends className={cn.menu__icon}/>Друзья</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/music"><FaMusic className={cn.menu__icon}/>Музыка</NavLink></li>
-                <li><NavLink className={cn.menu__item} activeClassName={cn.menu__item_active} exact to="/settings"><FaCog className={cn.menu__icon}/>Настройки</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`} exact to="/"><FaRegUserCircle className={cn.menu__icon}/>Моя страница</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`} exact to="/news"><FaRegWindowRestore className={cn.menu__icon}/>Новости</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`}       to="/dialogs"><FaRegComment className={cn.menu__icon}/>Сообщения</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`}       to="/friends"><FaUserFriends className={cn.menu__icon}/>Друзья</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`} exact to="/music"><FaMusic className={cn.menu__icon}/>Музыка</NavLink></li>
+                <li><NavLink className={cn.menu__item} className={({isActive}) => isActive ? `${cn.active} ${cn.menu__item}` : `${cn.menu__item}`} exact to="/settings"><FaCog className={cn.menu__icon}/>Настройки</NavLink></li>
             </ul>
         </nav>
     )

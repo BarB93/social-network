@@ -1,5 +1,5 @@
 import {createSlice} from '@reduxjs/toolkit'
-import {authMe, login} from '../actions/authAction'
+import {authMe, login, logout} from '../actions/authAction'
 
 const initialState = {
     initialApp: false,
@@ -31,13 +31,15 @@ export const authSlice = createSlice({
                 state.error = ''
                 state.wrongData = false
             } else {
-                state.wrongData = true
+                state.wrongData = 'Неправильный email или пароль'
             }
         },
         [login.rejected.type]: (state, action) => {
             state.isLoading = false
+            state.wrongData = ''
             state.error = action.payload
         },
+
         //authMe ############################
         [authMe.pending.type]: (state) => {
             state.isLoading = true
@@ -45,7 +47,7 @@ export const authSlice = createSlice({
         },
         [authMe.fulfilled.type]: (state, action) => {
             state.isLoading = false
-
+            state.isInit = true
             if(!action.payload.resultCode) {
                 state.initialApp = true
                 state.isAuth = true
@@ -58,6 +60,27 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
         },
+
+        //logout ############################
+        [logout.pending.type]: (state) => {
+            state.isLoading = true
+            state.error = ''
+        },
+        [logout.fulfilled.type]: (state, action) => {
+            state.isLoading = false
+            state.error = ''
+            debugger
+            if(action.payload.resultCode === 0) {
+                state.isAuth = false
+                state.email = null
+                state.userId = null
+            }
+        },
+        [logout.pending.type]: (state, action) => {
+            state.isLoading = false
+            state.error = action.payload
+        },
+
 
 
     }

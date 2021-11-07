@@ -12,7 +12,7 @@
     margin: 0 -10px;
     white-space: nowrap;
 
-    &_active {
+    &.active {
       background: $background-highlighted;
     }
 

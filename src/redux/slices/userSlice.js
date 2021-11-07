@@ -13,9 +13,8 @@ const initialState = {
     currentPage: 1,
     totalPages: 10,
 
-    subscribeLoading: false,
     subscribeError: '',
-    userIdForChange: 0,
+    subscribingInProgress: [],
 }
 
 export const userSlice = createSlice({
@@ -38,7 +37,6 @@ export const userSlice = createSlice({
         },
         [fetchUsers.fulfilled.type]: (state, action) => {
             if(!state.isInit) state.isInit = true
-            debugger
             state.isLoading = false
             state.totalPages = computeTotalItems(action.payload.totalCount, state.limit)
             state.users.push(...action.payload.items)
@@ -53,14 +51,13 @@ export const userSlice = createSlice({
         //FOLLOW
         [followUser.pending.type]: (state, action) => {
             state.subscribeError = ''
-            state.userIdForChange = action.meta.arg
-            state.subscribeLoading = true
+            state.subscribingInProgress.push(action.meta.arg)
         },
         [followUser.fulfilled.type]: (state, action) => {
-            state.subscribeLoading = false
             state.subscribeError = ''
+            const userId = action.meta.arg
+            state.subscribingInProgress = state.subscribingInProgress.filter(id => id !== userId)
             if(!action.payload.resultCode) {
-                const userId = action.meta.arg
                 state.users = state.users.map(p => p.id === userId ? {...p, followed: true } : p)
             }
         },
@@ -71,14 +68,13 @@ export const userSlice = createSlice({
         //UNFOLLOW
         [unfollowUser.pending.type]: (state, action) => {
             state.subscribeError = ''
-            state.userIdForChange = action.meta.arg
-            state.subscribeLoading = true
+            state.subscribingInProgress.push(action.meta.arg)
         },
         [unfollowUser.fulfilled.type]: (state, action) => {
-            state.subscribeLoading = false
             state.subscribeError = ''
+            const userId = action.meta.arg
+            state.subscribingInProgress = state.subscribingInProgress.filter(id => id !== userId)
             if(!action.payload.resultCode) {
-                const userId = action.meta.arg
                 state.users = state.users.map(p => p.id === userId? {...p, followed: false } : p)
             }
         },

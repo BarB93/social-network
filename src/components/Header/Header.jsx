@@ -1,19 +1,27 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 import Logo from './Logo'
 import Container from '../UI/Container/Container'
-import noAvatar from '../../assets/images/no_avatar.png'
+import SettingsContainer from './Settings/SettingsContainer'
+import {useDispatch, useSelector} from 'react-redux'
+import {fetchMyProfile} from '../../redux/actions/myProfileAction'
 
 import cn from './Header.module.scss'
-import HeaderSettings from './HeaderSettings/HeaderSettings'
 
-const Header = ({profile, isMenuOpen, toggleMenu, closeMenu}) => {
+const Header = () => {
+    const dispatch =useDispatch()
+    const {isAuth, userId} = useSelector(state => state.auth)
 
+    useEffect(() => {
+        if(isAuth) {
+            dispatch(fetchMyProfile(userId))
+        }
+    },[userId])
     return (
         <header className={cn.header}>
             <Container>
                 <div className={cn.header__container}>
                     <Logo></Logo>
-                    <HeaderSettings closeMenu={closeMenu} profile={profile} isMenuOpen={isMenuOpen} toggleMenu={toggleMenu}/>
+                    <SettingsContainer />
                 </div>
             </Container>
         </header>

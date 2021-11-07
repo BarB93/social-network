@@ -1,10 +1,5 @@
 import React from 'react'
-import {Redirect, Route, Switch} from 'react-router-dom'
-import ProfilePage from '../../pages/ProfilePage'
-import DialogsPage from '../../pages/DialogsPage'
-import FriendsPage from '../../pages/FriendsPage'
-import NewsPage from '../../pages/NewsPage'
-import MessagePage from '../../pages/MessagePage'
+import ContentRouter from '../Routers/ContentRouter'
 
 import  cn from  './Content.module.scss'
 
@@ -12,15 +7,7 @@ const Content = () => {
 
     return (
         <main className={cn.main}>
-            <Switch>
-                <Route exact path='/dialogs'        render={() => <DialogsPage/>}/>
-                <Route exact path='/dialogs/:id'    render={() => <MessagePage/>}/>
-                <Route path='/friends'              render={() => <FriendsPage/>}/>
-                <Route exact path='/news'           component={NewsPage}/>
-                <Route path='/profile/:userId?'     render={() => <ProfilePage/>}/>
-                <Redirect to='/profile' />
-
-            </Switch>
+            <ContentRouter />
         </main>
     )
 }

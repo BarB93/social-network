@@ -1,7 +1,7 @@
 import React from 'react'
 import {NavLink} from 'react-router-dom'
 import {useSelector} from 'react-redux'
-import MyFriendsListContainer from './MyFriendsList/MyFriendsListContainer'
+import FriendsListContainer from './FriendsList/FriendsListContainer'
 import Button from '../../UI/Button/Button'
 
 import commonStyles from '../../../styles/commonStyles.module.scss'
@@ -25,12 +25,8 @@ const MyFriends = () => {
                             Найти друзей</Button>
                     </NavLink>
                 </div>
-                {/*{friendsCount*/}
-                {/*    ? <div>Мои друзья</div>*/}
-                {/*    : <div className={commonStyles.emptyBlock}>Ни одного друга не добавлено</div>*/}
-                {/*}*/}
             </div>
-            <MyFriendsListContainer />
+            <FriendsListContainer />
         </>
     )
 }

@@ -1,15 +1,14 @@
 import React from 'react'
-import UserListContainer from '../User/UserList/UserListContainer'
-
-import cn from './SearchFriends.module.scss'
-import commonStyles from '../../../styles/commonStyles.module.scss'
 import {useSelector} from 'react-redux'
+import UserListContainer from './UserList/UserListContainer'
 
-const SearchFriends = () => {
+import commonStyles from '../../../styles/commonStyles.module.scss'
+
+const Users = () => {
     const {totalUsers} = useSelector(state => state.user)
 
     return (
-        <div className={cn.search}>
+        <div>
             <div className={commonStyles.title}>
                 <h4 className={commonStyles.title__header}>
                     Найти друзей
@@ -21,4 +20,4 @@ const SearchFriends = () => {
     )
 }
 
-export default SearchFriends
+export default Users

@@ -5,7 +5,7 @@ export const login = createAsyncThunk(
     'auth/login',
     async (args, thunkAPI) => {
         try {
-            return  await authAPI.login(args.email, args.password)
+            return  await authAPI.login(args)
         }catch (e) {
             return thunkAPI.rejectWithValue('Неправильный логин или пароль')
         }
@@ -20,6 +20,18 @@ export const authMe = createAsyncThunk(
             return response
         } catch (e) {
             return thunkAPI.rejectWithValue('Произошла ошибка при авторизации')
+        }
+    }
+)
+
+export const logout = createAsyncThunk(
+    'auth/logout',
+    async (args, thunkAPI) => {
+        try {
+            return await authAPI.logout()
+
+        }catch (e) {
+            return thunkAPI.rejectWithValue('Произошла ошибка при выходе из аккаунта')
         }
     }
 )

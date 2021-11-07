@@ -4,7 +4,7 @@ import UserPupup from '../UserPopup/UserPupup'
 import noAvatar from '../../../../assets/images/no_avatar.png'
 
 import {FaUserPlus} from 'react-icons/fa'
-import cn from '../user.module.scss'
+import cn from '../User.module.scss'
 
 const UserItem = ({user, follow, unfollow, isLoading}) => {
     const avatar = user.photos.large ? user.photos.large : noAvatar

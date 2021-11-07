@@ -20,7 +20,7 @@ const CreatePost = ({addPost}) => {
     }
 
     return (
-        <Box width='300px' margin={'10px 0 0 0'}>
+        <Box  margin={'10px 0 0 0'}>
             <div className={isActiveCreatePost}>
                 <textarea
                     className={cn.createPost__textarea}

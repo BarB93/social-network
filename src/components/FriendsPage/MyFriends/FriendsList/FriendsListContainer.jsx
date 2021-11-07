@@ -3,18 +3,18 @@ import {useDispatch, useSelector} from 'react-redux'
 import {useObserver} from '../../../../hooks/useObserver'
 import {fetchAllFriends} from '../../../../redux/actions/friendAction'
 import {resetFriends, setCurrentPage} from '../../../../redux/slices/friendSlice'
-import MyFriendsList from './MyFriendsList'
+import FriendsList from './FriendsList'
 import MessageBlock from '../../../UI/MessageBlock/MessageBlock'
 import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
 
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
-const MyFriendsListContainer = () => {
+const FriendsListContainer = () => {
     const dispatch = useDispatch()
     const {isLoading, friends, currentPage, totalPages, limit, error, isInit} = useSelector(state => state.friend)
     const lastElement = useRef()
     const pageRef = useRef(currentPage)
-    debugger
+
     useObserver(lastElement, totalPages >= pageRef.current, isLoading,
         () => {
             console.log('inCallback')
@@ -34,7 +34,7 @@ const MyFriendsListContainer = () => {
             {isInit && !error &&
             (
                 friends.length
-                    ? <MyFriendsList friends={friends}/>
+                    ? <FriendsList friends={friends}/>
                     : <MessageBlock>Совпадений не найдено</MessageBlock>
             )
             }
@@ -45,4 +45,4 @@ const MyFriendsListContainer = () => {
     )
 }
 
-export default MyFriendsListContainer
+export default FriendsListContainer

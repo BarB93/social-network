@@ -1,9 +1,9 @@
 import React, {useEffect, useRef} from 'react'
 import Box from '../../../UI/Box/Box'
 
-import cn from './HeaderMenu.module.scss'
+import cn from './Menu.module.scss'
 
-const HeaderMenu = ({profile, imageURL, isMenuOpen}) => {
+const Menu = ({profile, imageURL, isMenuOpen, logout}) => {
     const active = isMenuOpen ? cn.active : ''
 
     const handleClick = (e) => {
@@ -25,10 +25,10 @@ const HeaderMenu = ({profile, imageURL, isMenuOpen}) => {
             <ul className={cn.menu__list}>
                 <li className={cn.menu__item}>Настройки</li>
                 <div className={cn.menu__hr}></div>
-                <li className={cn.menu__item}>Выйти</li>
+                <li className={cn.menu__item} onClick={logout}>Выйти</li>
             </ul>
         </Box>
     )
 }
 
-export default HeaderMenu
+export default Menu

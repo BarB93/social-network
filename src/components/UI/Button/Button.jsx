@@ -12,6 +12,7 @@ const StyledButton = styled.button`
     height: ${props => props.height ? props.height : '30px'};
     width: ${props => props.width ? props.width : '100%'};
     padding: ${props => props.padding? props.padding : '0 16px'};
+    margin: ${props => props.margin? props.margin : '0'};
     background: ${props => props.secondary ? styles.colors.buttonSecondaryBg : styles.colors.buttonPrimaryBg};
     border-radius: ${styles.sizes.borderRadius};
     color: ${props => props.secondary ? styles.colors.buttonSecondaryText : styles.colors.buttonPrimaryText};

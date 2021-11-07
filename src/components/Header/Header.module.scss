@@ -2,8 +2,11 @@
 
 .header {
   position: fixed;
+  display: flex;
+  align-items: center;
   top: 0;
   width: 100%;
+  min-height: 43px;
   background: $white;
   border-bottom: 1px solid $separator-common;
   z-index: 100;

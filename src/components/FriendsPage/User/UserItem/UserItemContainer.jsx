@@ -6,8 +6,8 @@ import UserItem from "./UserItem";
 
 const UserItemContainer = ({user}) => {
     const dispatch = useDispatch()
-    const {subscribeLoading, userIdForChange} = useSelector(state => state.user)
-    const isLoading = subscribeLoading && userIdForChange === user.id
+    const {subscribingInProgress} = useSelector(state => state.user)
+    const isLoading = subscribingInProgress.includes(user.id)
 
     const handleFollow = () => {
         dispatch(followUser(user.id))
