@@ -1,17 +1,20 @@
 import React, {useEffect} from 'react'
-import Profile from './Profile'
 import {useDispatch, useSelector} from 'react-redux'
-import {fetchProfile} from '../../../redux/actions/profileAction'
 import {useParams} from 'react-router-dom'
+
+import Profile from './Profile'
+import {fetchProfile} from '../../../redux/actions/profileAction'
 
 const ProfileContainer = () => {
     const dispatch = useDispatch()
     const profileData = useSelector(state => state.profile)
-    let {userId} = useParams()
-    userId = userId ? userId : 14640
+    const authUserId = useSelector(state => state.auth.userId)
+    const {userId: currentUserId} = useParams()
+    const userId = currentUserId ? currentUserId : authUserId
+
     useEffect(() => {
         dispatch(fetchProfile(userId))
-    },[])
+    },[userId])
 
     return (
         <Profile {...profileData}/>

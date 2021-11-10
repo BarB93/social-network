@@ -8,7 +8,7 @@ import './styles/App.scss'
 
 function App() {
     const dispatch = useDispatch()
-    const {isAuth, isInit} = useSelector(state => state.auth)
+    const {isInit} = useSelector(state => state.auth)
 
     useEffect(() => {
         dispatch(authMe())

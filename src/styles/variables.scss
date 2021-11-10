@@ -21,8 +21,10 @@ $blue-600: #2a5885;
 $accent: #5181b8;
 $icon-tertiary: #aeb7c2;
 $page-block-shadow: 0 1px 0 0 $separator-common,
-                    0 0 0 1px $separator-alternate;
+0 0 0 1px $separator-alternate;
 
+$page-block-shadow: 0 1px 0 0 $separator-common,
+0 0 0 1px $separator-alternate;
 
 //breakpoints
 $sm: 600px;
@@ -33,9 +35,4 @@ $lg: 1200px;
 $border-radius: 4px;
 $width-content: 550px;
 
-//:export {
-//  white: $white;
-//  background: $background;
-//  seporator:$separator;
-//  borderRadius: $border-radius;
-//}
+

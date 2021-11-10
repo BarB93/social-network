@@ -23,6 +23,7 @@ export const profileSlice = createSlice({
         }
     },
     extraReducers: {
+        //FETCH PROFILE ##############################
         [fetchProfile.pending.type]: (state) => {
             state.error = ''
             state.isLoading = true
@@ -36,6 +37,7 @@ export const profileSlice = createSlice({
             state.isLoading = false
             state.error = action.payload
         },
+        //FETCH STATUS ##############################
 
 
     }

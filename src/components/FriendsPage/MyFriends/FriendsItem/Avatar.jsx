@@ -1,5 +1,5 @@
 import React from 'react'
-import {NavLink} from "react-router-dom";
+import {Link} from 'react-router-dom'
 import noAvatar from "../../../../assets/images/no_avatar.png";
 
 import cn from './FriendsItem.module.scss'
@@ -9,7 +9,7 @@ const Avatar = ({friend}) => {
 
     return (
         <div className={cn.friend__avatar}>
-            <NavLink to={`/profile/${friend.id}`}><img src={avatar} alt='avatar'/></NavLink>
+            <Link to={`/profile/${friend.id}`}><img src={avatar} alt='avatar'/></Link>
         </div>
     )
 }

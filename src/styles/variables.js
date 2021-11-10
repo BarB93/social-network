@@ -18,6 +18,7 @@ export const styles = {
         buttonSecondaryBg: `#E5EBF1`,
         grey400: `#939393`,
         grey100: `#dce1e6`,
+        blue400: `#5181b8`,
         blue600: `#2a5885`,
         accent: `#5181b8`,
         iconTertiary: `#aeb7c2`,

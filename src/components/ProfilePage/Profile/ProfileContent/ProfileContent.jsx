@@ -6,14 +6,10 @@ import PostListContainer from "../../Post/PostListContainer";
 import cn from '../profile.module.scss'
 
 const ProfileContent = ({profile}) => {
+
     return (
         <div className={cn.profile__content}>
-            <Info aboutMe={profile.aboutMe}
-                  contacts={profile.contacts}
-                  name={profile.fullName}
-                  lookingForAJob={profile.lookingForAJob}
-                  lookingForAJobDescription={profile.lookingForAJobDescription}
-            />
+            <Info {...profile}/>
             <CreatePostContainer/>
             <PostListContainer/>
         </div>

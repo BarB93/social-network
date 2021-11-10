@@ -1,12 +1,11 @@
 import React from 'react'
 import {useSelector} from 'react-redux'
 import {Route, Routes, Navigate} from 'react-router-dom'
-import {privateRoutes, publicRoutes} from '../../router/content'
-
+import {privateRoutes, publicRoutes} from '../../router/contentRoutes'
 
 
 const ContentRouter = () => {
-    const {isAuth, isLoading} = useSelector(state => state.auth)
+    const {isAuth} = useSelector(state => state.auth)
 
     return (
         isAuth ?
@@ -18,8 +17,7 @@ const ContentRouter = () => {
                     key={route.path}
                 />
             )}
-            <Route path='/*' element={<Navigate to='profile'/>} />
-            {/*<Redirect to='/profile' />*/}
+            <Route path='/*' element={<Navigate to='/profile' />}/>
         </Routes>
             :
         <Routes>
@@ -31,7 +29,6 @@ const ContentRouter = () => {
                 />
             )}
             <Route path='/*' element={<Navigate to='/'/>} />
-            {/*<Redirect to='/' />*/}
         </Routes>
     )
 }

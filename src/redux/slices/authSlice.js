@@ -69,7 +69,7 @@ export const authSlice = createSlice({
         [logout.fulfilled.type]: (state, action) => {
             state.isLoading = false
             state.error = ''
-            debugger
+
             if(action.payload.resultCode === 0) {
                 state.isAuth = false
                 state.email = null
