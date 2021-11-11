@@ -12,6 +12,7 @@ const ProfileContainer = () => {
     const {userId: currentUserId} = useParams()
     const userId = currentUserId ? currentUserId : authUserId
 
+
     useEffect(() => {
         dispatch(fetchProfile(userId))
     },[userId])

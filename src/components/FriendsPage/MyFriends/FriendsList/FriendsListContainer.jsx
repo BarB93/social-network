@@ -1,11 +1,12 @@
 import React, {useEffect, useRef} from 'react'
 import {useDispatch, useSelector} from 'react-redux'
-import {useObserver} from '../../../../hooks/useObserver'
-import {fetchAllFriends} from '../../../../redux/actions/friendAction'
-import {resetFriends, setCurrentPage} from '../../../../redux/slices/friendSlice'
+
+import {resetFriends} from '../../../../redux/slices/friendSlice'
 import FriendsList from './FriendsList'
-import MessageBlock from '../../../UI/MessageBlock/MessageBlock'
+import {useObserver} from '../../../../hooks/useObserver'
 import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
+import MessageBlock from '../../../UI/MessageBlock/MessageBlock'
+import {fetchAllFriends} from '../../../../redux/actions/friendAction'
 
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 

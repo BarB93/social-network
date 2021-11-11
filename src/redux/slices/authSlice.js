@@ -49,6 +49,7 @@ export const authSlice = createSlice({
             state.isLoading = false
             state.isInit = true
             if(!action.payload.resultCode) {
+
                 state.initialApp = true
                 state.isAuth = true
                 state.userId = action.payload.data.id

@@ -44,7 +44,7 @@ const LoginForm = () => {
                     </div>
 
                     {wrongData ? wrongData : null}
-                    <Button margin='10px 0 0 0' padding='10px 20px' width='content-fit'>Войти</Button>
+                    <Button m='10px 0 0 0' p='10px 20px' w='content-fit'>Войти</Button>
                 </Box>
             </form>
     )

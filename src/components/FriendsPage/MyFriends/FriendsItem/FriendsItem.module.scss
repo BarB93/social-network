@@ -66,7 +66,7 @@
     }
   }
 
-  &__menu {
+  &__dots {
     z-index: 10;
   }
 
@@ -100,16 +100,11 @@
 }
 
 .menu {
-  position: absolute;
-  top:calc(100%);
-  right: -25px;
-  min-width: 200px;
   cursor: default;
-
   transform: translateY(10px);
   visibility: hidden;
   opacity: 0;
-  transition: opacity 100ms linear, transform 100ms linear, visibility 100ms linear;
+
 
   &__triangle {
     position: absolute;

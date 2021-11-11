@@ -1,4 +1,4 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import noAvatar from '../../../assets/images/no_avatar.png'
 import {FaAngleDown} from 'react-icons/fa'
 import Menu from './Menu/Menu'

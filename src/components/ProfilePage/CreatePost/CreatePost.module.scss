@@ -8,6 +8,8 @@
     resize: none;
     border: none;
 
+    transition: height 100ms ease-in-out;
+
     &:focus, .active & {
       height: 70px;
       outline: none;

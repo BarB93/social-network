@@ -14,7 +14,7 @@ const StyledFake = styled.div`
   display: inline-block;
   width:${props => props.width ? props.width : '20px'};
   height:${props => props.width ? props.width : '20px'};
-  border: 1px solid ${styles.colors.grey100};
+  border: 1px solid ${styles.colors.gray100};
   border-radius: ${styles.sizes.borderRadius};
   cursor: pointer;
   

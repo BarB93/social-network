@@ -12,7 +12,7 @@ const Info = ({aboutMe, contacts, fullName, lookingForAJob, lookingForAJobDescri
     const handleToggleMoreInfo = () => {
         setShowMoreInfo(prev => !prev)
     }
-    debugger
+
     return (
         <Box>
             <div className={cn.info}>

@@ -11,11 +11,11 @@ const Avatar = ({photos}) => {
     return (
         <Box>
             <div className={cn.avatar}>
-                <a href='#' className={cn.avatar__image}>
+                <div className={cn.avatar__image}>
                     <img src={imageURL} alt='avatar'/>
-                </a>
+                </div>
                 <div className={cn.avatar__btn}>
-                    <Button secondary={true}>Редактировать</Button>
+                    <Button secondary>Редактировать</Button>
                 </div>
             </div>
         </Box>
