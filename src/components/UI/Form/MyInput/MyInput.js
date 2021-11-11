@@ -8,7 +8,7 @@ const StyledInput = styled.input`
   padding: 6px 12px 8px;
   margin: 0 5px 15px 0;
   border-radius: ${styles.sizes.borderRadius};
-  border: 1px solid ${styles.colors.grey100};
+  border: 1px solid ${styles.colors.gray100};
   
 
   &:focus {
@@ -16,7 +16,7 @@ const StyledInput = styled.input`
   }
 
   &:focus::-webkit-input-placeholder {
-    color: ${styles.colors.grey100};
+    color: ${styles.colors.gray100};
   }
 `
 

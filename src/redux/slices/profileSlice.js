@@ -5,6 +5,7 @@ const initialState = {
     isLoading: false,
     error: '',
     profile: null,
+    isOpenUpdateStatus: false,
     posts: [
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
         'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
@@ -20,6 +21,12 @@ export const profileSlice = createSlice({
     reducers: {
         addPost: (state,action) => {
             state.posts.push(action.payload)
+        },
+        openUpdateStatus: (state, action) => {
+            state.isOpenUpdateStatus = true
+        },
+        closeUpdateStatus: (state) => {
+            state.isOpenUpdateStatus = false
         }
     },
     extraReducers: {
@@ -44,6 +51,6 @@ export const profileSlice = createSlice({
 })
 
 //Actions
-export const {addPost} = profileSlice.actions
+export const {addPost, openUpdateStatus, closeUpdateStatus} = profileSlice.actions
 
 export default profileSlice.reducer

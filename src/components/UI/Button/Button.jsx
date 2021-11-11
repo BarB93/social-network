@@ -4,19 +4,21 @@ import {darken, lighten} from 'polished'
 
 import {styles} from '../../../styles/variables'
 
-const StyledSpan = styled.span``
+const StyledSpan = styled.span`
+  display: inline-block;
+`
 const StyledButton = styled.button`
-    display:flex;
-    justify-content: center;
-    align-items: center;
-    height: ${props => props.height ? props.height : '30px'};
-    width: ${props => props.width ? props.width : '100%'};
-    padding: ${props => props.padding? props.padding : '0 16px'};
-    margin: ${props => props.margin? props.margin : '0'};
+    display: inline-block;
+    text-align: center;
+    height: ${props => props.height ? props.height : 'auto'};
+    width: ${props => props.w ? props.w : '100%'};
+    padding: ${props => props.p? props.p : '7px 16px'};
+    margin: ${props => props.m? props.m : '0'};
     background: ${props => props.secondary ? styles.colors.buttonSecondaryBg : styles.colors.buttonPrimaryBg};
     border-radius: ${styles.sizes.borderRadius};
     color: ${props => props.secondary ? styles.colors.buttonSecondaryText : styles.colors.buttonPrimaryText};
-    font-size: ${props => props.fontSize ? props.fontSize : 'inherit'};
+    font-size: ${props => props.fz ? props.fz : 'inherit'};
+    line-height:  ${props => props.lh ? props.lh : 'inherit'};
     transition: background .1s linear;
     
     &:hover {

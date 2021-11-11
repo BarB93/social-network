@@ -18,14 +18,14 @@
 
   &__amount {
     margin: 0 0 0 7px;
-    color: $grey-400;
+    color: $gray-400;
   }
 }
 
 .emptyBlock {
   padding: 30px 50px;
   text-align: center;
-  color: $grey-400;
+  color: $gray-400;
 
   &__title {
     margin-bottom: 20px;
@@ -35,4 +35,22 @@
     color: #000;
     font-size: 1.1rem;
   }
+}
+
+.input {
+  width: 100%;
+  padding: 6px 12px 8px;
+  margin: 0 5px 15px 0;
+  border-radius: $border-radius;
+  border: 1px solid $gray-100;
+
+
+  &:focus {
+    outline: none;
+  }
+
+  &:focus::-webkit-input-placeholder {
+    color: $gray-100
+  }
+
 }

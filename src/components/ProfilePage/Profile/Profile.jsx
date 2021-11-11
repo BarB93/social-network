@@ -2,12 +2,11 @@ import React from 'react'
 
 import ProfileSide from "./ProfileSide/ProfileSide";
 import ProfileContent from "./ProfileContent/ProfileContent";
+import MessageBlock from '../../UI/MessageBlock/MessageBlock'
 import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 
 import cn from './profile.module.scss'
 import commonStyles from '../../../styles/commonStyles.module.scss'
-import Box from '../../UI/Box/Box'
-import MessageBlock from '../../UI/MessageBlock/MessageBlock'
 
 const Profile = ({profile, post, error, isLoading}) => {
 

@@ -1,7 +1,9 @@
 import React, {useEffect, useRef} from 'react'
+import Settings from './Settings'
+
 import {useDispatch, useSelector} from 'react-redux'
 import {closeMenu, toggleMenu} from '../../../redux/slices/headerSlice'
-import Settings from './Settings'
+import {closeUpdateStatus} from '../../../redux/slices/profileSlice'
 import {logout} from '../../../redux/actions/authAction'
 
 const SettingsContainer = () => {
@@ -11,8 +13,14 @@ const SettingsContainer = () => {
     const {isAuth} = useSelector(state => state.auth)
     const menuRef = useRef()
 
-    const handleToggleMenu = () => {dispatch(toggleMenu())}
+    const closeOtherElements = () => {
+        dispatch(closeUpdateStatus())
+    }
+    const handleToggleMenu = () => {
+        dispatch(toggleMenu())
+    }
     const handleCloseMenu = () => {dispatch(closeMenu())}
+
 
     const handleLogout = () => {
         console.log('logout')
@@ -21,7 +29,9 @@ const SettingsContainer = () => {
 
     const handleOutsideClick = (event) => {
         const path = event.path || (event.composedPath && event.composedPath());
-        if (!path.includes(menuRef.current)) handleCloseMenu()
+        if (!path.includes(menuRef.current)) {
+            handleCloseMenu()
+        }
     }
 
     useEffect(() => {
@@ -38,6 +48,7 @@ const SettingsContainer = () => {
                   isMenuOpen={isMenuOpen}
                   toggleMenu={handleToggleMenu}
                   logout={handleLogout}
+                  closeOtherElements={closeOtherElements}
                   ref={menuRef}
         />
     )

@@ -20,7 +20,7 @@ const CreatePost = ({addPost}) => {
     }
 
     return (
-        <Box  margin={'10px 0 0 0'}>
+        <Box margin={'10px 0 0 0'}>
             <div className={isActiveCreatePost}>
                 <textarea
                     className={cn.createPost__textarea}
@@ -34,7 +34,7 @@ const CreatePost = ({addPost}) => {
                 <div className={cn.createPost__wrapperButton}>
                     <Button
                         className={cn.createPost__button}
-                        width='min-content'
+                        w='min-content'
                         disabled={isDisabledButton}
                         onClick={handleAddPost}
                     >Отправить</Button>

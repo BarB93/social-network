@@ -19,8 +19,8 @@ const MyFriends = () => {
                     </h4>
                     <NavLink to='/friends/search'>
                         <Button
-                            fontSize='0.9rem'
-                            height='25px'
+                            fz='0.9rem'
+                            h='25px'
                         >
                             Найти друзей</Button>
                     </NavLink>

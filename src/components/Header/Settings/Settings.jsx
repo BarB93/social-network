@@ -1,11 +1,11 @@
-import React, {useEffect, useRef} from 'react'
+import React from 'react'
 import noAvatar from '../../../assets/images/no_avatar.png'
 import {FaAngleDown} from 'react-icons/fa'
 import Menu from './Menu/Menu'
 
 import cn from './Settings.module.scss'
 
-const Settings = React.forwardRef(({profile, isMenuOpen, toggleMenu, logout}, ref) => {
+const Settings = React.forwardRef(({profile, isMenuOpen, toggleMenu, logout, closeOtherElements}, ref) => {
     const imageURL = profile?.photos.small ?  profile.photos.small : noAvatar
     const activeClass = isMenuOpen ? cn.active : ''
 
@@ -16,7 +16,8 @@ const Settings = React.forwardRef(({profile, isMenuOpen, toggleMenu, logout}, re
                 <img src={imageURL} alt="avatar"/>
             </div>
             <FaAngleDown className={cn.menu__icon}/>
-            <Menu logout={logout} profile={profile} imageURL={imageURL} isMenuOpen={isMenuOpen}/>
+            <Menu logout={logout} profile={profile} imageURL={imageURL}
+                  isMenuOpen={isMenuOpen} closeOtherElements={closeOtherElements}/>
         </div>
     )
 })

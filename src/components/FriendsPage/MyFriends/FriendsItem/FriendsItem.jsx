@@ -1,5 +1,4 @@
 import React from 'react'
-import {NavLink} from 'react-router-dom'
 import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
 import Menu from './Menu/Menu'
 import Avatar from './Avatar'
@@ -15,7 +14,7 @@ const FriendsItem = ({friend, follow, unfollow, isLoading}) => {
         <li className={`${cn.friend} ${classUnfollowed}`}>
             <Avatar friend={friend}/>
             <Info friend={friend}/>
-            <div className={cn.friend__menu}>
+            <div className={cn.friend__dots}>
                 {isLoading
                     ? <CircleLoader />
                     : (friend.followed

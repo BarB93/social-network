@@ -2,6 +2,7 @@
 
 .info {
   &__top {
+    position: relative;
     padding: 0 0 10px;
     border-bottom: 1px solid $separator-common;
   }
@@ -28,7 +29,7 @@
   }
 
   &__notSpecified {
-    color: $grey-400;
+    color: $gray-400;
   }
 
   &__more_btn {
