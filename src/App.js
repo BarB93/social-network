@@ -12,12 +12,11 @@ function App() {
 
 	useEffect(() => {
 		dispatch(authMe())
-		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [])
 
 	if (!isInit) return null
 	return (
-		<div className="app">
+		<div className='app'>
 			<Header />
 			<AppRouter />
 		</div>

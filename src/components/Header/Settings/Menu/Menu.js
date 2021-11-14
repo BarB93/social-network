@@ -37,7 +37,7 @@ const Menu = ({
 		<Box {...styleBox} className={`${cn.menu} ${active}`} onClick={handleClick}>
 			<div className={cn.menu__top}>
 				<div className={cn.menu__img}>
-					<img src={imageURL} alt="avatar" />
+					<img src={imageURL} alt='avatar' />
 				</div>
 				<div className={cn.menu__title}>
 					<div className={cn.menu__name}>{profile.fullName}</div>

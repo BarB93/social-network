@@ -1,10 +1,8 @@
 import React from 'react'
-import Friends from "../components/FriendsPage/Friends";
+import Friends from '../components/FriendsPage/Friends'
 
 const FriendsPage = () => {
-    return (
-        <Friends/>
-    )
+	return <Friends />
 }
 
 export default FriendsPage

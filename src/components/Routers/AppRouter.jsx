@@ -10,9 +10,9 @@ const AppRouter = () => {
 		<AppContainer />
 	) : (
 		<Routes>
-			<Route path="/" element={<AuthPage />} />
-			<Route path="/friends" element={<AppContainer />} />
-			<Route path="/*" element={<Navigate to="/" />} />
+			<Route path='/' element={<AuthPage />} />
+			<Route path='/friends' element={<AppContainer />} />
+			<Route path='/*' element={<Navigate to='/' />} />
 		</Routes>
 	)
 }

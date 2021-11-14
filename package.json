@@ -27,33 +27,34 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "precommit": "lint-staged",
-    "eslint": "node_modules/.bin/eslint src/",
-    "fix": "node_modules/.bin/eslint src/ --fix",
+    "eslint": "eslint src/",
+    "fix": "eslint src/ --fix",
     "prepare": "husky install"
   },
   "eslintConfig": {
     "extends": [
-      "react-app",
-      "plugin:react-hooks/recommended",
-      "prettier"
+      "react-app"
     ],
-    "rules": {
-      "no-debugger": "error",
-      "jsx-quotes": [
-        "error",
-        "prefer-single"
-      ],
-      "quotes": [
-        "error",
-        "single"
-      ],
-      "semi": [
-        "error",
-        "never"
-      ]
-    },
-    "plugins": [
-      "prettier"
+    "overrides": [
+      {
+        "files": ["**/*.js?(x)"],
+        "extends": [
+          "eslint:recommended",
+          "plugin:react/recommended",
+          "plugin:react-hooks/recommended",
+          "prettier"
+        ],
+        "rules": {
+          "no-unused-vars": "warn",
+          "no-debugger": "warn",
+          "jsx-quotes": ["error", "prefer-single"],
+          "quotes": ["error", "single"],
+          "semi": ["error", "never"],
+          "react/prop-types": "off",
+          "react-hooks/exhaustive-deps": "off"
+        },
+        "plugins": ["prettier"]
+      }
     ]
   },
   "browserslist": {
@@ -74,6 +75,7 @@
     "eslint-config-prettier": "^8.3.0",
     "eslint-config-react-app": "^6.0.0",
     "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-react": "^7.27.0",
     "husky": "^7.0.0",
     "lint-staged": "^11.2.6",
     "prettier": "^2.4.1",
@@ -83,8 +85,8 @@
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": [
-      "node_modules/.bin/eslint --max-warnings=0",
-      "prettier --write"
+      "prettier --write",
+      "node_modules/.bin/eslint --max-warnings=0"
     ]
   }
 }

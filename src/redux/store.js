@@ -10,7 +10,7 @@ import {
 	friendReducer,
 } from './slices'
 import { userAPI } from '../api/services/userService'
-import { profileAPI } from '../api/services/profileService'
+import { profileService } from '../api/services/profileService'
 
 const rootReducer = {
 	header: headerReducer,
@@ -22,7 +22,7 @@ const rootReducer = {
 	friend: friendReducer,
 	auth: authReducer,
 	[userAPI.reducerPath]: userAPI.reducer,
-	[profileAPI.reducerPath]: profileAPI.reducer,
+	[profileService.reducerPath]: profileService.reducer,
 }
 
 const store = configureStore({
@@ -30,7 +30,7 @@ const store = configureStore({
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware()
 			.concat(userAPI.middleware)
-			.concat(profileAPI.middleware),
+			.concat(profileService.middleware),
 })
 
 window.store = store

@@ -1,10 +1,8 @@
 import React from 'react'
-import Dialogs from "../components/DialogsPage/Dialogs/Dialogs";
+import Dialogs from '../components/DialogsPage/Dialogs/Dialogs'
 
 const DialogsPage = () => {
-    return (
-        <Dialogs/>
-    )
+	return <Dialogs />
 }
 
 export default DialogsPage

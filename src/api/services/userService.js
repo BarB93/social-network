@@ -5,7 +5,7 @@ export const userAPI = createApi({
 	baseQuery: fetchBaseQuery({
 		baseUrl: 'https://social-network.samuraijs.com/api/1.0',
 		prepareHeaders: (headers) => {
-			headers.set('API-KEY', '56da4b49-e130-401a-8eee-bc205b915589')
+			headers.set('API-KEY', '5f2d5af9-d6f0-4b7d-8e20-5a0ae84fdc07')
 			return headers
 		},
 	}),
