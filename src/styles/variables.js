@@ -6,6 +6,7 @@ export const styles = {
 		backgroundHover: '#F5F6F7',
 		backgroundHighlighted: 'rgba(174, 183, 194, 0.16)',
 		backgroundPopup: 'raba(0,0,0,0.6)',
+		chili: '#C21807',
 		separatorCommon: '#DCE1E6',
 		separatorAlternate: '#E7E8EC',
 		textColorPrimary: '#000',
