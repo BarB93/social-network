@@ -6,10 +6,10 @@ import Status from './Status'
 import {
 	closeUpdateStatus,
 	openUpdateStatus,
-} from '../../../redux/slices/profileSlice'
-import { profileService } from '../../../api/services/profileService'
-import { closeMenu } from '../../../redux/slices/headerSlice'
-import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
+} from '../../../../redux/slices/profileSlice'
+import { profileService } from '../../../../api/services/profileService'
+import { closeMenu } from '../../../../redux/slices/headerSlice'
+import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
 
 const StatusContainer = ({ userId }) => {
 	const dispatch = useDispatch()

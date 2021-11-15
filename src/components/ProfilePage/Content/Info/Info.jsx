@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 
-import Box from '../../UI/Box/Box'
+import Box from '../../../UI/Box/Box'
 import InfoFull from './InfoFull'
 import InfoShort from './InfoShort'
 

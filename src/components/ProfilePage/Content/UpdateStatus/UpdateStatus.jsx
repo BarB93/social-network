@@ -3,10 +3,10 @@ import { Form, Formik, Field } from 'formik'
 
 import Box from '../../../UI/Box/Box'
 import Button from '../../../UI/Button/Button'
+import ItemsLoader from '../../../UI/Loader/ItemsLoader/ItemsLoader'
 
 import cn from './UpdateStatus.module.scss'
 import commonStyle from '../../../../styles/commonStyles.module.scss'
-import ItemsLoader from '../../../UI/Loader/ItemsLoader/ItemsLoader'
 
 const UpdateStatus = ({
 	status,
@@ -52,23 +52,23 @@ const UpdateStatus = ({
 				}}
 			>
 				<Form className={cn.form}>
-					<Field
-						className={commonStyle.input}
-						placeholder='Введите статус'
-						name='status'
-						type='text'
-					/>
-					<div className={cn.form__button}>
-						<Button
-							p='7px 16px 8px'
-							minWidth='96px'
-							lh='11px'
-							type='submit'
-							w='fit-content'
-						>
-							{isLoading ? <ItemsLoader dots /> : 'Сохранить'}
-						</Button>
+					<div className={commonStyle.form__inputContainer}>
+						<Field
+							className={commonStyle.form__input}
+							placeholder='Введите статус'
+							name='status'
+							type='text'
+						/>
 					</div>
+					<Button
+						p='7px 16px 8px'
+						minWidth='96px'
+						lh='11px'
+						type='submit'
+						w='fit-content'
+					>
+						{isLoading ? <ItemsLoader dots /> : 'Сохранить'}
+					</Button>
 				</Form>
 			</Formik>
 		</Box>

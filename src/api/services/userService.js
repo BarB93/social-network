@@ -9,7 +9,7 @@ export const userAPI = createApi({
 			return headers
 		},
 	}),
-	tagTypes: ['User'],
+	tagTypes: ['User', 'Subscription'],
 	endpoints: (build) => ({
 		fetchAllUsers: build.query({
 			query: (limit = 15, friend = false) => ({
@@ -19,12 +19,21 @@ export const userAPI = createApi({
 					friend,
 				},
 			}),
+			providesTags: ['Subscription'],
 		}),
-		followOnUser: build.mutation({
-			query: (user) => ({
-				url: `/follow/${user.id}`,
+		subscribeOnUser: build.mutation({
+			query: (userId) => ({
+				url: `/follow/${userId}`,
 				method: 'POST',
 			}),
+			invalidatesTags: ['Subscription'],
 		}),
+		unsubscribeFromUser: build.mutation({
+			query: (userId) => ({
+				url: `/follow/${userId}`,
+				method: 'DELETE',
+			}),
+		}),
+		invalidatesTags: ['Subscription'],
 	}),
 })

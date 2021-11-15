@@ -1,5 +1,5 @@
 import React from 'react'
-import UpdateStatusContainer from './UpdateStatus/UpdateStatusContainer'
+import UpdateStatusContainer from '../UpdateStatus/UpdateStatusContainer'
 
 import cn from './Status.module.scss'
 
@@ -35,7 +35,7 @@ const Status = React.forwardRef(
 				)}
 			</div>
 		)
-	}
+	},
 )
 
 Status.displayName = 'Status'
