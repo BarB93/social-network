@@ -8,15 +8,18 @@ import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 import cn from './profile.module.scss'
 import commonStyles from '../../../styles/commonStyles.module.scss'
 
-const Profile = ({ profile, error, isLoading }) => {
+const Profile = ({ profile, error, isLoading, isAuthUserProfile }) => {
 	return (
 		<>
 			{error && <MessageBlock>{error}</MessageBlock>}
 			{!error &&
 				(profile && !isLoading ? (
 					<div className={cn.profile}>
-						<Side photos={profile.photos} />
-						<Content profile={profile} />
+						<Side
+							photos={profile.photos}
+							isAuthUserProfile={isAuthUserProfile}
+						/>
+						<Content profile={profile} isAuthUserProfile={isAuthUserProfile} />
 					</div>
 				) : (
 					<MessageBlock

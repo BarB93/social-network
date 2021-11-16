@@ -14,6 +14,7 @@ const Info = ({
 	lookingForAJob,
 	lookingForAJobDescription,
 	userId,
+	isAuthUserProfile,
 }) => {
 	const [isShowMoreInfo, setShowMoreInfo] = useState(false)
 	const handleToggleMoreInfo = () => {
@@ -25,7 +26,10 @@ const Info = ({
 			<div className={cn.info}>
 				<div className={cn.info__top}>
 					<div className={cn.info__name}>{fullName}</div>
-					<StatusContainer userId={userId} />
+					<StatusContainer
+						isAuthUserProfile={isAuthUserProfile}
+						userId={userId}
+					/>
 				</div>
 				<InfoShort
 					aboutMe={aboutMe}

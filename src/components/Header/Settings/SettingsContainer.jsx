@@ -24,7 +24,6 @@ const SettingsContainer = () => {
 	}
 
 	const handleLogout = () => {
-		console.log('logout')
 		dispatch(logout())
 	}
 

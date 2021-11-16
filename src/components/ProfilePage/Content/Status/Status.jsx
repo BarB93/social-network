@@ -4,8 +4,11 @@ import UpdateStatusContainer from '../UpdateStatus/UpdateStatusContainer'
 import cn from './Status.module.scss'
 
 const Status = React.forwardRef(
-	({ status, isConditional, openUpdateStatus, closeOtherElements }, ref) => {
-		const interactClass = isConditional ? cn.interact : ''
+	(
+		{ status, isAuthUserProfile, openUpdateStatus, closeOtherElements },
+		ref,
+	) => {
+		const interactClass = isAuthUserProfile ? cn.interact : ''
 		const handleClick = (e) => {
 			e.stopPropagation()
 			closeOtherElements()
@@ -13,7 +16,7 @@ const Status = React.forwardRef(
 
 		return (
 			<div>
-				{isConditional ? (
+				{isAuthUserProfile ? (
 					<div ref={ref} onClick={handleClick}>
 						<div
 							onClick={openUpdateStatus}
@@ -25,10 +28,7 @@ const Status = React.forwardRef(
 								<span className={cn.status__empty}>Укажите статус</span>
 							)}
 						</div>
-						<UpdateStatusContainer
-							status={status}
-							isConditional={isConditional}
-						/>
+						<UpdateStatusContainer status={status} />
 					</div>
 				) : (
 					<div className={`${cn.status}`}>{status}</div>

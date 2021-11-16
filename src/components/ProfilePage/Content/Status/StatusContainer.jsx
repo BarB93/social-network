@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 
 import Status from './Status'
 
@@ -11,19 +11,14 @@ import { profileService } from '../../../../api/services/profileService'
 import { closeMenu } from '../../../../redux/slices/headerSlice'
 import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
 
-const StatusContainer = ({ userId }) => {
+const StatusContainer = ({ userId, isAuthUserProfile }) => {
 	const dispatch = useDispatch()
 	const {
 		data: status,
 		isError,
 		isFetching,
 	} = profileService.useFetchStatusQuery(userId)
-	const { userId: authUserId } = useSelector((state) => state.auth)
-	const { userId: currentUserId } = useSelector(
-		(state) => state.profile.profile,
-	)
 
-	const isConditional = currentUserId === authUserId
 	const statusRef = useRef()
 	const closeChangeStatus = () => {
 		dispatch(closeUpdateStatus())
@@ -32,7 +27,7 @@ const StatusContainer = ({ userId }) => {
 	const closeOtherElements = () => {
 		dispatch(closeMenu())
 	}
-	if (isConditional)
+	if (isAuthUserProfile)
 		openChangeStatus = () => {
 			dispatch(openUpdateStatus())
 		}
@@ -60,11 +55,11 @@ const StatusContainer = ({ userId }) => {
 					<CircleLoader size='15px' />
 				</div>
 			)}
-			{status && !isFetching && (
+			{!isFetching && (
 				<Status
 					ref={statusRef}
 					status={status}
-					isConditional={isConditional}
+					isAuthUserProfile={isAuthUserProfile}
 					openUpdateStatus={openChangeStatus}
 					closeOtherElements={closeOtherElements}
 				/>

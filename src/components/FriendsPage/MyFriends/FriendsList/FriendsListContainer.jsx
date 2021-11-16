@@ -18,7 +18,6 @@ const FriendsListContainer = () => {
 	const pageRef = useRef(currentPage)
 
 	useObserver(lastElement, totalPages >= pageRef.current, isLoading, () => {
-		console.log('inCallback')
 		dispatch(
 			fetchAllFriends({ friend: true, count: limit, page: pageRef.current }),
 		)
