@@ -43,7 +43,6 @@ export const profileSlice = createSlice({
 			state.isLoading = false
 			state.error = action.payload
 		},
-		//FETCH STATUS ##############################
 	},
 })
 

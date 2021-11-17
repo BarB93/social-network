@@ -9,7 +9,7 @@ import {
 	headerReducer,
 	friendReducer,
 } from './slices'
-import { userAPI } from '../api/services/userService'
+import { userService } from '../api/services/userService'
 import { profileService } from '../api/services/profileService'
 
 const rootReducer = {
@@ -21,7 +21,7 @@ const rootReducer = {
 	user: userReducer,
 	friend: friendReducer,
 	auth: authReducer,
-	[userAPI.reducerPath]: userAPI.reducer,
+	[userService.reducerPath]: userService.reducer,
 	[profileService.reducerPath]: profileService.reducer,
 }
 
@@ -29,7 +29,7 @@ const store = configureStore({
 	reducer: rootReducer,
 	middleware: (getDefaultMiddleware) =>
 		getDefaultMiddleware()
-			.concat(userAPI.middleware)
+			.concat(userService.middleware)
 			.concat(profileService.middleware),
 })
 

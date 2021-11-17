@@ -2,11 +2,11 @@ import React from 'react'
 
 import TopBlock from './TopBlock/TopBlock'
 
-const Side = ({ photos }) => {
+const Side = ({ photos, isAuthUserProfile }) => {
 	return (
-		<>
-			<TopBlock photos={photos} />
-		</>
+		<div>
+			<TopBlock photos={photos} isAuthUserProfile={isAuthUserProfile} />
+		</div>
 	)
 }
 
