@@ -28,7 +28,6 @@ const LoginForm = () => {
 		captcha: Yup.boolean(),
 	})
 	const onSubmit = (values) => {
-		console.log('SUbSUbb')
 		const loginData = {
 			email: values.email,
 			password: values.password,

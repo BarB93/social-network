@@ -1,0 +1,14 @@
+@import "../../../../styles/variables";
+
+.status {
+  margin: 5px 0 0 0;
+  color: #000;
+
+  &__empty {
+    color: $gray-400;
+  }
+}
+
+.interact {
+  cursor: pointer;
+}

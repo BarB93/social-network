@@ -11,12 +11,15 @@ const ProfileContainer = () => {
 	const authUserId = useSelector((state) => state.auth.userId)
 	const { userId: currentUserId } = useParams()
 	const userId = currentUserId ? currentUserId : authUserId
+	const isAuthUserProfile = authUserId === userId
 
 	useEffect(() => {
-		dispatch(fetchProfile(userId))
+		if (userId) {
+			dispatch(fetchProfile(userId))
+		}
 	}, [userId])
 
-	return <Profile {...profileData} />
+	return <Profile {...profileData} isAuthUserProfile={isAuthUserProfile} />
 }
 
 export default ProfileContainer

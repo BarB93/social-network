@@ -25,7 +25,6 @@ export const profileSlice = createSlice({
 			state.isOpenUpdateStatus = true
 		},
 		closeUpdateStatus: (state) => {
-			console.log('CLose update')
 			state.isOpenUpdateStatus = false
 		},
 	},
@@ -44,7 +43,6 @@ export const profileSlice = createSlice({
 			state.isLoading = false
 			state.error = action.payload
 		},
-		//FETCH STATUS ##############################
 	},
 })
 

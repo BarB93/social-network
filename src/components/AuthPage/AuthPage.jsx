@@ -1,6 +1,6 @@
 import React from 'react'
-import LoginForm from './LoginForm2/LoginForm'
 import Container from '../UI/Container/Container'
+import LoginFormContainer from './LoginForm2/LoginFormContainer'
 
 import cn from './AuthPage.module.scss'
 
@@ -8,7 +8,7 @@ const AuthPage = () => {
 	return (
 		<div className={cn.auth}>
 			<Container>
-				<LoginForm />
+				<LoginFormContainer />
 			</Container>
 		</div>
 	)
