@@ -41,6 +41,7 @@ const Info = ({
 					contacts={contacts}
 					lookingForAJob={lookingForAJob}
 					lookingForAJobDescription={lookingForAJobDescription}
+					isAuthUserProfile={isAuthUserProfile}
 				/>
 			</div>
 		</Box>

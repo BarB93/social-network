@@ -9,6 +9,7 @@ const Info = ({
 	lookingForAJobDescription,
 	lookingForAJob,
 	contacts,
+	isAuthUserProfile,
 }) => {
 	const style = {
 		display: isShowInfo ? 'block' : 'none',
@@ -22,12 +23,15 @@ const Info = ({
 		<div style={style} className={cn.full_info}>
 			<div className={cn.full_info__item}>
 				<div className={cn.full_info__block}>
-					<InfoHeader title='Поиск работы' />
+					<InfoHeader
+						title='Поиск работы'
+						isAuthUserProfile={isAuthUserProfile}
+					/>
 					<InfoRow title='Ищу работу:' body={lookingForAJob ? 'Да' : 'Нет'} />
 					<InfoRow title='Описание:' body={lookingForAJobDescription} />
 				</div>
 				<div className={cn.full_info__block}>
-					<InfoHeader title='Контакты' />
+					<InfoHeader title='Контакты' isAuthUserProfile={isAuthUserProfile} />
 					{contactsList}
 				</div>
 			</div>

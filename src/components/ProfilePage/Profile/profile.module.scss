@@ -5,17 +5,12 @@
   grid-template-columns: 2fr 10fr;
   grid-column-gap: 10px;
 
-
-  background: #000;
-
   &__side {
     grid-area: s;
-    background: yellow;
   }
 
   &__content {
     gird-area: c;
-    background: pink;
   }
 }
 
