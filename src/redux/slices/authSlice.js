@@ -2,7 +2,7 @@ import { createSlice } from '@reduxjs/toolkit'
 import { authMe, login, logout } from '../actions/authAction'
 
 const initialState = {
-	initialApp: false,
+	isInitialApp: false,
 	userId: null,
 	email: null,
 	login: null,
@@ -47,9 +47,8 @@ export const authSlice = createSlice({
 		},
 		[authMe.fulfilled.type]: (state, action) => {
 			state.isLoading = false
-			state.isInit = true
+			state.isInitialApp = true
 			if (!action.payload.resultCode) {
-				state.initialApp = true
 				state.isAuth = true
 				state.userId = action.payload.data.id
 				state.email = action.payload.data.email

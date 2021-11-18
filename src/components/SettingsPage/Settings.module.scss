@@ -1,0 +1,76 @@
+@import "../../styles/variables";
+
+.settings {
+    display: grid;
+    grid-template-columns: 550px 1fr;
+    grid-template-rows: minmax(100px, auto);
+    grid-column-gap: 10px;
+    align-items: start;
+}
+
+
+.form {
+    &__header {
+        padding: 15px 20px;
+        font-size: 18px;
+        color: #000;
+        font-weight: 300;
+        border-bottom: 1px solid $separator-common;
+    }
+
+    &__subheader {
+        font-size: 1.2rem;
+        margin: 0 0 15px 0;
+    }
+
+    &__block {
+        padding: 20px 0;
+        margin: 0 20px;
+
+        & + & {
+            border-top: 1px solid $separator-common;
+        }
+    }
+
+    &__row {
+        display: grid;
+        grid-template-columns: 3fr 9fr;
+        align-items: center;
+        padding: 0 0 0 5px;
+
+        & + & {
+            margin: 20px 0 0 0;
+        }
+
+        &.alignStart {
+            align-items: start;
+        }
+
+    }
+
+    &__title {
+        color: $text-color-subhead;
+        font-size: 1rem;
+    }
+
+    &__button {
+        margin: 15px 20px;
+    }
+
+    &__radioGroup {
+        display: flex;
+    }
+
+    &__radioLabel {
+        display: flex;
+        align-items: center;
+
+        & + & {
+            margin: 0 0 0 20px;
+        }
+    }
+    &__radioValue {
+        display: inline-block;
+        margin: 0 5px;
+    }
+}

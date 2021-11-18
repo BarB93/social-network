@@ -2,9 +2,11 @@ import { createSlice } from '@reduxjs/toolkit'
 import { fetchProfile } from '../actions/profileAction'
 
 const initialState = {
+	isInitial: false,
 	isLoading: false,
 	error: '',
 	profile: null,
+	myProfile: null,
 	isOpenUpdateStatus: false,
 	posts: [
 		'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eveniet, quaerat!',
@@ -38,6 +40,10 @@ export const profileSlice = createSlice({
 			state.isLoading = false
 			state.error = ''
 			state.profile = action.payload
+			if (action.meta.arg['isAuthUserProfile']) {
+				state.isInitial = true
+				state.myProfile = action.payload
+			}
 		},
 		[fetchProfile.rejected]: (state, action) => {
 			state.isLoading = false

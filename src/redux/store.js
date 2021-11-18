@@ -5,7 +5,6 @@ import {
 	messageReducer,
 	profileReducer,
 	authReducer,
-	myProfileReducer,
 	headerReducer,
 	friendReducer,
 } from './slices'
@@ -15,7 +14,6 @@ import { profileService } from '../api/services/profileService'
 const rootReducer = {
 	header: headerReducer,
 	profile: profileReducer,
-	myProfile: myProfileReducer,
 	message: messageReducer,
 	dialog: dialogReducer,
 	user: userReducer,

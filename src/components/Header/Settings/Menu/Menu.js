@@ -44,10 +44,8 @@ const Menu = ({
 					<div className={cn.menu__userId}>Ваш id {profile.userId}</div>
 				</div>
 			</div>
-			<div className={cn.menu__hr}></div>
 			<ul className={cn.menu__list}>
 				<li className={cn.menu__item}>Настройки</li>
-				<div className={cn.menu__hr}></div>
 				<li className={cn.menu__item} onClick={logout}>
 					Выйти
 				</li>

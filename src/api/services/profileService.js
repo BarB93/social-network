@@ -29,5 +29,14 @@ export const profileService = createApi({
 			},
 			invalidatesTags: ['Status'],
 		}),
+		updateProfile: build.mutation({
+			query: (profile) => {
+				return {
+					url: '/',
+					method: 'PUT',
+					body: profile,
+				}
+			},
+		}),
 	}),
 })

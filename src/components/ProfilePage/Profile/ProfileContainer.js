@@ -15,7 +15,7 @@ const ProfileContainer = () => {
 
 	useEffect(() => {
 		if (userId) {
-			dispatch(fetchProfile(userId))
+			dispatch(fetchProfile({ id: userId, isAuthUserProfile }))
 		}
 	}, [userId])
 

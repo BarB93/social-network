@@ -8,7 +8,7 @@ import { logout } from '../../../redux/actions/authAction'
 
 const SettingsContainer = () => {
 	const dispatch = useDispatch()
-	const { myProfile } = useSelector((state) => state.myProfile)
+	const { myProfile } = useSelector((state) => state.profile)
 	const { isMenuOpen } = useSelector((state) => state.header)
 	const { isAuth } = useSelector((state) => state.auth)
 	const menuRef = useRef()

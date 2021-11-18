@@ -5,16 +5,23 @@ import Header from './components/Header/Header'
 import AppRouter from './components/Routers/AppRouter'
 
 import './styles/App.scss'
+import { fetchProfile } from './redux/actions/profileAction'
 
 function App() {
 	const dispatch = useDispatch()
-	const { isInit } = useSelector((state) => state.auth)
+	const { isInitialApp, isAuth, userId } = useSelector((state) => state.auth)
 
 	useEffect(() => {
 		dispatch(authMe())
-	}, [])
+	}, [isAuth])
 
-	if (!isInit) return null
+	useEffect(() => {
+		if (userId) {
+			dispatch(fetchProfile({ id: userId, isAuthUserProfile: true }))
+		}
+	}, userId)
+
+	if (!isInitialApp) return null
 	return (
 		<div className='app'>
 			<Header />

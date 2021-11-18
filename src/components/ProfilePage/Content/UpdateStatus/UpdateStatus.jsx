@@ -54,7 +54,9 @@ const UpdateStatus = ({
 				<Form className={cn.form}>
 					<div className={commonStyle.form__inputContainer}>
 						<Field
-							className={commonStyle.form__input}
+							component='textarea'
+							className={commonStyle.form__textarea}
+							maxLength='300'
 							placeholder='Введите статус'
 							name='status'
 							type='text'

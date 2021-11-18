@@ -7,6 +7,7 @@
   &__top {
     display: flex;
     padding: 10px 15px;
+    border-bottom: 1px solid$separator-common;
   }
 
   &__name {
@@ -36,13 +37,13 @@
     color: #000;
     cursor: pointer;
 
+    & + & {
+      border-top: 1px solid$separator-common;
+    }
+
     &:hover {
       background: $background-highlighted;
     }
   }
 
-  &__hr {
-    height: 1px;
-    background: $separator-common;
-  }
 }

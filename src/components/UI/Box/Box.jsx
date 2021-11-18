@@ -14,8 +14,8 @@ const Box = ({ children, ...props }) => {
 
 			height: ${(p) => (p.height ? p.height : 'auto')};
 			width: ${(p) => (p.width ? p.width : 'auto')};
-			max-width: ${(p) => (p.maxWidth ? p.maxWidth : 'auto')};
-			min-width: ${(p) => (p.minWidth ? p.minWidth : 'auto')};
+			max-width: ${(p) => (p.maxWidth ? p.maxWidth : 'none')};
+			min-width: ${(p) => (p.minWidth ? p.minWidth : 'none')};
 			margin: ${(p) => (p.margin ? p.margin : '0')};
 			padding: ${(p) => (p.padding ? p.padding : '15px')};
 			border-radius: ${styles.sizes.borderRadius};

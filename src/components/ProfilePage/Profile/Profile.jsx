@@ -22,12 +22,9 @@ const Profile = ({ profile, error, isLoading, isAuthUserProfile }) => {
 						<Content profile={profile} isAuthUserProfile={isAuthUserProfile} />
 					</div>
 				) : (
-					<MessageBlock
-						background='transparent'
-						className={commonStyles.emptyBlock}
-					>
+					<div className={commonStyles.emptyBlock}>
 						<CircleLoader />
-					</MessageBlock>
+					</div>
 				))}
 		</>
 	)

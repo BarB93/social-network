@@ -16,7 +16,7 @@ const Info = ({
 	userId,
 	isAuthUserProfile,
 }) => {
-	const [isShowMoreInfo, setShowMoreInfo] = useState(false)
+	const [isShowMoreInfo, setShowMoreInfo] = useState(true)
 	const handleToggleMoreInfo = () => {
 		setShowMoreInfo((prev) => !prev)
 	}

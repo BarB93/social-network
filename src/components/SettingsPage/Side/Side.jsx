@@ -1,4 +1,5 @@
 import React from 'react'
+
 import Box from '../../UI/Box/Box'
 import CustomLink from '../../UI/CustomLink/CustomLink'
 
@@ -9,8 +10,10 @@ const Side = () => {
 		<Box>
 			<nav className={cn.menu}>
 				<ul className={cn.menu__list}>
-					<CustomLink to='/friends'>Мои друзья</CustomLink>
-					<CustomLink to='/friends/search'>Поиск друзей</CustomLink>
+					<CustomLink to='/settings'>Все настройки</CustomLink>
+					<CustomLink to='main'>Обо мне</CustomLink>
+					<CustomLink to='work'>Работа</CustomLink>
+					<CustomLink to='contacts'>Контакты</CustomLink>
 				</ul>
 			</nav>
 		</Box>
