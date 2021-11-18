@@ -36,11 +36,11 @@ export const userSlice = createSlice({
 			state.isLoading = true
 		},
 		[fetchUsers.fulfilled.type]: (state, action) => {
-			if (!state.isInit) state.isInit = true
+			state.isInit = true
 			state.isLoading = false
 			state.totalPages = computeTotalItems(
 				action.payload.totalCount,
-				state.limit
+				state.limit,
 			)
 			state.users.push(...action.payload.items)
 			state.totalUsers = action.payload.totalCount
@@ -60,11 +60,11 @@ export const userSlice = createSlice({
 			state.subscribeError = ''
 			const userId = action.meta.arg
 			state.subscribingInProgress = state.subscribingInProgress.filter(
-				(id) => id !== userId
+				(id) => id !== userId,
 			)
 			if (!action.payload.resultCode) {
 				state.users = state.users.map((p) =>
-					p.id === userId ? { ...p, followed: true } : p
+					p.id === userId ? { ...p, followed: true } : p,
 				)
 			}
 		},
@@ -81,11 +81,11 @@ export const userSlice = createSlice({
 			state.subscribeError = ''
 			const userId = action.meta.arg
 			state.subscribingInProgress = state.subscribingInProgress.filter(
-				(id) => id !== userId
+				(id) => id !== userId,
 			)
 			if (!action.payload.resultCode) {
 				state.users = state.users.map((p) =>
-					p.id === userId ? { ...p, followed: false } : p
+					p.id === userId ? { ...p, followed: false } : p,
 				)
 			}
 		},

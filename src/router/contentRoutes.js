@@ -1,7 +1,6 @@
 import {
 	DialogsPage,
 	ProfilePage,
-	NewsPage,
 	FriendsPage,
 	MessagePage,
 	SettingsPage,
@@ -11,7 +10,6 @@ export const publicRoutes = [
 	{ path: '/dialogs', component: DialogsPage },
 	{ path: '/dialogs/:userId', component: MessagePage },
 	{ path: '/friends/*', component: FriendsPage },
-	{ path: '/news', component: NewsPage },
 	{ path: '/settings/*', component: SettingsPage },
 	{ path: '/profile', component: ProfilePage },
 	{ path: '/profile/:userId', component: ProfilePage },

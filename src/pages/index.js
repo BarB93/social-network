@@ -1,6 +1,5 @@
 export { default as DialogsPage } from './DialogsPage'
 export { default as ProfilePage } from './ProfilePage'
 export { default as SettingsPage } from './SettingsPage'
-export { default as NewsPage } from './NewsPage'
 export { default as FriendsPage } from './FriendsPage'
 export { default as MessagePage } from './MessagePage'
