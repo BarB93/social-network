@@ -19,7 +19,7 @@ function App() {
 		if (userId) {
 			dispatch(fetchProfile({ id: userId, isAuthUserProfile: true }))
 		}
-	}, userId)
+	}, [userId])
 
 	if (!isInitialApp) return null
 	return (

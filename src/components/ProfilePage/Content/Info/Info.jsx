@@ -22,7 +22,7 @@ const Info = ({
 	}
 
 	return (
-		<Box>
+		<Box margin='0 0 10px 0'>
 			<div className={cn.info}>
 				<div className={cn.info__top}>
 					<div className={cn.info__name}>{fullName}</div>

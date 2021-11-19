@@ -5,22 +5,22 @@ import Button from '../../../UI/Button/Button'
 import cn from './CreatePost.module.scss'
 
 const CreatePost = ({ addPost }) => {
-	const [post, setPost] = useState('')
+	const [postText, setPostText] = useState('')
 
-	const isActiveCreatePost = post.length > 0 ? cn.active : ''
-	const isDisabledButton = post.length < 1
+	const isActiveCreatePost = postText.length > 0 ? cn.active : ''
+	const isDisabledButton = postText.length < 1
 
 	const handleChangePost = (e) => {
-		setPost(e.target.value)
+		setPostText(e.target.value)
 	}
 
 	const handleAddPost = () => {
-		addPost(post)
-		setPost('')
+		addPost(postText)
+		setPostText('')
 	}
 
 	return (
-		<Box margin={'10px 0 0 0'}>
+		<Box margin={'10px 0'}>
 			<div className={isActiveCreatePost}>
 				<textarea
 					className={cn.createPost__textarea}
@@ -28,7 +28,7 @@ const CreatePost = ({ addPost }) => {
 					name='newPost'
 					id='newPost'
 					placeholder='Что у вас нового?'
-					value={post}
+					value={postText}
 					onChange={handleChangePost}
 				/>
 				<div className={cn.createPost__wrapperButton}>

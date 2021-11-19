@@ -1,0 +1,98 @@
+@import "../../../../../../styles/variables";
+
+.likeWrapper {
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+  color: $text-color-secondary;
+  font-weight: 700;
+  transition: color 200ms ease-in-out;
+
+  &.notLiked:hover {
+    opacity: .7;
+  }
+
+  &.liked .iconWrapper {
+    background: $red-liked;
+    animation: likeWrapper .7s ease-in-out;
+  }
+
+  .iconWrapper {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin: 0 5px 0 0;
+    border-radius: 50%;
+    cursor: pointer;
+
+  }
+
+  .IconLiked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #fff;
+    font-size: 1rem;
+
+    transform: translate(-50%, -50%);
+    animation: like 0.7s ease-in-out;
+  }
+
+  .IconNotLiked {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    color: #999;
+    font-size: 1.3rem;
+
+    transform: translate(-50%, -50%);
+    margin: 0 5px 0 0;
+  }
+
+  .likeButton {
+    margin: 0 10px 0 0;
+    background: transparent;
+    color: $text-color-secondary;
+    font-weight: 700;
+  }
+
+  &.liked > .likeButton {
+    color: $red-liked;
+  }
+}
+
+@keyframes like {
+  0% {
+    transform:translate(-50%, -50%)  scale(1);
+  }
+  50% {
+    transform:translate(-50%, -50%)  scale(.5);
+  }
+  80%{
+    transform:translate(-50%, -50%)  scale(1.2);
+  }
+  90% {
+    transform:translate(-50%, -50%)  scale(.7)
+  }
+  90% {
+    transform:translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    transform:translate(-50%, -50%) scale(1);
+  }
+}
+
+@keyframes likeWrapper {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(.8);
+  }
+  80%{
+    transform: scale(1.2);
+  }
+  100% {
+    transform: scale(1);
+  }
+}

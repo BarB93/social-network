@@ -2,11 +2,13 @@ import React from 'react'
 import Box from '../../../UI/Box/Box'
 
 import cn from './Menu.module.scss'
+import { Link } from 'react-router-dom'
 
 const Menu = ({
 	profile,
 	imageURL,
 	isMenuOpen,
+	toggleMenu,
 	logout,
 	closeOtherElements,
 }) => {
@@ -45,7 +47,11 @@ const Menu = ({
 				</div>
 			</div>
 			<ul className={cn.menu__list}>
-				<li className={cn.menu__item}>Настройки</li>
+				<Link to='/settings'>
+					<li className={cn.menu__item} onClick={toggleMenu}>
+						Настройки
+					</li>
+				</Link>
 				<li className={cn.menu__item} onClick={logout}>
 					Выйти
 				</li>

@@ -1,5 +1,5 @@
 import React from 'react'
-import PostItem from './PostItem'
+import PostItemContainer from './PostItem/PostItemContainer'
 
 import cn from './post.module.scss'
 
@@ -7,7 +7,7 @@ const PostList = ({ posts }) => {
 	const postItems = posts
 		.slice()
 		.reverse()
-		.map((p, index) => <PostItem key={index} post={p} />)
+		.map((p, index) => <PostItemContainer key={index} post={p} />)
 
 	return <div cn={cn.post_list}>{postItems}</div>
 }

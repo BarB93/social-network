@@ -1,0 +1,25 @@
+@import "../../../../../../styles/variables";
+
+.likes {
+  display: flex;
+  align-items: center;
+}
+
+.iconWrapper {
+  position: relative;
+  width: 18px;
+  height: 18px;
+  margin: 0 5px 0 0;
+  border-radius: 50%;
+  background: $chili;
+}
+
+.likesCount__icon {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  color: #fff;
+  font-size: .8rem;
+
+  transform: translate(-50%, -50%);
+}

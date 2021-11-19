@@ -26,6 +26,7 @@ const Settings = React.forwardRef(
 					profile={profile}
 					imageURL={imageURL}
 					isMenuOpen={isMenuOpen}
+					toggleMenu={toggleMenu}
 					closeOtherElements={closeOtherElements}
 				/>
 			</div>

@@ -22,6 +22,7 @@ export const styles = {
 		steelGray: '#FAFBFC',
 		blue400: '#5181B8',
 		blue600: '#2A5885',
+		redLiked: '#ff3347',
 		accent: '#5181B8',
 		iconTertiary: '#AEB7C2',
 		pageBlockShadow: `0 1px 0 0 #DCE1E6,

@@ -8,8 +8,9 @@ const DialogsItem = ({ id, name }) => {
 		<li>
 			<NavLink
 				to={`/dialogs/${id}`}
-				className={cn.dialog__item}
-				activeClassName={cn.active}
+				className={({ isActive }) =>
+					[cn.dialog__item, isActive ? cn.active : ''].filter(Boolean).join(' ')
+				}
 			>
 				<img
 					className={cn.dialog__avatar}
