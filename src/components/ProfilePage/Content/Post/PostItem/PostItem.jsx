@@ -3,6 +3,7 @@ import Box from '../../../../UI/Box/Box'
 import PostItemFooter from './PostItemFooter/PostItemFooter'
 
 import cn from '../post.module.scss'
+import Avatar from '../../../../UI/Avatar/Avatar'
 
 const PostItem = ({ post, profile, imageURL }) => {
 	const date = new Date(post.date)
@@ -11,6 +12,7 @@ const PostItem = ({ post, profile, imageURL }) => {
 		d.setDate(d.getDate() - 1)
 		return d
 	})(new Date())
+
 	const options = {
 		day: 'numeric',
 		month: 'long',
@@ -30,9 +32,7 @@ const PostItem = ({ post, profile, imageURL }) => {
 		<Box className={cn.post}>
 			<article>
 				<div className={cn.post__header}>
-					<div className={cn.post__avatar}>
-						<img src={imageURL} alt='avatar' />
-					</div>
+					<Avatar photo={profile.photos?.small} margin='0 10px 0 0' />
 					<div>
 						<div className={cn.post__name}>{profile.fullName}</div>
 						<div className={cn.post__date}>{postDate}</div>

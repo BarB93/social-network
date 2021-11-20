@@ -18,20 +18,8 @@
     font-weight: 700;
   }
 
-  &__img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
-    overflow: hidden;
-    margin: 0 10px 0 0;
-
-    img {
-      display: block;
-      width: 100%;
-    }
-  }
-
   &__icon {
+    margin: 0 0 0 10px;
     font-size: 1.1rem;
     color: $icon-tertiary;
   }

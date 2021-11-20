@@ -109,3 +109,11 @@
     margin: 0 10px;
   }
 }
+
+.refetch {
+  cursor: pointer;
+  transition: color 200ms linear;
+  &:hover {
+    color: $text-link;
+  }
+}

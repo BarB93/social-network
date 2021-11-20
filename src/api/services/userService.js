@@ -13,7 +13,7 @@ export const userService = createApi({
 	}),
 	tagTypes: ['User', 'Subscription'],
 	endpoints: (build) => ({
-		fetchAllUsers: build.query({
+		fetchUsers: build.query({
 			query: (limit = 15, friend = false) => ({
 				url: '/users',
 				params: {

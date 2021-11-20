@@ -4,6 +4,7 @@ import { FaAngleDown } from 'react-icons/fa'
 import Menu from './Menu/Menu'
 
 import cn from './Settings.module.scss'
+import Avatar from '../../UI/Avatar/Avatar'
 
 const Settings = React.forwardRef(
 	({ profile, isMenuOpen, toggleMenu, logout, closeOtherElements }, ref) => {
@@ -17,9 +18,7 @@ const Settings = React.forwardRef(
 				onClick={toggleMenu}
 			>
 				<div className={cn.menu__name}>{profile.fullName}</div>
-				<div className={cn.menu__img}>
-					<img src={imageURL} alt='avatar' />
-				</div>
+				<Avatar photo={profile?.photos.small} />
 				<FaAngleDown className={cn.menu__icon} />
 				<Menu
 					logout={logout}
