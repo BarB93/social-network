@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
-import { fetchProfile } from '../actions/profileAction'
+import { fetchProfile, updatePhoto } from '../actions/profileAction'
 
 const initialState = {
 	isInitial: false,
@@ -34,6 +34,9 @@ const initialState = {
 			usersIdLiked: [5454, 654, 645, 756, 7456, 756, 765, 545, 6532, 5344],
 		},
 	],
+
+	isUpdatePhotoError: '',
+	isUpdatePhotoLoading: false,
 }
 
 export const profileSlice = createSlice({
@@ -82,6 +85,27 @@ export const profileSlice = createSlice({
 		[fetchProfile.rejected]: (state, action) => {
 			state.isLoading = false
 			state.error = action.payload
+		},
+
+		//UPDATE PHOTO ##############################
+		[updatePhoto.pending.type]: (state) => {
+			state.isUpdatePhotoError = ''
+			state.isUpdatePhotoLoading = true
+		},
+		[updatePhoto.fulfilled.type]: (state, action) => {
+			state.isUpdatePhotoError = ''
+			state.isUpdatePhotoLoading = false
+
+			if (action.payload.resultCode === 0) {
+				state.myProfile.photos.small = action.payload.data.photos.small
+				state.myProfile.photos.large = action.payload.data.photos.large
+				state.profile.photos.small = action.payload.data.photos.small
+				state.profile.photos.large = action.payload.data.photos.large
+			}
+		},
+		[updatePhoto.rejected.type]: (state, action) => {
+			state.isUpdatePhotoError = action.payload
+			state.isUpdatePhotoLoading = false
 		},
 	},
 })

@@ -1,6 +1,6 @@
 import React from 'react'
 import Container from '../UI/Container/Container'
-import LoginFormContainer from './LoginForm2/LoginFormContainer'
+import LoginFormContainer from './LoginForm/LoginFormContainer'
 
 import cn from './AuthPage.module.scss'
 

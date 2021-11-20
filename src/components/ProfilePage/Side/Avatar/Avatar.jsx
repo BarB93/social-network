@@ -1,17 +1,17 @@
 import React from 'react'
 
-import noAvatar from '../../../../assets/images/no_avatar.png'
-
+import UpdateAvatarContainer from './UpdateAvatar/UpdateAvatarContainer'
 import cn from './Avatar.module.scss'
+import AvatarLoader from './AvatarLoader/AvatarLoader'
 
-const Avatar = ({ photos }) => {
-	const imageURL = photos.large ? photos.large : noAvatar
-
+const Avatar = ({ imageURL, isUpdatePhotoLoading }) => {
 	return (
 		<div className={cn.avatar}>
 			<div className={cn.avatar__image}>
 				<img src={imageURL} alt='avatar' />
 			</div>
+			{!isUpdatePhotoLoading && <UpdateAvatarContainer />}
+			{isUpdatePhotoLoading && <AvatarLoader />}
 		</div>
 	)
 }

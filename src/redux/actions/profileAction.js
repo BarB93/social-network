@@ -11,3 +11,14 @@ export const fetchProfile = createAsyncThunk(
 		}
 	},
 )
+
+export const updatePhoto = createAsyncThunk(
+	'profile/UpdatePhoto',
+	async ({ photoFile }, thunkAPI) => {
+		try {
+			return await profileAPI.updatePhoto(photoFile)
+		} catch (e) {
+			return thunkAPI.rejectWithValue('Произошла ошибка при обновлении фото')
+		}
+	},
+)

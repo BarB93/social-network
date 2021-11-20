@@ -15,10 +15,7 @@ const Profile = ({ profile, error, isLoading, isAuthUserProfile }) => {
 			{!error &&
 				(profile && !isLoading ? (
 					<div className={cn.profile}>
-						<Side
-							photos={profile.photos}
-							isAuthUserProfile={isAuthUserProfile}
-						/>
+						<Side isAuthUserProfile={isAuthUserProfile} />
 						<Content profile={profile} isAuthUserProfile={isAuthUserProfile} />
 					</div>
 				) : (
