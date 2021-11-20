@@ -17,7 +17,7 @@ function App() {
 
 	useEffect(() => {
 		if (userId) {
-			dispatch(fetchProfile({ id: userId, isAuthUserProfile: true }))
+			dispatch(fetchProfile({ id: userId, initial: true }))
 		}
 	}, [userId])
 

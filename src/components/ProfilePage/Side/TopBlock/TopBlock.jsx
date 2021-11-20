@@ -10,7 +10,7 @@ const TopBlock = ({ isAuthUserProfile }) => {
 	return (
 		<Box height='fit-content' margin='0 0 10px 0'>
 			<div>
-				<AvatarContainer />
+				<AvatarContainer isAuthUserProfile={isAuthUserProfile} />
 				{isAuthUserProfile ? (
 					<Link to='/settings'>
 						<Button secondary>Редактировать</Button>

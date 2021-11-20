@@ -4,7 +4,7 @@ import Avatar from './Avatar'
 import noAvatar from '../../../../assets/images/no_avatar.png'
 import { useSelector } from 'react-redux'
 
-const AvatarContainer = () => {
+const AvatarContainer = ({ isAuthUserProfile }) => {
 	const {
 		profile: { photos },
 		isUpdatePhotoLoading,
@@ -12,7 +12,11 @@ const AvatarContainer = () => {
 	const imageURL = photos.large ? photos.large : noAvatar
 
 	return (
-		<Avatar imageURL={imageURL} isUpdatePhotoLoading={isUpdatePhotoLoading} />
+		<Avatar
+			imageURL={imageURL}
+			isUpdatePhotoLoading={isUpdatePhotoLoading}
+			isAuthUserProfile={isAuthUserProfile}
+		/>
 	)
 }
 

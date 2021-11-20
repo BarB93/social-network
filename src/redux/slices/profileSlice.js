@@ -76,10 +76,14 @@ export const profileSlice = createSlice({
 		[fetchProfile.fulfilled]: (state, action) => {
 			state.isLoading = false
 			state.error = ''
-			state.profile = action.payload
-			if (action.meta.arg['isAuthUserProfile']) {
-				state.isInitial = true
+			state.isInitial = true
+			if (action.meta.arg['initial']) {
 				state.myProfile = action.payload
+			} else if (action.meta.arg['isAuthUserProfile']) {
+				state.myProfile = action.payload
+				state.profile = action.payload
+			} else {
+				state.profile = action.payload
 			}
 		},
 		[fetchProfile.rejected]: (state, action) => {
