@@ -14,13 +14,15 @@ export const userService = createApi({
 	tagTypes: ['User', 'Subscription'],
 	endpoints: (build) => ({
 		fetchUsers: build.query({
-			query: (limit = 15, friend = false) => ({
-				url: '/users',
-				params: {
-					count: limit,
-					friend,
-				},
-			}),
+			query: ({ limit, friend } = { limit: 15, friend: false }) => {
+				return {
+					url: '/users',
+					params: {
+						count: limit,
+						friend,
+					},
+				}
+			},
 		}),
 		fetchCheckSubscription: build.query({
 			query: (userId) => ({

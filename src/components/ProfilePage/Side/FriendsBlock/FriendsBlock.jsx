@@ -1,38 +1,27 @@
 import React from 'react'
 
-import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
-import { userService } from '../../../../api/services/userService'
-import { FaUndo } from 'react-icons/fa'
+import FriendsItem from './FriensItem/FriendsItem'
+import Box from '../../../UI/Box/Box'
+import HeaderBlock from './HeaderBlock/HeaderBlock'
 
-import commonStyle from '../../../../styles/commonStyles.module.scss'
+import cn from './FriendsBlock.module.scss'
 
-const FriendsBlock = () => {
-	const {
-		data: frends,
-		isFetching,
-		isError,
-		refetch,
-	} = userService.useFetchUsersQuery(6, true)
+const FriendsBlock = ({ friends, friendsCount }) => {
+	const friendsList = friends.map((f) => (
+		<FriendsItem
+			key={f.id}
+			photo={f.photos?.small}
+			name={f.name}
+			userId={f.id}
+		/>
+	))
 
-	if (isError)
-		return (
-			<div className={commonStyle.emptyBlock}>
-				<div className={commonStyle.emptyBlock__title}>
-					Произошла ошибка при загрузке друзей
-				</div>
-				<div className={commonStyle.refetch} onClick={refetch}>
-					<FaUndo />
-				</div>
-			</div>
-		)
-	if (isFetching)
-		return (
-			<div className={commonStyle.emptyBlock}>
-				<CircleLoader />
-			</div>
-		)
-	if (frends === undefined) return null
-	return <div>{JSON.stringify(frends)}</div>
+	return (
+		<Box>
+			<HeaderBlock friendsCount={friendsCount} />
+			<div className={cn.friendsList}>{friendsList}</div>
+		</Box>
+	)
 }
 
 export default FriendsBlock

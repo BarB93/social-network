@@ -10,7 +10,7 @@ import SubscriptionButtonContainer from '../SubscriptionButton/SubscriptionButto
 
 const TopBlock = ({ photos, isAuthUserProfile }) => {
 	return (
-		<Box height='fit-content'>
+		<Box height='fit-content' margin='0 0 10px 0'>
 			<div>
 				<Avatar photos={photos} />
 				{isAuthUserProfile ? (

@@ -51,6 +51,7 @@ const LoginForm = ({
 									placeholder='Пароль'
 									id='password'
 									type='password'
+									autoComplete='on'
 									{...formik.getFieldProps('password')}
 								/>
 							</div>
