@@ -29,6 +29,7 @@ const UpdateStatus = ({
 		transition:
 			'opacity 200ms linear, transform 200ms linear, visibility 200ms linear',
 		active: isOpen,
+		zIndex: 10,
 	}
 
 	useEffect(() => {
@@ -37,7 +38,7 @@ const UpdateStatus = ({
 
 	useEffect(() => {
 		if (isSuccess && !isLoading) closeUpdateStatus()
-	}, [isSuccess, isSuccess])
+	}, [isSuccess, isLoading])
 
 	return (
 		<Box {...styleBox}>

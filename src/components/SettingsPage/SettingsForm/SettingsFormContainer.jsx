@@ -1,10 +1,14 @@
 import React from 'react'
 
+import * as Yup from 'yup'
 import { useSelector } from 'react-redux'
 import SettingsForm from './SettingsForm'
 import { profileService } from '../../../api/services/profileService'
 
 const SettingsFormContainer = () => {
+	const [updateProfile, { isLoading: isUpdatingProfile }] =
+		profileService.useUpdateProfileMutation()
+
 	const {
 		fullName,
 		aboutMe,
@@ -23,9 +27,6 @@ const SettingsFormContainer = () => {
 		},
 	} = useSelector((state) => state.profile.myProfile)
 
-	const [updateProfile, { isLoading: isUpdatingProfile }] =
-		profileService.useUpdateProfileMutation()
-
 	const initialValues = {
 		userId,
 		fullName,
@@ -41,6 +42,51 @@ const SettingsFormContainer = () => {
 		youtube,
 		mainLink,
 	}
+
+	const regExpURL =
+		/^((https?):\/\/)?(www.)?[a-z0-9-]+(\.[a-z]{2,}){1,3}(#?\/?[a-zA-Z0-9#-]+)*\/?(\?[a-zA-Z0-9-_]+=[a-zA-Z0-9-%]+&?)?$/i
+	const validationSchema = Yup.object({
+		github: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		vk: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		facebook: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		instagram: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		twitter: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		website: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		youtube: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+		mainLink: Yup.lazy((value) =>
+			!value
+				? Yup.string()
+				: Yup.string().matches(regExpURL, 'Некорректная ссылка'),
+		),
+	})
 
 	const handleOnSubmit = ({
 		userId,
@@ -79,6 +125,7 @@ const SettingsFormContainer = () => {
 
 	return (
 		<SettingsForm
+			validationSchema={validationSchema}
 			initialValues={initialValues}
 			handleOnSubmit={handleOnSubmit}
 			isUpdatingProfile={isUpdatingProfile}

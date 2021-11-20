@@ -28,6 +28,7 @@ const StyledBox = styled.div`
 	opacity: ${(p) => (p.opacity ? p.opacity : '1')};
 	visibility: ${(p) => (p.visibility ? p.visibility : 'visible')};
 	transition: ${(p) => (p.transition ? p.transition : 'none')};
+	z-index: ${(p) => (p.zIndex ? p.zIndex : 'auto')};
 
 	${(props) =>
 		props.active &&

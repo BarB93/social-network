@@ -39,11 +39,17 @@ const Menu = ({
 		<Box {...styleBox} className={`${cn.menu} ${active}`} onClick={handleClick}>
 			<div className={cn.menu__top}>
 				<div className={cn.menu__img}>
-					<img src={imageURL} alt='avatar' />
+					<Link to='/profile'>
+						<img src={imageURL} alt='avatar' />
+					</Link>
 				</div>
 				<div className={cn.menu__title}>
-					<div className={cn.menu__name}>{profile.fullName}</div>
-					<div className={cn.menu__userId}>Ваш id {profile.userId}</div>
+					<Link to='/profile'>
+						<div className={cn.menu__name}>{profile.fullName}</div>
+					</Link>
+					<Link to='/profile'>
+						<div className={cn.menu__userId}>Ваш id {profile.userId}</div>
+					</Link>
 				</div>
 			</div>
 			<ul className={cn.menu__list}>

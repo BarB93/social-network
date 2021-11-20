@@ -7,11 +7,16 @@ import AllBlocks from './AllBlocks.jsx/AllBlocks'
 import WorkBlock from './WorkBlock/WorkBlock'
 import ContactsBlock from './ContactsBlock/ContactsBlock'
 import MainBlock from './MainBlock/MainBlock'
-
-import cn from '../Settings.module.scss'
 import ItemsLoader from '../../UI/Loader/ItemsLoader/ItemsLoader'
 
-const SettingsForm = ({ initialValues, handleOnSubmit, isUpdatingProfile }) => {
+import cn from '../Settings.module.scss'
+
+const SettingsForm = ({
+	initialValues,
+	handleOnSubmit,
+	isUpdatingProfile,
+	validationSchema,
+}) => {
 	const [lookingForAJob, setLookingForAJob] = useState(
 		initialValues.lookingForAJob,
 	)
@@ -32,7 +37,11 @@ const SettingsForm = ({ initialValues, handleOnSubmit, isUpdatingProfile }) => {
 
 	return (
 		<>
-			<Formik initialValues={initialValues} onSubmit={handleOnSubmit}>
+			<Formik
+				initialValues={initialValues}
+				onSubmit={handleOnSubmit}
+				validationSchema={validationSchema}
+			>
 				{(formik) => {
 					return (
 						<form onSubmit={formik.handleSubmit} className={cn.form}>
@@ -56,13 +65,16 @@ const SettingsForm = ({ initialValues, handleOnSubmit, isUpdatingProfile }) => {
 										/>
 									}
 								/>
-								<Route path='/contacts' element={<ContactsBlock header />} />
+								<Route
+									path='/contacts'
+									element={<ContactsBlock header formik={formik} />}
+								/>
 							</Routes>
 
 							<div className={cn.form__button}>
 								<Button
 									minWidth='100px'
-									disabled={isUpdatingProfile}
+									disabled={isUpdatingProfile || !formik.isValid}
 									type='submit'
 									w='fit-content'
 									p='6px 20px 7px'

@@ -6,7 +6,7 @@ import ContactsBlock from '../ContactsBlock/ContactsBlock'
 
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
-const AllBlocks = ({ lookingForAJobSettings }) => {
+const AllBlocks = ({ lookingForAJobSettings, formik }) => {
 	return (
 		<>
 			<div className={commonStyle.title}>
@@ -15,7 +15,7 @@ const AllBlocks = ({ lookingForAJobSettings }) => {
 			<div>
 				<MainBlock title />
 				<WorkBlock title lookingForAJobSettings={lookingForAJobSettings} />
-				<ContactsBlock title />
+				<ContactsBlock title formik={formik} />
 			</div>
 		</>
 	)
