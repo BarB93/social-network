@@ -4,8 +4,6 @@ import { Field } from 'formik'
 import cn from '../../Settings.module.scss'
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
-// import cn from './ContactField.module.scss'
-
 const ContactField = ({ formik, name, type = 'text' }) => {
 	return (
 		<>

@@ -13,7 +13,7 @@ const AllBlocks = ({ lookingForAJobSettings, formik }) => {
 				<h4 className={commonStyle.title__header}>Все настройки</h4>
 			</div>
 			<div>
-				<MainBlock title />
+				<MainBlock title formik={formik} />
 				<WorkBlock title lookingForAJobSettings={lookingForAJobSettings} />
 				<ContactsBlock title formik={formik} />
 			</div>

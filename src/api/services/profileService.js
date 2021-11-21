@@ -13,6 +13,11 @@ export const profileService = createApi({
 	}),
 	tagTypes: ['Status'],
 	endpoints: (build) => ({
+		fetchProfile: build.query({
+			query: (id) => ({
+				url: `/${id}`,
+			}),
+		}),
 		fetchStatus: build.query({
 			query: (id) => ({
 				url: `/status/${id}`,

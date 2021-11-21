@@ -1,13 +1,29 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v1 as uuidv1 } from 'uuid'
 
-import { addPost } from '../../../../redux/slices/profileSlice'
+import {
+	addPost,
+	openCreatePost,
+	closeCreatePost,
+} from '../../../../redux/slices/profileSlice'
 import CreatePost from './CreatePost'
 
 const CreatePostContainer = () => {
+	const createPostRef = useRef()
 	const dispatch = useDispatch()
-	const { userId } = useSelector((state) => state.profile.profile)
+	const {
+		profile: { userId },
+		isOpenCreatePost,
+	} = useSelector((state) => state.profile)
+
+	const handleOpenCreatePost = () => {
+		dispatch(openCreatePost())
+	}
+
+	const handleCloseCreatePost = () => {
+		dispatch(closeCreatePost())
+	}
 
 	const handleAddPost = (text) => {
 		const id = uuidv1()
@@ -21,7 +37,28 @@ const CreatePostContainer = () => {
 		dispatch(addPost(post))
 	}
 
-	return <CreatePost addPost={handleAddPost} />
+	const handleOutsideClick = (event) => {
+		const path = event.path || (event.composedPath && event.composedPath())
+		if (!path.includes(createPostRef.current)) {
+			handleCloseCreatePost()
+		}
+	}
+
+	useEffect(() => {
+		document.body.addEventListener('click', handleOutsideClick)
+		return () => {
+			document.body.removeEventListener('click', handleOutsideClick)
+		}
+	}, [])
+
+	return (
+		<CreatePost
+			ref={createPostRef}
+			addPost={handleAddPost}
+			isOpenCreatePost={isOpenCreatePost}
+			openCreatePost={handleOpenCreatePost}
+		/>
+	)
 }
 
 export default CreatePostContainer

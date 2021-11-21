@@ -10,7 +10,7 @@ const Header = () => {
 		<header className={cn.header}>
 			<Container>
 				<div className={cn.header__container}>
-					<Logo></Logo>
+					<Logo />
 					<SettingsContainer />
 				</div>
 			</Container>

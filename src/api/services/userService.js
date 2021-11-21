@@ -23,6 +23,7 @@ export const userService = createApi({
 					},
 				}
 			},
+			keepUnusedDataFor: 5,
 		}),
 		fetchCheckSubscription: build.query({
 			query: (userId) => ({

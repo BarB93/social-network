@@ -1,4 +1,4 @@
-@import "../../../styles/variables";
+@import "../../styles/variables";
 
 .message {
   position: relative;
@@ -18,37 +18,43 @@
     display: flex;
     width: 100%;
     max-width: 100%;
-    padding: 10px 15px 20px;
+    padding: 6px 30px 7px 30px;
     overflow: hidden;
+  }
+
+  &__block {
+    margin: 10px 0 0 0;
+
   }
 
 
   &__avatar {
-    flex: 0 0 50px;
-    height: 50px;
-    margin: 0 20px 0 0;
-    border-radius: 50%;
-    overflow: hidden;
-
-    img {
-      display: block;
-      width: 100%;
-      height: 100%;
-
-    }
+    flex: 0 1 46px;
+    padding: 0 10px 0 0;
   }
 
   &__content {
-    flex: 0 1 auto;
+    flex: 1 1 auto;
     max-width: calc(100% - 60px);
     padding: 0 40px 0 0;
+    color: #000;
+  }
+
+  &__contentHeader {
+    display: flex;
+    font-size: 0.9rem;
   }
 
   &__name {
-    margin: 0 0 5px 0;
+    margin: 0 5px 5px 0;
     color: $text-link;
-    font-size: 0.95rem;
     font-weight: 700;
+  }
+
+  &__time {
+    align-self: flex-start;
+    line-height: 1;
+    color: $text-color-secondary;
   }
 
   &__text {

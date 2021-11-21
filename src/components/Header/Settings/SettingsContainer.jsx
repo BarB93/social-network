@@ -8,7 +8,7 @@ import { logout } from '../../../redux/actions/authAction'
 
 const SettingsContainer = () => {
 	const dispatch = useDispatch()
-	const { myProfile } = useSelector((state) => state.profile)
+	const authProfile = useSelector((state) => state.profile.authProfile)
 	const { isMenuOpen } = useSelector((state) => state.header)
 	const { isAuth } = useSelector((state) => state.auth)
 	const menuRef = useRef()
@@ -41,10 +41,10 @@ const SettingsContainer = () => {
 		}
 	}, [])
 
-	if (!isAuth || !myProfile) return null
+	if (!isAuth || !authProfile) return null
 	return (
 		<Settings
-			profile={myProfile}
+			profile={authProfile}
 			isMenuOpen={isMenuOpen}
 			toggleMenu={handleToggleMenu}
 			logout={handleLogout}

@@ -1,14 +1,17 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
-import { addMessage } from '../../../redux/slices/messageSlice'
 
 import CreateMessage from './CreateMessage'
 
-const CreateMessageContainer = () => {
-	const dispatch = useDispatch()
-
-	const handleAddMessage = (value) => {
-		dispatch(addMessage(value))
+const CreateMessageContainer = ({ setMessages, messages, authProfile }) => {
+	const handleAddMessage = (text) => {
+		const newMessages = [...messages]
+		newMessages.push({
+			id: messages.length + 1,
+			text,
+			userId: authProfile.userId,
+			date: Date.now(),
+		})
+		setMessages(newMessages)
 	}
 
 	return <CreateMessage addMessage={handleAddMessage} />

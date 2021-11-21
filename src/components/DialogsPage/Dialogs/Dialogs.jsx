@@ -1,15 +1,33 @@
 import React from 'react'
 import DialogList from './DialogList'
-import { useSelector } from 'react-redux'
+import { userService } from '../../../api/services/userService'
+import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 
+import commonStyle from '../../../styles/commonStyles.module.scss'
 import cn from './dialogs.module.scss'
+import Box from '../../UI/Box/Box'
 
 const Dialogs = () => {
-	const dialogs = useSelector((state) => state.dialog.dialogs)
+	const {
+		data: dialogs,
+		isFetching,
+		isError,
+	} = userService.useFetchUsersQuery({ limit: 10, friend: true })
 
+	if (isError) return <div>Произошла ошибка при загрузке диалогов</div>
+	if (isFetching)
+		return (
+			<div className={commonStyle.emptyBlock}>
+				<CircleLoader />
+			</div>
+		)
+	if (dialogs === undefined) return null
 	return (
 		<div className={cn.dialog}>
-			<DialogList dialogs={dialogs} />
+			<Box padding='0'>
+				<div className={commonStyle.title}>Диалоги</div>
+				<DialogList dialogs={dialogs.items} />
+			</Box>
 		</div>
 	)
 }

@@ -1,8 +1,8 @@
 import React from 'react'
-import Message from '../components/MessagePage/Message/Message'
+import MessageContainer from '../components/MessagePage/MessageContainer'
 
 const MessagePage = () => {
-	return <Message />
+	return <MessageContainer />
 }
 
 export default MessagePage

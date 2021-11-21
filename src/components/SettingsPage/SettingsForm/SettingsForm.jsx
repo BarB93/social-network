@@ -55,7 +55,10 @@ const SettingsForm = ({
 										/>
 									}
 								/>
-								<Route path='/main' element={<MainBlock header />} />
+								<Route
+									path='/main'
+									element={<MainBlock header formik={formik} />}
+								/>
 								<Route
 									path='/work'
 									element={

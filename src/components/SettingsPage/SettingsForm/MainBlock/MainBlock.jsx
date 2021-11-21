@@ -14,6 +14,14 @@ const MainBlock = ({ title, header, formik }) => {
 			)}
 			<div className={cn.form__block}>
 				{title && <div className={cn.form__subheader}>Обо мне</div>}
+				{formik.touched.fullName && formik.errors.fullName ? (
+					<div className={cn.form__errorRow}>
+						<span />
+						<span className={commonStyle.form__error}>
+							{formik.errors.fullName}
+						</span>
+					</div>
+				) : null}
 				<label className={cn.form__row}>
 					<span className={cn.form__title}>Никнейм:</span>
 					<Field

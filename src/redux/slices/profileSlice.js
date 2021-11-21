@@ -6,7 +6,7 @@ const initialState = {
 	isLoading: false,
 	error: '',
 	profile: null,
-	myProfile: null,
+	authProfile: null,
 	isOpenUpdateStatus: false,
 	posts: [
 		{
@@ -35,6 +35,8 @@ const initialState = {
 		},
 	],
 
+	isOpenCreatePost: false,
+
 	isUpdatePhotoError: '',
 	isUpdatePhotoLoading: false,
 }
@@ -46,6 +48,7 @@ export const profileSlice = createSlice({
 		addPost: (state, action) => {
 			state.posts.push(action.payload)
 		},
+
 		toggleLikeToPost: (state, action) => {
 			const { postId, userId } = action.payload
 
@@ -60,11 +63,19 @@ export const profileSlice = createSlice({
 				}
 			})
 		},
+
 		openUpdateStatus: (state, action) => {
 			state.isOpenUpdateStatus = true
 		},
 		closeUpdateStatus: (state) => {
 			state.isOpenUpdateStatus = false
+		},
+
+		openCreatePost: (state, action) => {
+			state.isOpenCreatePost = true
+		},
+		closeCreatePost: (state, action) => {
+			state.isOpenCreatePost = false
 		},
 	},
 	extraReducers: {
@@ -78,9 +89,9 @@ export const profileSlice = createSlice({
 			state.error = ''
 			state.isInitial = true
 			if (action.meta.arg['initial']) {
-				state.myProfile = action.payload
+				state.authProfile = action.payload
 			} else if (action.meta.arg['isAuthUserProfile']) {
-				state.myProfile = action.payload
+				state.authProfile = action.payload
 				state.profile = action.payload
 			} else {
 				state.profile = action.payload
@@ -101,8 +112,8 @@ export const profileSlice = createSlice({
 			state.isUpdatePhotoLoading = false
 
 			if (action.payload.resultCode === 0) {
-				state.myProfile.photos.small = action.payload.data.photos.small
-				state.myProfile.photos.large = action.payload.data.photos.large
+				state.authProfile.photos.small = action.payload.data.photos.small
+				state.authProfile.photos.large = action.payload.data.photos.large
 				state.profile.photos.small = action.payload.data.photos.small
 				state.profile.photos.large = action.payload.data.photos.large
 			}
@@ -120,6 +131,8 @@ export const {
 	openUpdateStatus,
 	closeUpdateStatus,
 	toggleLikeToPost,
+	openCreatePost,
+	closeCreatePost,
 } = profileSlice.actions
 
 export default profileSlice.reducer
