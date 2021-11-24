@@ -29,4 +29,20 @@
       outline: none;
     }
   }
+
+  &__button {
+    margin: 0 0 0 20px;
+    background: transparent;
+    opacity: .5;
+    transition: color 200ms linear;
+
+    &:hover {
+      opacity: 1;
+    }
+  }
+
+  &__icon {
+    font-size: 2rem;
+    color: $primary;
+  }
 }

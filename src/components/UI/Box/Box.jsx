@@ -21,7 +21,7 @@ const StyledBox = styled.div`
 	text-align: ${(p) => (p.textAlign ? p.textAlign : 'left')};
 	color: ${(p) => (p.color ? p.color : styles.colors.gray400)};
 	background: ${(p) => (p.background ? p.background : styles.colors.white)};
-	box-shadow: ${styles.colors.pageBlockShadow};
+	box-shadow: ${(p) => (p.boxShadow ? p.boxShadow : styles.colors.pageBlockShadow)};
 	cursor: ${(p) => (p.cursor ? p.cursor : 'default')};
 
 	transform: ${(p) => (p.transform ? p.transform : 'none')};

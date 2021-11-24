@@ -1,11 +1,12 @@
 import React from 'react'
+
+import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
+import Box from '../../UI/Box/Box'
 import DialogList from './DialogList'
 import { userService } from '../../../api/services/userService'
-import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 
 import commonStyle from '../../../styles/commonStyles.module.scss'
 import cn from './dialogs.module.scss'
-import Box from '../../UI/Box/Box'
 
 const Dialogs = () => {
 	const {

@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { FaTelegramPlane } from 'react-icons/fa'
 
 import cn from './CreateMessage.module.scss'
 
@@ -8,13 +9,16 @@ const CreateMessage = ({ addMessage }) => {
 		setMessage(e.target.value)
 	}
 
-	const handleAddMessage = () => {
-		addMessage(message)
-		setMessage('')
+	const handleAddMessage = (e) => {
+		e.preventDefault()
+		if (message.trim().length > 0) {
+			addMessage(message)
+			setMessage('')
+		}
 	}
 
 	return (
-		<div className={cn.create}>
+		<form className={cn.create}>
 			<input
 				className={cn.create__input}
 				type='text'
@@ -22,8 +26,10 @@ const CreateMessage = ({ addMessage }) => {
 				value={message}
 				onChange={handleChangeMessage}
 			/>
-			<button onClick={handleAddMessage}>Отправить</button>
-		</div>
+			<button type='submit' className={cn.create__button} onClick={handleAddMessage}>
+				<FaTelegramPlane className={cn.create__icon} />
+			</button>
+		</form>
 	)
 }
 
