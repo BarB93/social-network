@@ -6,7 +6,6 @@
   font-size: 1.3rem;
   color: $text-color-secondary;
   font-weight: 700;
-  transition: color 200ms ease-in-out;
 
   &.notLiked:hover {
     opacity: .7;
@@ -14,6 +13,11 @@
 
   &.liked .iconWrapper {
     background: $red-liked;
+    transition: color 200ms ease-in-out;
+
+  }
+
+  &.animation .iconWrapper {
     animation: likeWrapper .7s ease-in-out;
   }
 
@@ -27,6 +31,10 @@
 
   }
 
+  &.animation .IconLiked {
+    animation: like 0.7s ease-in-out;
+  }
+
   .IconLiked {
     position: absolute;
     top: 50%;
@@ -35,18 +43,17 @@
     font-size: 1rem;
 
     transform: translate(-50%, -50%);
-    animation: like 0.7s ease-in-out;
   }
 
   .IconNotLiked {
     position: absolute;
     top: 50%;
     left: 50%;
+    margin: 0 5px 0 0;
     color: #999;
     font-size: 1.3rem;
 
     transform: translate(-50%, -50%);
-    margin: 0 5px 0 0;
   }
 
   .likeButton {

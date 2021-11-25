@@ -7,7 +7,7 @@ import { checkDate } from '../../../../../utils/checkDate'
 
 import cn from '../post.module.scss'
 
-const PostItem = ({ post, profile, imageURL }) => {
+const PostItem = ({ post, profile, toggleLike }) => {
 	const date = new Date(post.date)
 	const options = {
 		day: 'numeric',
@@ -29,7 +29,7 @@ const PostItem = ({ post, profile, imageURL }) => {
 					</div>
 				</div>
 				<div className={cn.post__text}>{post.text}</div>
-				<PostItemFooter post={post} profile={profile} />
+				<PostItemFooter toggleLike={toggleLike} post={post} profile={profile} />
 			</article>
 		</Box>
 	)

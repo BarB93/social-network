@@ -2,7 +2,6 @@ import { configureStore } from '@reduxjs/toolkit'
 import {
 	dialogReducer,
 	userReducer,
-	messageReducer,
 	profileReducer,
 	authReducer,
 	headerReducer,
@@ -14,7 +13,6 @@ import { profileService } from '../api/services/profileService'
 const rootReducer = {
 	header: headerReducer,
 	profile: profileReducer,
-	message: messageReducer,
 	dialog: dialogReducer,
 	user: userReducer,
 	friend: friendReducer,
@@ -26,9 +24,7 @@ const rootReducer = {
 const store = configureStore({
 	reducer: rootReducer,
 	middleware: (getDefaultMiddleware) =>
-		getDefaultMiddleware()
-			.concat(userService.middleware)
-			.concat(profileService.middleware),
+		getDefaultMiddleware().concat(userService.middleware).concat(profileService.middleware),
 })
 
 window.store = store

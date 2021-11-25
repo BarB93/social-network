@@ -2,14 +2,10 @@ import React, { useEffect, useRef } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { v1 as uuidv1 } from 'uuid'
 
-import {
-	addPost,
-	openCreatePost,
-	closeCreatePost,
-} from '../../../../redux/slices/profileSlice'
+import { openCreatePost, closeCreatePost } from '../../../../redux/slices/profileSlice'
 import CreatePost from './CreatePost'
 
-const CreatePostContainer = () => {
+const CreatePostContainer = ({ setPosts, posts }) => {
 	const createPostRef = useRef()
 	const dispatch = useDispatch()
 	const {
@@ -26,15 +22,16 @@ const CreatePostContainer = () => {
 	}
 
 	const handleAddPost = (text) => {
-		const id = uuidv1()
 		const post = {
-			id,
+			id: uuidv1(),
 			userId,
 			text,
 			date: Date.now(),
 			usersIdLiked: [],
 		}
-		dispatch(addPost(post))
+		const newPosts = [...posts]
+		newPosts.push(post)
+		setPosts(newPosts)
 	}
 
 	const handleOutsideClick = (event) => {

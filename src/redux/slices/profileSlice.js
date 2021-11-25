@@ -8,32 +8,7 @@ const initialState = {
 	profile: null,
 	authProfile: null,
 	isOpenUpdateStatus: false,
-	posts: [
-		{
-			id: 1,
-			userId: 14640,
-			text: 'Едва ли ни единственное, что можно сказать твердо о том, как прожить классную жизнь — надо обязательно делать то, что нужно…и не делать того, чего не нужно. От этого и будем отталкиваться.',
-			date: 1559854800000,
-			likeCount: 7,
-			usersIdLiked: [1234, 312, 454, 4534],
-		},
-		{
-			id: 2,
-			userId: 14640,
-			text: 'Да. Теперь я официально могу танцевать, когда моё приложение работает, и плакать, когда не работает, потому что, теперь я работаю из дома. Раньше мне приходилось скрывать свои чувства.',
-			date: 1637235449721,
-			likeCount: 13,
-			usersIdLiked: [5454, 654, 645, 756, 7456, 756, 765],
-		},
-		{
-			id: 3,
-			userId: 14640,
-			text: 'Чтобы понять рекурсию, нужно сперва понять рекурсию.',
-			date: 1637269200000,
-			likeCount: 13,
-			usersIdLiked: [5454, 654, 645, 756, 7456, 756, 765, 545, 6532, 5344],
-		},
-	],
+	posts: [],
 
 	isOpenCreatePost: false,
 
@@ -45,25 +20,6 @@ export const profileSlice = createSlice({
 	name: 'profile',
 	initialState,
 	reducers: {
-		addPost: (state, action) => {
-			state.posts.push(action.payload)
-		},
-
-		toggleLikeToPost: (state, action) => {
-			const { postId, userId } = action.payload
-
-			state.posts.forEach((p) => {
-				if (p.id === postId) {
-					let isInclude = false
-					p.usersIdLiked = p.usersIdLiked.filter((likeId) => {
-						if (likeId === userId) isInclude = true
-						return likeId !== userId
-					})
-					if (!isInclude) p.usersIdLiked.push(userId)
-				}
-			})
-		},
-
 		openUpdateStatus: (state, action) => {
 			state.isOpenUpdateStatus = true
 		},
@@ -126,13 +82,7 @@ export const profileSlice = createSlice({
 })
 
 //Actions
-export const {
-	addPost,
-	openUpdateStatus,
-	closeUpdateStatus,
-	toggleLikeToPost,
-	openCreatePost,
-	closeCreatePost,
-} = profileSlice.actions
+export const { openUpdateStatus, closeUpdateStatus, openCreatePost, closeCreatePost } =
+	profileSlice.actions
 
 export default profileSlice.reducer

@@ -5,12 +5,17 @@ import LikeCount from '../LikeCount/LikeCount'
 
 import cn from './PostItemFooter.module.scss'
 
-const PostItemFooter = ({ post, profile }) => {
+const PostItemFooter = ({ post, profile, toggleLike }) => {
 	const isLiked = post.usersIdLiked.includes(profile.userId)
 	const likesCount = post.usersIdLiked.length
+
+	const handleToggleLike = () => {
+		toggleLike({ postId: post.id, userId: profile.userId })
+	}
+
 	return (
 		<div className={cn.footer}>
-			<LikeButton isLiked={isLiked} postId={post.id} userId={profile.userId} />
+			<LikeButton isLiked={isLiked} toggleLike={handleToggleLike} />
 			{likesCount > 0 && <LikeCount likesCount={likesCount} />}
 		</div>
 	)

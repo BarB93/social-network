@@ -1,24 +1,23 @@
-import React from 'react'
-import { useDispatch } from 'react-redux'
+import React, { useState } from 'react'
 
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 
 import cn from './LikeButton.module.scss'
-import { toggleLikeToPost } from '../../../../../../redux/slices/profileSlice'
 
-const LikeButton = ({ isLiked, postId, userId }) => {
-	const dispatch = useDispatch()
+const LikeButton = ({ isLiked, toggleLike }) => {
+	const [isAnimate, setIsAnimate] = useState(false)
 	const classLiked = isLiked ? cn.liked : cn.notLiked
+	const classAnimation = isLiked && isAnimate ? cn.animation : ''
 
 	const handleToggleLike = () => {
-		dispatch(toggleLikeToPost({ postId, userId }))
+		toggleLike()
+		if (!isAnimate) {
+			setIsAnimate(true)
+		}
 	}
 
 	return (
-		<div
-			className={`${cn.likeWrapper} ${classLiked}`}
-			onClick={handleToggleLike}
-		>
+		<div className={`${cn.likeWrapper} ${classLiked} ${classAnimation}`} onClick={handleToggleLike}>
 			<div className={cn.iconWrapper}>
 				{isLiked && <FaHeart className={cn.IconLiked} />}
 				{!isLiked && <FaRegHeart className={cn.IconNotLiked} />}
