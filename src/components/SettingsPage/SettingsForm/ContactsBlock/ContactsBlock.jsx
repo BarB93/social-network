@@ -2,7 +2,7 @@ import React from 'react'
 
 import ContactField from '../ContactField/ContactField'
 
-import cn from '../../Settings.module.scss'
+import styles from '../../Settings.module.scss'
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
 const ContactsBlock = ({ title, header, formik }) => {
@@ -13,8 +13,8 @@ const ContactsBlock = ({ title, header, formik }) => {
 					<h4 className={commonStyle.title__header}>Контакты</h4>
 				</div>
 			)}
-			<div className={cn.form__block}>
-				{title && <div className={cn.form__subheader}>Контакты</div>}
+			<div className={styles.form__block}>
+				{title && <div className={styles.form__subheader}>Контакты</div>}
 				<ContactField name='github' formik={formik} />
 				<ContactField name='vk' formik={formik} />
 				<ContactField name='facebook' formik={formik} />

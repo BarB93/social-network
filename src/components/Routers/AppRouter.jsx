@@ -1,8 +1,8 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
 import { Navigate, Route, Routes } from 'react-router-dom'
-import AuthPage from '../AuthPage/AuthPage'
 import AppContainer from '../AppContainer/AppContainer'
+import { AuthPage } from '../../pages'
 
 const AppRouter = () => {
 	const { isAuth } = useSelector((state) => state.auth)
@@ -10,9 +10,8 @@ const AppRouter = () => {
 		<AppContainer />
 	) : (
 		<Routes>
-			<Route path='/' element={<AuthPage />} />
-			<Route path='/friends' element={<AppContainer />} />
-			<Route path='/*' element={<Navigate to='/' />} />
+			<Route path='/auth' element={<AuthPage />} />
+			<Route path='/*' element={<Navigate to='/auth' />} />
 		</Routes>
 	)
 }

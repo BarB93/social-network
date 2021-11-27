@@ -5,30 +5,19 @@ import Button from '../../UI/Button/Button'
 import Box from '../../UI/Box/Box'
 import ItemsLoader from '../../UI/Loader/ItemsLoader/ItemsLoader'
 
-import cn from './LoginForm.module.scss'
+import styles from './LoginForm.module.scss'
 import commonStyle from '../../../styles/commonStyles.module.scss'
 
-const LoginForm = ({
-	onSubmit,
-	initialValues,
-	validationSchema,
-	wrongData,
-}) => {
+const LoginForm = ({ onSubmit, initialValues, validationSchema, wrongData }) => {
 	return (
-		<Formik
-			initialValues={initialValues}
-			validationSchema={validationSchema}
-			onSubmit={onSubmit}
-		>
+		<Formik initialValues={initialValues} validationSchema={validationSchema} onSubmit={onSubmit}>
 			{(formik) => {
 				return (
 					<form className={commonStyle.form} onSubmit={formik.handleSubmit}>
 						<Box padding='25px 30px'>
-							<div className={cn.form__title}>Войти в аккаунт</div>
+							<div className={styles.form__title}>Войти в аккаунт</div>
 							{formik.touched.email && formik.errors.email ? (
-								<span className={commonStyle.form__error}>
-									{formik.errors.email}
-								</span>
+								<span className={commonStyle.form__error}>{formik.errors.email}</span>
 							) : null}
 							<div className={commonStyle.form__inputContainer}>
 								<input
@@ -41,9 +30,7 @@ const LoginForm = ({
 							</div>
 
 							{formik.touched.password && formik.errors.password ? (
-								<span className={commonStyle.form__error}>
-									{formik.errors.password}
-								</span>
+								<span className={commonStyle.form__error}>{formik.errors.password}</span>
 							) : null}
 							<div className={commonStyle.form__inputContainer}>
 								<input
@@ -57,14 +44,8 @@ const LoginForm = ({
 							</div>
 							<div className={commonStyle.form__inputContainer}>
 								<label className={commonStyle.form__label}>
-									<Field
-										className={commonStyle.form__checkbox}
-										type='checkbox'
-										name='rememberMe'
-									/>
-									<span className={commonStyle.form__labelText}>
-										Запомнить меня
-									</span>
+									<Field className={commonStyle.form__checkbox} type='checkbox' name='rememberMe' />
+									<span className={commonStyle.form__labelText}>Запомнить меня</span>
 								</label>
 							</div>
 							{wrongData && !formik.dirty && (
@@ -73,9 +54,7 @@ const LoginForm = ({
 
 							<div>
 								<Button
-									disabled={
-										!(formik.isValid && formik.dirty && !formik.isSubmitting)
-									}
+									disabled={!(formik.isValid && formik.dirty && !formik.isSubmitting)}
 									minWidth='120px'
 									type='submit'
 									p='10px 20px'

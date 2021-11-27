@@ -4,43 +4,56 @@ import UserList from './UserList'
 import { fetchUsers } from '../../../../redux/actions/userAction'
 import CircleLoader from '../../../UI/Loader/CircleLoader/CircleLoader'
 import MessageBlock from '../../../UI/MessageBlock/MessageBlock'
-import { resetUsers } from '../../../../redux/slices/userSlice'
+import { resetUsers, setSearch } from '../../../../redux/slices/userSlice'
 import { useObserver } from '../../../../hooks/useObserver'
 
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
 const UserListContainer = () => {
 	const dispatch = useDispatch()
-	const { users, isLoading, error, isInit, totalPages, currentPage, limit } =
-		useSelector((state) => state.user)
+	const { users, isLoading, error, isInit, totalPages, currentPage, limit, search } = useSelector(
+		(state) => state.user,
+	)
 	const lastElement = useRef()
 	const pageRef = useRef(currentPage)
-	useObserver(lastElement, totalPages >= pageRef.current, isLoading, () => {
-		dispatch(fetchUsers({ friend: false, count: limit, page: pageRef.current }))
-		pageRef.current += 1
+	useObserver({
+		ref: lastElement,
+		canLoad: totalPages >= pageRef.current,
+		isLoading,
+		currentPage: pageRef.current,
+		search,
+		callback: () => {
+			dispatch(fetchUsers({ friend: false, count: limit, page: pageRef.current, term: search }))
+			pageRef.current++
+		},
 	})
 
 	useEffect(() => {
 		return () => {
 			dispatch(resetUsers())
+			dispatch(setSearch(''))
 		}
 	}, [])
 
+	useEffect(() => {
+		dispatch(resetUsers())
+		pageRef.current = 1
+	}, [search])
+
+	if (error) return <MessageBlock>{error}</MessageBlock>
 	return (
 		<>
 			{isInit &&
-				!error &&
 				(users.length ? (
 					<UserList users={users} />
 				) : (
-					<MessageBlock>Совпадений не найдено</MessageBlock>
+					<MessageBlock fontSize='1rem'>Ваш запрос не дал результатов</MessageBlock>
 				))}
-			{isLoading && !error && (
+			{isLoading && (
 				<div className={commonStyle.emptyBlock}>
 					<CircleLoader />
 				</div>
 			)}
-			{error && <MessageBlock>{error}</MessageBlock>}
 			<div className={commonStyle.emptyBlock} ref={lastElement} />
 		</>
 	)

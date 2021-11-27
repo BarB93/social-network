@@ -1,16 +1,16 @@
 import React from 'react'
 import { FaArrowCircleUp } from 'react-icons/fa'
-import cn from '../Avatar.module.scss'
+import styles from '../Avatar.module.scss'
 
 const UpdateAvatar = ({ handleOnChangeFile }) => {
 	return (
-		<div className={cn.updateAvatar}>
-			<label className={cn.updateAvatar__label} htmlFor='updateAvatar'>
-				<FaArrowCircleUp className={cn.updateAvatar__icon} />
+		<div className={styles.updateAvatar}>
+			<label className={styles.updateAvatar__label} htmlFor='updateAvatar'>
+				<FaArrowCircleUp className={styles.updateAvatar__icon} />
 				Обновить фотографию
 			</label>
 			<input
-				className={cn.updateAvatar__input}
+				className={styles.updateAvatar__input}
 				onChange={handleOnChangeFile}
 				accept='image/png, image/gif, image/jpeg'
 				id='updateAvatar'

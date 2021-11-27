@@ -1,15 +1,15 @@
 import React from 'react'
 
-import cn from './HeaderBlock.module.scss'
+import styles from './HeaderBlock.module.scss'
 import { Link } from 'react-router-dom'
 
 const HeaderBlock = ({ friendsCount }) => {
 	return (
-		<div className={cn.header}>
-			<Link to='/friends' className={cn.header__title}>
+		<div className={styles.header}>
+			<Link to='/friends' className={styles.header__title}>
 				Друзья
 			</Link>
-			<Link to='/friends' className={cn.header__amount}>
+			<Link to='/friends' className={styles.header__amount}>
 				{friendsCount}
 			</Link>
 		</div>

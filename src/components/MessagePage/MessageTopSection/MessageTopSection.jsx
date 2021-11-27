@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router-dom'
 import Avatar from '../../UI/Avatar/Avatar'
 
 import { FaChevronLeft } from 'react-icons/fa'
-import cn from './MessageTopSection.module.scss'
+import styles from './MessageTopSection.module.scss'
 
 const MessageTopSection = ({ title, photo, userId }) => {
 	const navigate = useNavigate()
@@ -12,12 +12,12 @@ const MessageTopSection = ({ title, photo, userId }) => {
 	}
 
 	return (
-		<div className={cn.section}>
-			<button className={cn.section__button} onClick={handleGoBack}>
-				<FaChevronLeft className={cn.section__icon} />
+		<div className={styles.section}>
+			<button className={styles.section__button} onClick={handleGoBack}>
+				<FaChevronLeft className={styles.section__icon} />
 				Назад
 			</button>
-			<div className={cn.section__chatInfo}>
+			<div className={styles.section__chatInfo}>
 				<Link to={`/profile/${userId}`}>
 					<span>{title}</span>
 				</Link>

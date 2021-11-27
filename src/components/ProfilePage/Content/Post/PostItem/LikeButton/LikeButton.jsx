@@ -2,12 +2,12 @@ import React, { useState } from 'react'
 
 import { FaHeart, FaRegHeart } from 'react-icons/fa'
 
-import cn from './LikeButton.module.scss'
+import styles from './LikeButton.module.scss'
 
 const LikeButton = ({ isLiked, toggleLike }) => {
 	const [isAnimate, setIsAnimate] = useState(false)
-	const classLiked = isLiked ? cn.liked : cn.notLiked
-	const classAnimation = isLiked && isAnimate ? cn.animation : ''
+	const classLiked = isLiked ? styles.liked : styles.notLiked
+	const classAnimation = isLiked && isAnimate ? styles.animation : ''
 
 	const handleToggleLike = () => {
 		toggleLike()
@@ -17,12 +17,15 @@ const LikeButton = ({ isLiked, toggleLike }) => {
 	}
 
 	return (
-		<div className={`${cn.likeWrapper} ${classLiked} ${classAnimation}`} onClick={handleToggleLike}>
-			<div className={cn.iconWrapper}>
-				{isLiked && <FaHeart className={cn.IconLiked} />}
-				{!isLiked && <FaRegHeart className={cn.IconNotLiked} />}
+		<div
+			className={`${styles.likeWrapper} ${classLiked} ${classAnimation}`}
+			onClick={handleToggleLike}
+		>
+			<div className={styles.iconWrapper}>
+				{isLiked && <FaHeart className={styles.IconLiked} />}
+				{!isLiked && <FaRegHeart className={styles.IconNotLiked} />}
 			</div>
-			<button className={`${cn.likeButton}`}>Нравиться</button>
+			<button className={`${styles.likeButton}`}>Нравиться</button>
 		</div>
 	)
 }

@@ -1,15 +1,14 @@
 import React from 'react'
 import ContentRouter from '../Routers/ContentRouter'
 
-import  cn from  './Content.module.scss'
+import styles from './Content.module.scss'
 
 const Content = () => {
-
-    return (
-        <main className={cn.main}>
-            <ContentRouter />
-        </main>
-    )
+	return (
+		<main className={styles.main}>
+			<ContentRouter />
+		</main>
+	)
 }
 
 export default Content

@@ -5,7 +5,7 @@ import Content from '../Content/Content'
 import MessageBlock from '../../UI/MessageBlock/MessageBlock'
 import CircleLoader from '../../UI/Loader/CircleLoader/CircleLoader'
 
-import cn from './profile.module.scss'
+import styles from './profile.module.scss'
 import commonStyles from '../../../styles/commonStyles.module.scss'
 
 const Profile = ({ profile, error, isLoading, isAuthUserProfile }) => {
@@ -14,11 +14,8 @@ const Profile = ({ profile, error, isLoading, isAuthUserProfile }) => {
 			{error && <MessageBlock>{error}</MessageBlock>}
 			{!error &&
 				(profile && !isLoading ? (
-					<div className={cn.profile}>
-						<Side
-							isAuthUserProfile={isAuthUserProfile}
-							userId={profile.userId}
-						/>
+					<div className={styles.profile}>
+						<Side isAuthUserProfile={isAuthUserProfile} userId={profile.userId} />
 						<Content profile={profile} isAuthUserProfile={isAuthUserProfile} />
 					</div>
 				) : (

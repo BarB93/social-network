@@ -7,7 +7,7 @@ const Title = styled.h4`
 `
 const MessageBlock = ({ children, fontSize, background }) => {
 	return (
-		<Box background={background} boxShadow='none' padding='50px' textAlign='center'>
+		<Box background={background} boxShadow='none' padding='50px 0' textAlign='center'>
 			<Title fontSize={fontSize}>{children}</Title>
 		</Box>
 	)

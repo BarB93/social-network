@@ -5,7 +5,7 @@ import Box from '../../../UI/Box/Box'
 import Button from '../../../UI/Button/Button'
 import ItemsLoader from '../../../UI/Loader/ItemsLoader/ItemsLoader'
 
-import cn from './UpdateStatus.module.scss'
+import styles from './UpdateStatus.module.scss'
 import commonStyle from '../../../../styles/commonStyles.module.scss'
 
 const UpdateStatus = ({
@@ -26,8 +26,7 @@ const UpdateStatus = ({
 		visibility: 'hidden',
 		opacity: '0',
 		transform: 'translateY(10px)',
-		transition:
-			'opacity 200ms linear, transform 200ms linear, visibility 200ms linear',
+		transition: 'opacity 200ms linear, transform 200ms linear, visibility 200ms linear',
 		active: isOpen,
 		zIndex: 10,
 	}
@@ -52,7 +51,7 @@ const UpdateStatus = ({
 					}
 				}}
 			>
-				<Form className={cn.form}>
+				<Form className={styles.form}>
 					<div className={commonStyle.form__inputContainer}>
 						<Field
 							component='textarea'
@@ -63,13 +62,7 @@ const UpdateStatus = ({
 							type='text'
 						/>
 					</div>
-					<Button
-						p='7px 16px 8px'
-						minWidth='96px'
-						lh='11px'
-						type='submit'
-						w='fit-content'
-					>
+					<Button p='7px 16px 8px' minWidth='96px' lh='11px' type='submit' w='fit-content'>
 						{isLoading ? <ItemsLoader dots /> : 'Сохранить'}
 					</Button>
 				</Form>

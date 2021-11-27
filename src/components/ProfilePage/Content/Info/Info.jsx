@@ -4,7 +4,7 @@ import Box from '../../../UI/Box/Box'
 import InfoFull from './InfoFull'
 import InfoShort from './InfoShort'
 
-import cn from './Info.module.scss'
+import styles from './Info.module.scss'
 import StatusContainer from '../Status/StatusContainer'
 
 const Info = ({
@@ -23,13 +23,10 @@ const Info = ({
 
 	return (
 		<Box margin='0 0 10px 0'>
-			<div className={cn.info}>
-				<div className={cn.info__top}>
-					<div className={cn.info__name}>{fullName}</div>
-					<StatusContainer
-						isAuthUserProfile={isAuthUserProfile}
-						userId={userId}
-					/>
+			<div className={styles.info}>
+				<div className={styles.info__top}>
+					<div className={styles.info__name}>{fullName}</div>
+					<StatusContainer isAuthUserProfile={isAuthUserProfile} userId={userId} />
 				</div>
 				<InfoShort
 					aboutMe={aboutMe}

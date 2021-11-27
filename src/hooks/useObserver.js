@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
 
-export const useObserver = (ref, canLoad, isLoading, callback) => {
+export const useObserver = ({ ref, canLoad, isLoading, currentPage, callback, search }) => {
 	const observer = useRef()
 
 	useEffect(() => {
@@ -22,5 +22,5 @@ export const useObserver = (ref, canLoad, isLoading, callback) => {
 		observer.current = new IntersectionObserver(cb, options)
 		observer.current.observe(ref.current)
 		//eslint-disable-next-line
-	}, [isLoading])
+	}, [isLoading, currentPage, search])
 }

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import cn from '../message.module.scss'
+import styles from '../message.module.scss'
 import Avatar from '../../UI/Avatar/Avatar'
 
 const MessageItem = ({ id, text, userId, date, messages, authProfile, profile }) => {
@@ -16,23 +16,23 @@ const MessageItem = ({ id, text, userId, date, messages, authProfile, profile })
 		}
 	}
 
-	const classItem = isShowAdditionalInfo ? cn.message__block : ''
+	const classItem = isShowAdditionalInfo ? styles.message__block : ''
 
 	return (
-		<li className={`${cn.message__item} ${classItem}`}>
-			<div className={cn.message__avatar}>
+		<li className={`${styles.message__item} ${classItem}`}>
+			<div className={styles.message__avatar}>
 				{isShowAdditionalInfo && <Avatar photo={imageURL} size='36px' alt='avatar' />}
 			</div>
-			<div className={cn.message__content}>
+			<div className={styles.message__content}>
 				{isShowAdditionalInfo && (
-					<div className={cn.message__contentHeader}>
-						<div className={cn.message__name}>{name}</div>
-						<div className={cn.message__time}>
+					<div className={styles.message__contentHeader}>
+						<div className={styles.message__name}>{name}</div>
+						<div className={styles.message__time}>
 							{new Date(date).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
 						</div>
 					</div>
 				)}
-				<div className={cn.message__text}>{text}</div>
+				<div className={styles.message__text}>{text}</div>
 			</div>
 		</li>
 	)

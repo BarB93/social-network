@@ -5,6 +5,7 @@ import UserListContainer from './UserList/UserListContainer'
 import commonStyles from '../../../styles/commonStyles.module.scss'
 import Button from '../../UI/Button/Button'
 import { NavLink } from 'react-router-dom'
+import UserSearch from './UserSearch/UserSearch'
 
 const Users = () => {
 	const { totalUsers, isInit } = useSelector((state) => state.user)
@@ -22,6 +23,7 @@ const Users = () => {
 					</Button>
 				</NavLink>
 			</div>
+			<UserSearch />
 			<UserListContainer />
 		</div>
 	)

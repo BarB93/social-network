@@ -12,16 +12,20 @@ import commonStyle from '../../../../styles/commonStyles.module.scss'
 
 const FriendsListContainer = () => {
 	const dispatch = useDispatch()
-	const { isLoading, friends, currentPage, totalPages, limit, error, isInit } =
-		useSelector((state) => state.friend)
+	const { isLoading, friends, currentPage, totalPages, limit, error, isInit } = useSelector(
+		(state) => state.friend,
+	)
 	const lastElement = useRef()
 	const pageRef = useRef(currentPage)
 
-	useObserver(lastElement, totalPages >= pageRef.current, isLoading, () => {
-		dispatch(
-			fetchAllFriends({ friend: true, count: limit, page: pageRef.current }),
-		)
-		pageRef.current += 1
+	useObserver({
+		ref: lastElement,
+		canLoad: totalPages >= pageRef.current,
+		isLoading,
+		callback: () => {
+			dispatch(fetchAllFriends({ friend: true, count: limit, page: pageRef.current }))
+			pageRef.current += 1
+		},
 	})
 
 	useEffect(() => {

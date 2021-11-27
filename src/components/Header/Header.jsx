@@ -3,13 +3,13 @@ import Logo from './Logo'
 import Container from '../UI/Container/Container'
 import SettingsContainer from './Settings/SettingsContainer'
 
-import cn from './Header.module.scss'
+import styles from './Header.module.scss'
 
 const Header = () => {
 	return (
-		<header className={cn.header}>
+		<header className={styles.header}>
 			<Container>
-				<div className={cn.header__container}>
+				<div className={styles.header__container}>
 					<Logo />
 					<SettingsContainer />
 				</div>

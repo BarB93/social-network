@@ -6,7 +6,7 @@ import DialogList from './DialogList'
 import { userService } from '../../../api/services/userService'
 
 import commonStyle from '../../../styles/commonStyles.module.scss'
-import cn from './dialogs.module.scss'
+import styles from './dialogs.module.scss'
 
 const Dialogs = () => {
 	const {
@@ -24,7 +24,7 @@ const Dialogs = () => {
 		)
 	if (dialogs === undefined) return null
 	return (
-		<div className={cn.dialog}>
+		<div className={styles.dialog}>
 			<Box padding='0'>
 				<div className={commonStyle.title}>Диалоги</div>
 				<DialogList dialogs={dialogs.items} />

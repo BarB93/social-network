@@ -1,6 +1,6 @@
 import React from 'react'
 
-import cn from './Info.module.scss'
+import styles from './Info.module.scss'
 import InfoRow from './InfoRow'
 
 const Info = ({ handleToggleMoreInfo, isShowInfo, aboutMe }) => {
@@ -9,10 +9,10 @@ const Info = ({ handleToggleMoreInfo, isShowInfo, aboutMe }) => {
 		: 'Показать подробную информацию'
 
 	return (
-		<div className={cn.short_info}>
+		<div className={styles.short_info}>
 			<InfoRow title='Обо мне:' body={aboutMe} />
-			<div className={cn.info__more_btn}>
-				<button onClick={handleToggleMoreInfo} className={cn.info__more_btn}>
+			<div className={styles.info__more_btn}>
+				<button onClick={handleToggleMoreInfo} className={styles.info__more_btn}>
 					{textToggleMoreInfoButton}
 				</button>
 			</div>

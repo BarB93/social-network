@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, useMatch, useResolvedPath } from 'react-router-dom'
 
-import cn from './CustomLink.module.scss'
+import styles from './CustomLink.module.scss'
 
 const CustomLink = ({ children, to, ...props }) => {
 	let resolved = useResolvedPath(to)
@@ -9,7 +9,7 @@ const CustomLink = ({ children, to, ...props }) => {
 
 	return (
 		<Link
-			className={match ? `${cn.menu__item} ${cn.active}` : `${cn.menu__item}`}
+			className={match ? `${styles.menu__item} ${styles.active}` : `${styles.menu__item}`}
 			to={to}
 			{...props}
 		>

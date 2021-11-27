@@ -2,20 +2,17 @@ import React from 'react'
 import Sidebar from '../Sidebar/Sidebar'
 import Content from '../Content/Content'
 import Container from '../UI/Container/Container'
-import { useSelector } from 'react-redux'
-import LoginForm from '../AuthPage/LoginForm/LoginForm'
 
-import cn from './AppContainer.module.scss'
+import styles from './AppContainer.module.scss'
 
 const AppContainer = () => {
-	const { isAuth } = useSelector((state) => state.auth)
 	return (
 		<Container minWidth='860px'>
-			<div className={cn.app}>
-				<div className={cn.app__sidebar}>
-					{isAuth ? <Sidebar /> : <LoginForm />}
+			<div className={styles.app}>
+				<div className={styles.app__sidebar}>
+					<Sidebar />
 				</div>
-				<div className={cn.app__content}>
+				<div className={styles.app__content}>
 					<Content />
 				</div>
 			</div>

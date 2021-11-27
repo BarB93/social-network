@@ -2,11 +2,11 @@ import React from 'react'
 import Container from '../UI/Container/Container'
 import LoginFormContainer from './LoginForm/LoginFormContainer'
 
-import cn from './AuthPage.module.scss'
+import styles from './Auth.module.scss'
 
-const AuthPage = () => {
+const Auth = () => {
 	return (
-		<div className={cn.auth}>
+		<div className={styles.auth}>
 			<Container>
 				<LoginFormContainer />
 			</Container>
@@ -14,4 +14,4 @@ const AuthPage = () => {
 	)
 }
 
-export default AuthPage
+export default Auth

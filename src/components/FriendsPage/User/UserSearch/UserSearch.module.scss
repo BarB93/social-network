@@ -1,0 +1,22 @@
+@import "../../../../styles/variables";
+
+.search {
+  display: flex;
+  padding: 14px 10px;
+  border-bottom: 1px solid $separator-common;
+  cursor: text;
+
+  &__icon {
+    font-size: 18px;
+    margin: 0 10px;
+  }
+
+  &__input {
+    flex: 1 1 auto;
+    border: none;
+
+    &:focus {
+      outline: none;
+    }
+  }
+}

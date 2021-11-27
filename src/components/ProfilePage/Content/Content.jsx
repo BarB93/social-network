@@ -6,7 +6,7 @@ import NoPosts from './Post/NoPosts/NoPosts'
 import { useSelector } from 'react-redux'
 import { useLocalStorage } from '../../../hooks/useLocalStorage'
 
-import cn from '../Profile/profile.module.scss'
+import styles from '../Profile/profile.module.scss'
 
 const Content = ({ profile, isAuthUserProfile }) => {
 	const defaultPosts = [
@@ -41,7 +41,7 @@ const Content = ({ profile, isAuthUserProfile }) => {
 	useEffect(() => {}, posts)
 
 	return (
-		<div className={cn.profile__content}>
+		<div className={styles.profile__content}>
 			<Info {...profile} isAuthUserProfile={isAuthUserProfile} />
 			{isAuthUserProfile && <CreatePostContainer setPosts={setPosts} posts={posts} />}
 			{isAuthUserProfile ? <PostList posts={posts} setPosts={setPosts} /> : <NoPosts />}

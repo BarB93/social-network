@@ -7,6 +7,7 @@ const initialState = {
 	users: [],
 	isLoading: false,
 	error: '',
+	search: '',
 
 	totalUsers: 0,
 	limit: 15,
@@ -21,13 +22,16 @@ export const userSlice = createSlice({
 	name: 'user',
 	initialState,
 	reducers: {
-		setCurrentPage: (state, action) => {
-			state.currentPage = action.payload
-		},
 		resetUsers: (state) => {
 			state.users = []
 			state.currentPage = 1
 			state.isInit = false
+		},
+		setSearch: (state, action) => {
+			state.search = action.payload
+		},
+		setCurrentPage: (state, action) => {
+			state.currentPage = action.payload
 		},
 	},
 	extraReducers: {
@@ -38,15 +42,14 @@ export const userSlice = createSlice({
 		[fetchUsers.fulfilled.type]: (state, action) => {
 			state.isInit = true
 			state.isLoading = false
-			state.totalPages = computeTotalItems(
-				action.payload.totalCount,
-				state.limit,
-			)
+			state.totalPages = computeTotalItems(action.payload.totalCount, state.limit)
 			state.users.push(...action.payload.items)
+			if (action.payload.items.length === 0) state.users = []
 			state.totalUsers = action.payload.totalCount
 			state.error = ''
 		},
 		[fetchUsers.rejected.type]: (state, action) => {
+			state.isInit = true
 			state.error = action.payload
 			state.isLoading = false
 		},
@@ -59,13 +62,9 @@ export const userSlice = createSlice({
 		[followUser.fulfilled.type]: (state, action) => {
 			state.subscribeError = ''
 			const userId = action.meta.arg
-			state.subscribingInProgress = state.subscribingInProgress.filter(
-				(id) => id !== userId,
-			)
+			state.subscribingInProgress = state.subscribingInProgress.filter((id) => id !== userId)
 			if (!action.payload.resultCode) {
-				state.users = state.users.map((p) =>
-					p.id === userId ? { ...p, followed: true } : p,
-				)
+				state.users = state.users.map((p) => (p.id === userId ? { ...p, followed: true } : p))
 			}
 		},
 		[followUser.rejected.type]: (state, action) => {
@@ -80,13 +79,9 @@ export const userSlice = createSlice({
 		[unfollowUser.fulfilled.type]: (state, action) => {
 			state.subscribeError = ''
 			const userId = action.meta.arg
-			state.subscribingInProgress = state.subscribingInProgress.filter(
-				(id) => id !== userId,
-			)
+			state.subscribingInProgress = state.subscribingInProgress.filter((id) => id !== userId)
 			if (!action.payload.resultCode) {
-				state.users = state.users.map((p) =>
-					p.id === userId ? { ...p, followed: false } : p,
-				)
+				state.users = state.users.map((p) => (p.id === userId ? { ...p, followed: false } : p))
 			}
 		},
 		[unfollowUser.rejected.type]: (state, action) => {
@@ -96,6 +91,6 @@ export const userSlice = createSlice({
 })
 
 //Actions
-export const { setCurrentPage, resetUsers } = userSlice.actions
+export const { setSearch, resetUsers } = userSlice.actions
 
 export default userSlice.reducer

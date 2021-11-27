@@ -9,17 +9,10 @@ import ContactsBlock from './ContactsBlock/ContactsBlock'
 import MainBlock from './MainBlock/MainBlock'
 import ItemsLoader from '../../UI/Loader/ItemsLoader/ItemsLoader'
 
-import cn from '../Settings.module.scss'
+import styles from '../Settings.module.scss'
 
-const SettingsForm = ({
-	initialValues,
-	handleOnSubmit,
-	isUpdatingProfile,
-	validationSchema,
-}) => {
-	const [lookingForAJob, setLookingForAJob] = useState(
-		initialValues.lookingForAJob,
-	)
+const SettingsForm = ({ initialValues, handleOnSubmit, isUpdatingProfile, validationSchema }) => {
+	const [lookingForAJob, setLookingForAJob] = useState(initialValues.lookingForAJob)
 
 	const handleIsLookingForTrue = () => {
 		setLookingForAJob(true)
@@ -44,37 +37,23 @@ const SettingsForm = ({
 			>
 				{(formik) => {
 					return (
-						<form onSubmit={formik.handleSubmit} className={cn.form}>
+						<form onSubmit={formik.handleSubmit} className={styles.form}>
 							<Routes>
 								<Route
 									path='/'
 									element={
-										<AllBlocks
-											lookingForAJobSettings={lookingForAJobSettings}
-											formik={formik}
-										/>
+										<AllBlocks lookingForAJobSettings={lookingForAJobSettings} formik={formik} />
 									}
 								/>
-								<Route
-									path='/main'
-									element={<MainBlock header formik={formik} />}
-								/>
+								<Route path='/main' element={<MainBlock header formik={formik} />} />
 								<Route
 									path='/work'
-									element={
-										<WorkBlock
-											header
-											lookingForAJobSettings={lookingForAJobSettings}
-										/>
-									}
+									element={<WorkBlock header lookingForAJobSettings={lookingForAJobSettings} />}
 								/>
-								<Route
-									path='/contacts'
-									element={<ContactsBlock header formik={formik} />}
-								/>
+								<Route path='/contacts' element={<ContactsBlock header formik={formik} />} />
 							</Routes>
 
-							<div className={cn.form__button}>
+							<div className={styles.form__button}>
 								<Button
 									minWidth='100px'
 									disabled={isUpdatingProfile || !formik.isValid}
