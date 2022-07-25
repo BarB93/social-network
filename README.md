@@ -1,5 +1,4 @@
 # Социальная Сеть
-*[deployed app link](https://social-network-barovskiy777.vercel.app/auth)*
 
 ## Используемый стек
 - react
